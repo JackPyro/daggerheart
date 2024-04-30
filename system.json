@@ -1,32 +1,26 @@
 {
   "id": "daggerheart",
   "title": "Daggerheart",
-  "description": "The Daggerheart system for FoundryVTT!",
+  "description": "The Daggerheart system",
   "authors": [
     {
-      "name": "Asacolips",
-      "discord": "asacolips"
+      "name": "Darrington Press"
     },
     {
-      "name": "Lee Talman",
+      "name": "Jack",
       "discord": ".pizzaWizard"
     }
   ],
-  "url": "Replace this with a link to your public repository",
+  "url": "https://github.com/JackPyro/daggerheart",
   "license": "LICENSE.txt",
   "readme": "README.md",
-  "bugs": "Replace this with a link to file issues or tickets",
+  "bugs": "https://github.com/JackPyro/daggerheart/issues",
   "changelog": "CHANGELOG.md",
   "media": [
     {
       "type": "setup",
       "url": "systems/daggerheart/assets/anvil-impact.png",
       "thumbnail": "systems/daggerheart/assets/anvil-impact.png"
-    },
-    {
-      "type": "setup",
-      "url": "systems/daggerheart/assets/dh-white.png",
-      "thumbnail": "systems/daggerheart/assets/dh-white.png"
     }
   ],
   "version": "2.0.0",
@@ -52,5 +46,5 @@
   "gridDistance": 5,
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
-  "secondaryTokenAttribute": "power"
+  "secondaryTokenAttribute": "stress"
 }
