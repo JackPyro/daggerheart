@@ -1,0 +1,25 @@
+<form class="{{cssClass}} " autocomplete="off">
+  <div class="weapon-form">
+
+    <div class="weapon-grid">
+      <img class="img-wrap" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+      <div class="weapon-grid-options">
+        <div class="weapon-input-group flex-grow">
+          <label for="name">Name</label>
+          <input name="name" type="text" value="{{item.name}}" placeholder="Name" />
+        </div>
+        <div class="weapon-input-group">
+          <label for="system.score">Base Score</label>
+          <input name="system.score" type="number" value="{{system.score}}" placeholder="Damage" />
+        </div>
+        <div class="weapon-input-group weapon-input-group-flex">
+        </div>
+      </div>
+    </div>
+
+    <div class="editor-wrap">
+      <label for="system.feature">Feature</label>
+      <textarea name="system.feature">{{{system.feature}}}</textarea>
+    </div>
+  </div>
+</form>

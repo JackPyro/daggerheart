@@ -1,0 +1,82 @@
+$c-white: #fff;
+$c-black: #000;
+
+$c-dark: #191813;
+$c-faint: #c9c7b8;
+$c-beige: #b5b3a4;
+$c-tan: #444;
+
+$slate: #334155;
+$rose: #f43f5e;
+$violet: #8b5cf6;
+$white: #fff;
+$yellow: #eab308;
+$blue: #1e3a8a;
+$zinc: #18181b;
+$green: #3f6212;
+$indigo-dark: #3730a3;
+$light: #f5f5f5;
+$dark-start: #1B1A1A;
+$dark-end: #2A2B2E;
+
+$dark-gradient: linear-gradient(180deg, rgba(27, 26, 26, 1) 0%, rgba(27, 26, 26, 1) 50%, rgba(42, 43, 46, 1) 100%);
+$border-color: #FAEC84;
+
+$input-bg: #f3f4f6;
+$input-border: #d1d5db;
+$input-shadow: #6b7280;
+
+$ability-bg: #404040;
+$bg-hover: #383838;
+$border: #F1C770;
+$tabactive: #362178;
+
+@mixin gradient($color1, $color2) {
+  //background: linear-gradient(90deg, $color1, $color2 25%, $color2 50%, $color2 75%, $color1 100%);
+  background-color: $color2;
+}
+
+.arcana {
+  @include gradient(#392144, #4E276A);
+  color: white;
+}
+
+.blade {
+  @include gradient(#662521, #96352C);
+  color: white;
+}
+
+.bone {
+  @include gradient(#4D4E50, #666769);
+  color: white;
+}
+
+.codex {
+  @include gradient(#19294A, #1F335F);
+  color: white;
+}
+
+.grace {
+  @include gradient(#612A4C, #7A3662);
+  color: white;
+}
+
+.midnight {
+  @include gradient(#212125, #333439);
+  color: white;
+}
+
+.sage {
+  @include gradient(#054121, #0C6B41);
+  color: white;
+}
+
+.splendor {
+  @include gradient(#998042, #AF9F40);
+  color: white;
+}
+
+.valor {
+  @include gradient(#915E24, #B97A23);
+  color: white;
+}

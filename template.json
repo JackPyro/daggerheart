@@ -1,0 +1,8 @@
+{
+  "Actor": {
+    "types": ["character", "gm", "adversary"]
+  },
+  "Item": {
+    "types": ["item", "class", "domain", "card", "weapon", "armor"]
+  }
+}

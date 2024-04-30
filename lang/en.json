@@ -1,0 +1,45 @@
+{
+  "DAGGERHEART": {
+    "Ability": {
+      "agi": { "long": "Agility", "abbr": "agi" },
+      "str": { "long": "Strength", "abbr": "str" },
+      "fin": { "long": "Finesse", "abbr": "fin" },
+      "inst": { "long": "Instinct", "abbr": "inst" },
+      "prs": { "long": "Presence", "abbr": "prs" },
+      "knwl": { "long": "Knowledge", "abbr": "knwl" }
+    },
+    "SheetLabels": {
+      "Actor": "DaggerHeart Actor Sheet",
+      "Item": "DaggerHeart Item Sheet"
+    },
+    "Item": {
+      "Spell": {
+        "SpellLVL": "Level {level} Spells",
+        "AddLVL": "Add LVL {level}"
+      }
+    },
+    "Effect": {
+      "Source": "Source",
+      "Toggle": "Toggle Effect",
+      "Temporary": "Temporary Effects",
+      "Passive": "Passive Effects",
+      "Inactive": "Inactive Effects"
+    }
+  },
+
+  "TYPES": {
+    "Actor": {
+      "character": "Character",
+      "adversary": "Adversary",
+      "gm": "GM Sheet"
+    },
+    "Item": {
+      "item": "Item",
+      "class": "Class",
+      "card": "Card",
+      "domain": "Domain Card",
+      "weapon": "Weapon",
+      "armor": "Armor"
+    }
+  }
+}

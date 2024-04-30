@@ -1,0 +1,36 @@
+<div class="section-header section-title">
+  <div> Experiences</div>
+  <div class="add-experience"> <i class='fas fa-plus'></i> </div>
+</div>
+
+{{#each system.experiences as |exp key|}}
+  <div class="exp">
+      <a
+      class="item-control exp-delete"
+      data-id="{{exp.id}}"
+      title="Delete experience"
+    >
+      <i class="fas fa-trash"></i>
+    </a>
+    <input
+      type="hidden"
+      name="system.experiences.{{key}}.id"
+      value="{{exp.id}}"
+    />
+    <input
+      type="text"
+      
+      style="flex-grow: 1"
+      name="system.experiences.{{key}}.name"
+      value="{{exp.name}}"
+    />
+    <input
+      type="number"
+      style="flex-basis: 20%"
+      name="system.experiences.{{key}}.mod"
+      value="{{exp.mod}}"
+      data-dtype="Number"
+    />
+  
+  </div>
+{{/each}}

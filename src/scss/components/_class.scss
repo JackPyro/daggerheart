@@ -1,0 +1,217 @@
+.class-sheet {
+  &-header {
+    .class-img {
+      height: 100px;
+      object-fit: contain;
+      object-position: 100% 0;
+    }
+  }
+
+  .question-text, .connection-text {
+    margin-bottom: 0.5em;
+  }
+
+  .domains-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &-input-group {
+    justify-items: center;
+    display: grid;
+    align-items: center;
+    margin-bottom: 0.5em;
+  }
+  &-domain-list {
+    justify-self: start;
+    display: flex;
+    gap: 1em;
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 0.25em;
+    }
+  }
+  .hitpoints-stats .combat-stat-item {
+      width: 25%; 
+  }
+  select {
+    color: $white;
+    background-color: $rose;
+    border: none;
+    box-shadow: none !important;
+    option {
+      color: black;
+    }
+  }
+
+  .delete-domain:hover {
+    cursor: pointer;
+    color: $rose;
+  }
+
+  .examples {
+    display: grid;
+    .tox-toolbar__group {
+      button:not(button[aria-label="Save"]) {
+        display: none;
+      }
+    }
+  }
+}
+
+.questions,
+.connections {
+  .question,
+  .connection {
+    input {
+      border: none;
+      border-bottom: 1px solid $slate;
+      margin-bottom: 0.5em;
+      box-shadow: none;
+    }
+    label {
+      font-size: 12px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}
+
+.question-add,
+.question-remove {
+  padding: 0.25em;
+}
+
+.item-display-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  h2 {
+    border: none;
+    margin: 0;
+    flex-grow: 1;
+  }
+}
+
+.top-header {
+  display: flex;
+  gap: 1em;
+}
+.class-sheet-header-fields {
+  flex-grow:1;
+  input {
+    font-size: 2em;
+    height: 100%;
+  }
+}
+.edit-mode-change {
+  display: flex;
+  gap: 0.25em;
+  align-items: center;
+  font-size: 1em;
+  label {
+    font-weight: normal;
+    font-size: 1em;
+  }
+  input {
+    height: 18px;
+  }
+}
+.class-sheet-body {
+  .editor {
+    height: 150px !important;
+  }
+}
+
+.leveling {
+  .header {
+    grid-column: span 3;
+    display: grid;
+    grid: 1fr / repeat(3, 1fr);
+  }
+  &-section {
+    margin-top: 0.3em;
+  }
+  .add-tier {
+    font-size: 12px;
+    margin: 0.4em;
+    padding: 0.4em;
+    background-color: $rose;
+    color: $white;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .tier {
+    border-right: 1px solid $slate;
+    background-color: $white;
+    &-header {
+      text-align: center;
+    }
+    &-level {
+      font-size: 14px;
+    }
+    &-input {
+      flex-grow: 1;
+    }
+    &-option {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.25em;
+      gap: 0.5em;
+      align-items: center;
+    }
+    &-bonus {
+      font-size: 12px;
+      flex-grow: 1;
+    }
+  }
+
+ 
+}
+
+.item-to-get-list-item {
+  background-color: white;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  gap: 0.5em;
+  input {
+    flex-grow: 1;
+  }
+}
+
+.starting-items {
+  display: grid;
+  grid: 1fr / repeat(3, 1fr);
+  margin-bottom: 0.5em;
+  gap: 1em;
+  text-transform: uppercase;
+  div {
+    padding: 0.5em;
+    background: $dark-gradient;
+    color: white;
+  }
+}
+
+.starting-gold-class {
+  background-color: #362178;
+  display: flex;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  label {
+    flex-grow: 1;
+    font-size: 1em;
+    color: white;
+    font-weight: bold;
+  }
+
+  input {
+    text-align: center;
+    width: 40px;
+  }
+}

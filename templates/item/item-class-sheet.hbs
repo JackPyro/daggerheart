@@ -1,0 +1,346 @@
+<form class="{{cssClass}} class-sheet" autocomplete="off">
+
+  <div class="class-sheet-header">
+    <div class="top-header">
+      <img class="class-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+      <div class="class-sheet-header-fields">
+        <div class="header-fields">
+          <input name="name" type="text" value="{{item.name}}" placeholder="Name" />
+        </div>
+        <div class="edit-mode-change">
+          <label>Edit Mode</label>
+          <input name="system.editMode" type="checkbox" {{checked system.editMode}} />
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="sheet-tabs tabs" data-group="primary">
+    {{!-- Default tab is specified in actor-sheet.mjs --}}
+    <a class="item" data-tab="stats">Stats & Examples</a>
+    <a class="item" data-tab="connection_questions">Questions & Connections</a>
+    <a class="item" data-tab="leveling">Leveling</a>
+    <a class="item" data-tab="items">Items</a>
+  </nav>
+  <div class="class-sheet-body sheet-body">
+    <div class="tab stats" data-group="primary" data-tab="stats">
+      <h2 class="section-title">Domains & Threshold</h2>
+      <div class="class-sheet-input-group panel">
+        <div class="domains-header panel-header">
+          <label class="">Domain:</label>
+          {{#if system.editMode}}
+          <div class="class-sheet-add-domain add-domain">
+            <i class='fas fa-plus'></i>
+          </div>
+          {{/if}}
+        </div>
+        <div class="class-sheet-domain-list panel-body">
+          {{log domains}}
+          {{log system.selectedDomains}}
+          {{#each system.selectedDomains as |domain key|}}
+          <div class="class-sheet-domain-list-item">
+            <input type="hidden" name="system.selectedDomains.{{key}}.id" value={{domain.id}} />
+            <select name="system.selectedDomains.{{key}}.name">
+              {{selectOptions ../domains selected=domain.name}}
+            </select>
+            {{#if ../system.editMode}}
+            <div class="class-sheet-add-domain delete-domain" data-id={{domain.id}}>
+              <i class='fas fa-trash'></i>
+            </div>
+            {{/if}}
+          </div>
+          {{/each}}
+        </div>
+      </div>
+      <div class="panel-mb">
+        <div class="">
+          <div class="combat-stat hitpoints-stats">
+            <div class="combat-stat-item">
+              <label class="evasion-title resource-label">Evasion</label>
+              {{#if system.editMode}}
+              <input type="text" class="short-input" name="system.defaultEvasion" value="{{system.defaultEvasion}}"
+                data-dtype="Number" />
+              {{else}}
+              <div> {{system.defaultEvasion}} </div>
+              {{/if}}
+            </div>
+            <div class="combat-stat-item">
+              <label class="hitpoints-title">Minor</label>
+              {{#if system.editMode}}
+              <input type="text" class="short-input" name="system.defaultThreshold.minor"
+                value="{{system.defaultThreshold.minor}}" data-dtype="Number" />
+              {{else}}
+              <div> {{system.defaultThreshold.minor}} </div>
+              {{/if}}
+            </div>
+            <div class="combat-stat-item">
+              <label class="hitpoints-title">Major</label>
+              {{#if system.editMode}}
+              <input type="text" class="short-input" name="system.defaultThreshold.major"
+                value="{{system.defaultThreshold.major}}" data-dtype="Number" />
+              {{else}}
+              <div> {{system.defaultThreshold.major}} </div>
+              {{/if}}
+            </div>
+            <div class="combat-stat-item">
+              <label class="hitpoints-title">Severe</label>
+              {{#if system.editMode}}
+              <input type="text" class="short-input" name="system.defaultThreshold.severe"
+                value="{{system.defaultThreshold.severe}}" data-dtype="Number" />
+              {{else}}
+              <div> {{system.defaultThreshold.severe}} </div>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="section-title flex-align">
+        Class Features
+        {{#if system.editMode}}
+        <div class="class-sheet-add-question class-feature-add">
+          <i class='fas fa-plus'></i>
+        </div>
+        {{/if}}
+      </h2>
+      <div class="class-features">
+        {{#each system.classFeatures as |classFeature key|}}
+        <div class="class-feature">
+          {{#if ../system.editMode}}
+          <div class="panel panel-mb">
+            <input type="hidden" name="system.classFeatures.{{key}}.id" value="{{classFeature.id}}" />
+            <div class="panel-header">
+              <input type="text" class="class-feature-name" name="system.classFeatures.{{key}}.name"
+                value="{{classFeature.name}}" />
+            </div>
+            <div class="panel-body">
+              <textarea name="system.classFeatures.{{key}}.description">{{{classFeature.description}}}</textarea>
+              <span class="feature-remove  card-delete-option" data-type="classFeatures" data-id="{{classFeature.id}}">
+                delete
+              </span>
+            </div>
+          </div>
+          {{else}}
+          <div class="panel panel-mb">
+            <div class="panel-header">{{classFeature.name}}</div>
+            <div class="panel-body">{{classFeature.description}}</div>
+          </div>
+          {{/if}}
+        </div>
+        {{/each}}
+      </div>
+      <h2 class="section-title">Examples</h2>
+      <div class="examples">
+        <div class="example flex-group-center editor-wrap panel panel-mb">
+          <label for="system.firstNames" class="panel-header">First Names</label>
+          <div class="panel-body">
+            {{#if system.editMode}}
+
+            {{editor system.firstNames target="system.firstNames" button=true owner=owner editable=editable}}
+            {{else}}
+            {{system.firstNames}}
+            {{/if}}
+          </div>
+        </div>
+        <div class="example flex-group-center editor-wrap panel panel-mb">
+          <label for="system.regionNames" class="panel-header">Region Names</label>
+          <div class="panel-body">
+            {{#if system.editMode}}
+            {{editor system.regionNames target="system.regionNames" button=true owner=owner editable=editable}}
+            {{else}}
+            {{system.regionNames}}
+            {{/if}}
+          </div>
+        </div>
+        <div class="example flex-group-center editor-wrap panel panel-mb">
+          <label for="system.familyNames" class="panel-header">Family Names</label>
+          <div class="panel-body">
+            {{#if system.editMode}}
+            {{editor system.familyNames target="system.familyNames" button=true owner=owner editable=editable}}
+            {{else}}
+            {{system.familyNames}}
+            {{/if}}
+          </div>
+
+
+        </div>
+        <div class="example flex-group-center editor-wrap panel panel-mb">
+          <label for="system.placeNames" class="panel-header">Place Names</label>
+          <div class="panel-body">
+            {{#if system.editMode}}
+            {{editor system.placeNames target="system.placeNames" button=true owner=owner editable=editable}}
+            {{else}}
+            {{system.placeNames}}
+            {{/if}}
+          </div>
+        </div>
+        <div class="example experiences-row flex-group-center editor-wrap panel panel-mb">
+          <label for="system.experiences" class="panel-header">Experiences</label>
+          <div class="panel-body">
+            {{#if system.editMode}}
+            {{editor system.experiences target="system.experiences" button=true owner=owner editable=editable}}
+            {{else}}
+            {{system.experiences}}
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab connection_questions" data-group="primary" data-tab="connection_questions">
+      <div class="panel panel-mb">
+        <div class="panel-header flex-align">
+          <div>Background Questions</div>
+          {{#if system.editMode}}
+          <div class="class-sheet-add-question question-add" data-type="questions">
+            <i class='fas fa-plus'></i>
+          </div>
+          {{/if}}
+        </div>
+        <div class="questions panel-body">
+          {{#each system.questions as |question key|}}
+          <div class="question">
+            {{#if ../system.editMode}}
+            <label for="system.questions.{{key}}.question">
+              Question
+              <span class="class-sheet-add-question question-remove" data-id="{{question.id}}" data-type="questions">
+                <i class='fas fa-trash'></i>
+              </span>
+            </label>
+            <input type="hidden" name="system.questions.{{key}}.id" value="{{question.id}}" />
+            <input type="text" name="system.questions.{{key}}.question" value="{{question.question}}">
+            {{else}}
+            <div class="question-text"> {{question.question}} </div>
+            {{/if}}
+          </div>
+          {{/each}}
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header flex-align">
+          <div class="">Connections</div>
+          {{#if system.editMode}}
+          <div class="class-sheet-add-question question-add" data-type="connections">
+            <i class='fas fa-plus'></i>
+          </div>
+          {{/if}}
+        </div>
+        <div class="connections panel-body">
+          {{#each system.connections as |connection key|}}
+          <div class="connection">
+            {{#if ../system.editMode}}
+            <label for="system.connection.{{key}}.question">
+              Question
+              <span class="class-sheet-add-connection question-remove" data-id="{{connection.id}}"
+                data-type="connections">
+                <i class='fas fa-trash'></i>
+              </span>
+            </label>
+            <input type="hidden" name="system.connections.{{key}}.id" value="{{connection.id}}" />
+            <input type="text" name="system.connections.{{key}}.question" value="{{connection.question}}">
+            {{else}}
+            <div class="connection-text"> {{connection.question}} </div>
+            {{/if}}
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    <div class="tab leveling" data-group="primary" data-tab="leveling">
+      <div class="leveling">
+        <section class="leveling-section">
+          <div class="tier-header">
+            <h3 class="tier-range section-title">Level 2-4</h3>
+            <div class="tier-bonus">At Level 2, take an additional Experience.</div>
+            <span class="add-tier" data-type="tier1">Add Item</span>
+          </div>
+          <div>
+            {{#if system.editMode}}
+            <label for="tier1Description">Tier 1 Description</label>
+
+            {{editor system.tier1Description target="system.tier1Description" rollData=rollData owner=owner
+            editable=editable}}
+            {{else}}
+            <div class="tier-description">
+              {{{system.tier1Description}}}
+            </div>
+            {{/if}}
+          </div>
+          <section class="tier">
+            {{> "systems/daggerheart/templates/item/parts/item-tier.hbs" tier=system.tier1 editMode=system.editMode
+            tierKey="tier1"}}
+          </section>
+        </section>
+
+        <section class="leveling-section">
+          <div class="tier-header">
+            <h3 class="tier-range section-title">Level 5-7</h3>
+            <div class="tier-bonus">At Level 5, take an additional Experience and clear all marks on Character Traits.
+            </div>
+            <span class="add-tier" data-type="tier2">Add Item</span>
+          </div>
+          <section class="tier">
+            {{> "systems/daggerheart/templates/item/parts/item-tier.hbs" tier=system.tier2 editMode=system.editMode
+            tierKey="tier2"}}
+          </section>
+        </section>
+        <section class="leveling-section">
+          <div class="tier-header">
+            <h3 class="tier-range section-title">Level 8-10</h3>
+            <div class="tier-bonus">At Level 8, take an additional Experience and clear all marks on Character Traits.
+            </div>
+            <span class="add-tier" data-type="tier3">Add Item</span>
+          </div>
+
+
+          <section class="tier">
+            {{> "systems/daggerheart/templates/item/parts/item-tier.hbs" tier=system.tier3 editMode=system.editMode
+            tierKey="tier3"}}
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <div class="tab items" data-group="primary" data-tab="items">
+      <div class="money">
+        <div>Coins <input name="system.wallet.coins" value={{system.wallet.coins}} type="number" /></div>
+        <div>Handful <input name="system.wallet.handful" value={{system.wallet.handful}} type="number" /></div>
+        <div>Bags <input name="system.wallet.bags" value={{system.wallet.bags}} type="number" /></div>
+        <div>Chest <input name="system.wallet.chest" value={{system.wallet.chest}} type="number" /></div>
+      </div>
+      <h2 class="section-title flex-align">
+        Item
+      </h2>
+
+      <div class="starting-items">
+        <div>A torch</div>
+        <div>50ft of rope</div>
+        <div>Basic supplies</div>
+      </div>
+
+      <h2 class="section-title flex-align">
+        Item Choices
+        <div class="class-sheet-add-item class-choice-add">
+          <i class='fas fa-plus'></i>
+        </div>
+      </h2>
+      {{log system.choiceItems}}
+      <div class="item-to-get-list">
+        {{#each system.choiceItems as |item key|}}
+        <div class="item-to-get-list-item flex-align">
+          <div>
+            <label for="">Choice 1</label>
+            <input name="system.choiceItems.{{key}}.choice1" value="{{item.choice1}}" />
+          </div>
+          <div>
+            <label for="">Choice 2</label>
+            <input name="system.choiceItems.{{key}}.choice2" value="{{item.choice2}}" />
+          </div>
+          <input type="hidden" name="system.choiceItems.{{key}}.id" value={{item.id}} />
+          <div data-id={{item.id}} class="class-sheet-add-item class-choice-remove">
+            <i class='fas fa-trash'></i>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</form>

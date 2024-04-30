@@ -1,0 +1,30 @@
+<ol class='items-list'>
+  <li class=' flex-align section-title'>
+    {{localize 'Name'}}
+    <div class='item-controls'>
+      <a class='item-control item-create' title='{{localize "DOCUMENT.Create" type=' Item'}}' data-type='item'>
+        <i class='fas fa-plus'></i>
+        {{localize 'DOCUMENT.New' type='item'}}
+      </a>
+    </div>
+  </li>
+
+  {{#each items as |item id|}}
+  {{#if (eq item.type "item")}}
+  <div class="inventory-item">
+    <div class="inventory-left">
+      <img class="inventory-image" src={{item.img}} width='30' height='30' />
+      <div class="inventory-item-name">{{item.name}}</div>
+    </div>
+    <div class="inventory-right">
+      <a class='item-control inventory-item-edit' data-id={{item._id}} title='{{localize "DOCUMENT.Update" type=' Item'}}'>
+        <i class='fas fa-edit'></i>
+      </a>
+      <a class='item-control  inventory-item-delete' data-id={{item._id}} title='{{localize "DOCUMENT.Delete" type=' Item'}}'>
+        <i class='fas fa-trash'></i>
+      </a>
+    </div>
+  </div>
+  {{/if}}
+  {{/each}}
+</ol>

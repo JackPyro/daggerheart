@@ -1,0 +1,53 @@
+<section class="leveling-section">
+  <div class="section-title flex-align">Level 2-4 <span class="leveling-bonus">At Level 2, take an additional
+      Experience.</span> </div>
+  <div class="leveling-tier-description">{{{tier1.description}}}</div>
+  <div class="leveling-options">
+    {{#each tier1.items as |levelOption key|}}
+    <div class="leveling-option panel">
+
+      <input type="hidden" name="system.class.tier1.{{key}}.id" value="{{levelOption.id}}" />
+      <input type="hidden" name="system.class.tier1.{{key}}.option" value="{{levelOption.option}}" />
+      <input type="checkbox" name="system.class.tier1.{{key}}.checked" {{checked levelOption.checked}} />
+      <div>{{levelOption.option}}</div>
+
+    </div>
+    {{/each}}
+  </div>
+</section>
+
+<section class="leveling-section">
+  <div class="section-title flex-align">Level 5-7 <span class="leveling-bonus">At Level 5, take an additional Experience
+      and clear all marks on Character Traits.</span> </div>
+  <div class="leveling-tier-description">{{{tier2.description}}}</div>
+  <div class="leveling-options">
+    {{#each tier2.items as |levelOption key|}}
+    <div class="leveling-option panel">
+
+      <input type="hidden" name="system.class.tier2.{{key}}.id" value="{{levelOption.id}}" />
+      <input type="hidden" name="system.class.tier2.{{key}}.option" value="{{levelOption.option}}" />
+      <input type="checkbox" name="system.class.tier2.{{key}}.checked" {{checked levelOption.checked}} />
+      <div>{{levelOption.option}}</div>
+
+    </div>
+    {{/each}}
+  </div>
+</section>
+
+<section class="leveling-section">
+  <div class="section-title flex-align">Level 8-10 <span class="leveling-bonus">At Level 8, take an additional
+      Experience and clear all marks on Character Traits.</span> </div>
+  <div class="leveling-tier-description">{{{tier3.description}}}</div>
+  <div class="leveling-options">
+    {{#each tier3.items as |levelOption key|}}
+    <div class="leveling-option panel">
+
+      <input type="hidden" name="system.class.tier3.{{key}}.id" value="{{levelOption.id}}" />
+      <input type="hidden" name="system.class.tier3.{{key}}.option" value="{{levelOption.option}}" />
+      <input type="checkbox" name="system.class.tier3.{{key}}.checked" {{checked levelOption.checked}} />
+      <div>{{levelOption.option}}</div>
+
+    </div>
+    {{/each}}
+  </div>
+</section>

@@ -1,0 +1,35 @@
+<div class="weapon-list">
+  <div class="section-title flex-align">
+    Equipped Items
+    <div class="proficiency">
+      <label>Proficiency</label>
+      <input class="short-input" type="number" value="{{system.proficiency}}" name="system.proficiency" />
+    </div>
+  </div>
+  <div class="weapon-list-active"> </div>
+  {{#if primary}}
+  {{> "systems/daggerheart/templates/actor/parts/actor-equipped.hbs" item=primary}}
+  {{/if}}
+
+  {{#if secondary}}
+  {{> "systems/daggerheart/templates/actor/parts/actor-equipped.hbs" item=secondary}}
+  {{/if}}
+
+  {{#if armor}}
+  {{> "systems/daggerheart/templates/actor/parts/actor-equipped.hbs" item=armor}}
+  {{/if}}
+
+  <div class="section-title">Inventory Armory</div>
+  <div class="weapon-list-inventory">
+    {{#each weapons as |weapon key|}}
+    <div class="weapon-list-inventory-item">
+      {{> "systems/daggerheart/templates/actor/parts/actor-equipped.hbs" item=weapon}}
+
+    </div>
+
+    {{/each}}
+    {{#each armors as |armor key|}}
+    {{> "systems/daggerheart/templates/actor/parts/actor-equipped.hbs" item=armor}}
+    {{/each}}
+  </div>
+</div>

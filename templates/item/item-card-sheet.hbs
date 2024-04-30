@@ -1,0 +1,30 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <img class="profile-img img-wrap" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+
+
+
+
+
+  {{!-- Sheet Body --}}
+  <section class="">
+    <div class="generic-card generic-card-input">
+      <label for="name" class="resource-label">Name</label>
+      <input name="name" type="text" value="{{item.name}}" placeholder="Name" />
+    </div>
+    <div class="generic-card generic-card-select">
+      <label for="system.cardType" class="resource-label">Card Type</label>
+      <select name="system.cardType">
+        {{selectOptions cardTypes selected=system.cardType nameAttr="value" labelAttr="label"}}
+      </select>
+    </div>
+    <div class=" generic-card-editor editor-wrap">
+      <label for="system.description" class="resource-label">Description</label>
+      <textarea name="system.description">{{{system.description}}}</textarea>
+    </div>
+
+    <div class=" generic-card-editor editor-wrap">
+      <label for="system.feature" class="resource-label">Feature</label>
+      <textarea name="system.feature">{{{system.feature}}}</textarea>
+    </div>
+  </section>
+</form>
