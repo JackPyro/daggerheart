@@ -19,8 +19,8 @@
   "media": [
     {
       "type": "setup",
-      "url": "systems/daggerheart/assets/anvil-impact.png",
-      "thumbnail": "systems/daggerheart/assets/anvil-impact.png"
+      "url": "systems/daggerheart/assets/dh-logo.png",
+      "thumbnail": "systems/daggerheart/assets/dh-logo.png"
     }
   ],
   "version": "2.0.0",
@@ -40,9 +40,9 @@
   "packs": [],
   "packFolders": [],
   "socket": false,
-  "manifest": "Replace this with a link to the /latest release system.json so people can receive updates after they've installed the system",
-  "download": "This must link to a .zip file of the current version",
-  "background": "systems/daggerheart/assets/anvil-impact.png",
+  "manifest": "#{MANIFEST}#",
+  "download": "#{DOWNLOAD}#",
+  "background": "systems/daggerheart/assets/dh-logo.png",
   "gridDistance": 5,
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
