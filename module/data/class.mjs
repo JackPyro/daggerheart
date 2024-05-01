@@ -15,12 +15,7 @@ export default class DaggerHeartClass extends foundry.abstract.TypeDataModel {
         }),
       })
     );
-    schema.editMode = new fields.BooleanField({ initial: false });
-    schema.firstNames = new fields.StringField({ initial: "" });
-    schema.regionNames = new fields.StringField({ initial: "" });
-    schema.familyNames = new fields.StringField({ initial: "" });
-    schema.placeNames = new fields.StringField({ initial: "" });
-    schema.experiences = new fields.StringField({ initial: "" });
+    schema.editMode = new fields.BooleanField({ initial: true });
     schema.suggested = new fields.StringField({ initial: "" });
     schema.inventory = new fields.StringField({ initial: "" });
     schema.description = new fields.StringField({ initial: "" });

@@ -288,6 +288,8 @@ export class DaggerHeartActorSheet extends ActorSheet {
         i.system.active ? active_loadout.push(i) : vault.push(i);
       }
     }
+
+    console.log(this.actor.img)
     // Assign and return
     context.gear = gear;
     context.features = features;

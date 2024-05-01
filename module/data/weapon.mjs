@@ -13,6 +13,10 @@ export default class DaggerHeartWeapon extends foundry.abstract.TypeDataModel {
       blank: true,
     });
 
+    schema.tier = new fields.NumberField({
+      initial: 0
+    });
+
     schema.type = new fields.StringField({
       initial: "phy"
     });

@@ -23,7 +23,7 @@
       "thumbnail": "systems/daggerheart/assets/dh-logo.png"
     }
   ],
-  "version": "2.0.0",
+  "version": "#{VERSION}#",
   "compatibility": {
     "minimum": 11,
     "verified": "11.315"

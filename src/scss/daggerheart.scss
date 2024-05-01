@@ -273,6 +273,14 @@
     }
   }
 
+  .edit-mode-on {
+    color: $green
+  }
+
+  .edit-mode-off {
+    color: $rose
+  }
+
   .short-input {
     width: 30%;
     text-align: center;
@@ -290,7 +298,9 @@
       color: $white;
     }
   }
-
+  .editor-content {
+    margin-right: 3em;
+  }
   .char-sheet-description {
     .editor {
       height: 230px !important;

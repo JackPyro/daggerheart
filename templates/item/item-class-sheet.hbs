@@ -8,8 +8,9 @@
           <input name="name" type="text" value="{{item.name}}" placeholder="Name" />
         </div>
         <div class="edit-mode-change">
-          <label>Edit Mode</label>
-          <input name="system.editMode" type="checkbox" {{checked system.editMode}} />
+          {{!-- <label class="edit-mode-toggle {{ternary system.editMode "edit-mode-off" "edit-mode-on"}}">Turn Edit Mode {{#if system.editMode}} Off {{else}} On {{/if}}</label> --}}
+          
+          {{!-- <input name="system.editMode" type="checkbox" {{checked system.editMode}} /> --}}
         </div>
       </div>
     </div>
@@ -39,7 +40,7 @@
           {{#each system.selectedDomains as |domain key|}}
           <div class="class-sheet-domain-list-item">
             <input type="hidden" name="system.selectedDomains.{{key}}.id" value={{domain.id}} />
-            <select name="system.selectedDomains.{{key}}.name">
+            <select class="{{domain.name}}" name="system.selectedDomains.{{key}}.name">
               {{selectOptions ../domains selected=domain.name}}
             </select>
             {{#if ../system.editMode}}
@@ -112,7 +113,7 @@
                 value="{{classFeature.name}}" />
             </div>
             <div class="panel-body">
-              <textarea name="system.classFeatures.{{key}}.description">{{{classFeature.description}}}</textarea>
+              {{{editor classFeature.description target=(concat 'system.classFeatures.' key '.description')}}}
               <span class="feature-remove  card-delete-option" data-type="classFeatures" data-id="{{classFeature.id}}">
                 delete
               </span>
@@ -120,68 +121,13 @@
           </div>
           {{else}}
           <div class="panel panel-mb">
+            <input type="hidden" name="system.classFeatures.{{key}}.id" value="{{classFeature.id}}" />
             <div class="panel-header">{{classFeature.name}}</div>
-            <div class="panel-body">{{classFeature.description}}</div>
+            <div class="panel-body">{{{classFeature.description}}}</div>
           </div>
           {{/if}}
         </div>
         {{/each}}
-      </div>
-      <h2 class="section-title">Examples</h2>
-      <div class="examples">
-        <div class="example flex-group-center editor-wrap panel panel-mb">
-          <label for="system.firstNames" class="panel-header">First Names</label>
-          <div class="panel-body">
-            {{#if system.editMode}}
-
-            {{editor system.firstNames target="system.firstNames" button=true owner=owner editable=editable}}
-            {{else}}
-            {{system.firstNames}}
-            {{/if}}
-          </div>
-        </div>
-        <div class="example flex-group-center editor-wrap panel panel-mb">
-          <label for="system.regionNames" class="panel-header">Region Names</label>
-          <div class="panel-body">
-            {{#if system.editMode}}
-            {{editor system.regionNames target="system.regionNames" button=true owner=owner editable=editable}}
-            {{else}}
-            {{system.regionNames}}
-            {{/if}}
-          </div>
-        </div>
-        <div class="example flex-group-center editor-wrap panel panel-mb">
-          <label for="system.familyNames" class="panel-header">Family Names</label>
-          <div class="panel-body">
-            {{#if system.editMode}}
-            {{editor system.familyNames target="system.familyNames" button=true owner=owner editable=editable}}
-            {{else}}
-            {{system.familyNames}}
-            {{/if}}
-          </div>
-
-
-        </div>
-        <div class="example flex-group-center editor-wrap panel panel-mb">
-          <label for="system.placeNames" class="panel-header">Place Names</label>
-          <div class="panel-body">
-            {{#if system.editMode}}
-            {{editor system.placeNames target="system.placeNames" button=true owner=owner editable=editable}}
-            {{else}}
-            {{system.placeNames}}
-            {{/if}}
-          </div>
-        </div>
-        <div class="example experiences-row flex-group-center editor-wrap panel panel-mb">
-          <label for="system.experiences" class="panel-header">Experiences</label>
-          <div class="panel-body">
-            {{#if system.editMode}}
-            {{editor system.experiences target="system.experiences" button=true owner=owner editable=editable}}
-            {{else}}
-            {{system.experiences}}
-            {{/if}}
-          </div>
-        </div>
       </div>
     </div>
     <div class="tab connection_questions" data-group="primary" data-tab="connection_questions">
@@ -256,7 +202,7 @@
             {{#if system.editMode}}
             <label for="tier1Description">Tier 1 Description</label>
 
-            {{editor system.tier1Description target="system.tier1Description" rollData=rollData owner=owner
+            {{editor system.tier1Description target="system.tier1Description" button=true rollData=rollData owner=owner
             editable=editable}}
             {{else}}
             <div class="tier-description">
@@ -277,6 +223,16 @@
             </div>
             <span class="add-tier" data-type="tier2">Add Item</span>
           </div>
+          {{#if system.editMode}}
+          <label for="tier1Description">Tier 2 Description</label>
+
+          {{editor system.tier2Description target="system.tier2Description" button=true rollData=rollData owner=owner
+          editable=editable}}
+          {{else}}
+          <div class="tier-description">
+            {{{system.tier2Description}}}
+          </div>
+          {{/if}}
           <section class="tier">
             {{> "systems/daggerheart/templates/item/parts/item-tier.hbs" tier=system.tier2 editMode=system.editMode
             tierKey="tier2"}}
@@ -289,7 +245,16 @@
             </div>
             <span class="add-tier" data-type="tier3">Add Item</span>
           </div>
+          {{#if system.editMode}}
+          <label for="tier3Description">Tier 3 Description</label>
 
+          {{editor system.tier3Description target="system.tier3Description" button=true rollData=rollData owner=owner
+          editable=editable}}
+          {{else}}
+          <div class="tier-description">
+            {{{system.tier3Description}}}
+          </div>
+          {{/if}}
 
           <section class="tier">
             {{> "systems/daggerheart/templates/item/parts/item-tier.hbs" tier=system.tier3 editMode=system.editMode
