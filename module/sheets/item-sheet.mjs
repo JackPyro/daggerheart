@@ -60,6 +60,18 @@ export class DaggerHeartItemSheet extends ItemSheet {
     // Prepare active effects for easier access
     context.effects = prepareActiveEffectCategories(this.item.effects);
 
+    // if(itemData.type === 'class') {
+    //   const validatedItems = itemData.system.classFeatures.map(item => {
+    //     if(!item.id) {
+    //       item.id = crypto.randomUUID()
+    //     }
+
+    //     return item;
+    //   })
+
+    //   this.item.update({"system.classFeatures": validatedItems})
+    // }
+
     if (["domain", "class"].includes(itemData.type)) {
       context.domains = CONFIG.DAGGERHEART.domains;
     }
@@ -82,7 +94,7 @@ export class DaggerHeartItemSheet extends ItemSheet {
         return { label, value };
       });
 
-      context.attack_types = Object.keys( CONFIG.DAGGERHEART.attack_types).map(
+      context.attack_types = Object.keys(CONFIG.DAGGERHEART.attack_types).map(
         (key) => ({
           value: key,
           label: CONFIG.DAGGERHEART.attack_types[key],
@@ -100,12 +112,14 @@ export class DaggerHeartItemSheet extends ItemSheet {
     }
 
     if (itemData.type === "card") {
-      context.cardTypes = Object.keys(CONFIG.DAGGERHEART.cardTypes).map((key) => {
-        const label = CONFIG.DAGGERHEART.cardTypes[key];
-        const value = key;
+      context.cardTypes = Object.keys(CONFIG.DAGGERHEART.cardTypes).map(
+        (key) => {
+          const label = CONFIG.DAGGERHEART.cardTypes[key];
+          const value = key;
 
-        return { label, value };
-      });;
+          return { label, value };
+        }
+      );
     }
 
     return context;
@@ -125,15 +139,20 @@ export class DaggerHeartItemSheet extends ItemSheet {
       const allDomains = this.item.system.selectedDomains;
       const newDomain = { id: await crypto.randomUUID(), name: "" };
       allDomains.push(newDomain);
-      this.item.update({ "system.selectedDomains": allDomains });
+      await this.item.update({ "system.selectedDomains": allDomains });
     });
 
     html.on("click", ".class-feature-add", async (ev) => {
       const classFeatures = this.item.system.classFeatures;
-      const newFeature = { id: await crypto.randomUUID(), name: "", description: ""};
+      const newFeature = {
+        id: await crypto.randomUUID(),
+        name: "",
+        description: "",
+      };
       classFeatures.push(newFeature);
-      this.item.update({ "system.classFeatures": classFeatures });
-    })
+
+      await this.item.update({ "system.classFeatures": classFeatures });
+    });
 
     html.on("click", ".delete-domain", async (ev) => {
       const id = $(ev.currentTarget).data("id");
@@ -141,7 +160,7 @@ export class DaggerHeartItemSheet extends ItemSheet {
         (i) => i.id !== id
       );
 
-      this.item.update({ "system.selectedDomains": allDomains });
+      await this.item.update({ "system.selectedDomains": allDomains });
     });
 
     html.on("click", ".add-tier", async (ev) => {
@@ -154,7 +173,7 @@ export class DaggerHeartItemSheet extends ItemSheet {
       };
 
       allItems.push(tierOption);
-      this.item.update({ [`system.${type}`]: allItems });
+      await this.item.update({ [`system.${type}`]: allItems });
     });
 
     html.on("click", ".remove-tier, .feature-remove", async (ev) => {
@@ -162,9 +181,14 @@ export class DaggerHeartItemSheet extends ItemSheet {
       const id = $(ev.currentTarget).data("id");
 
       const allItems = this.item.system[type].filter((i) => i.id !== id);
-      this.item.update({ [`system.${type}`]: allItems });
+      console.log(allItems, id, type);
+      await this.item.update({ [`system.${type}`]: allItems });
     });
-    
+
+    html.on("click", ".edit-mode-toggle", async (ev) => {
+      this.item.update({ [`system.editMode`]: !this.item.system.editMode });
+    });
+
     html.on("click", ".class-choice-add", async (ev) => {
       const item = {
         id: await crypto.randomUUID(),

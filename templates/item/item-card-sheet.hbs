@@ -1,10 +1,5 @@
 <form class="{{cssClass}}" autocomplete="off">
   <img class="profile-img img-wrap" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
-
-
-
-
-
   {{!-- Sheet Body --}}
   <section class="">
     <div class="generic-card generic-card-input">
@@ -18,13 +13,8 @@
       </select>
     </div>
     <div class=" generic-card-editor editor-wrap">
-      <label for="system.description" class="resource-label">Description</label>
-      <textarea name="system.description">{{{system.description}}}</textarea>
-    </div>
-
-    <div class=" generic-card-editor editor-wrap">
       <label for="system.feature" class="resource-label">Feature</label>
-      <textarea name="system.feature">{{{system.feature}}}</textarea>
+      {{{editor system.feature target="system.feature" button=true owner=owner editable=editable}}}
     </div>
   </section>
 </form>

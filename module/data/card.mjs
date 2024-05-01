@@ -4,9 +4,8 @@ export default class DaggerHeartCard extends foundry.abstract.TypeDataModel {
     const schema = {};
 
     schema.cardType = new fields.StringField({});
-    schema.description = new fields.StringField({
-      initial: "",
-    });
+    schema.subType = new fields.StringField({});
+
     schema.feature = new fields.StringField({
       required: true,
       initial: "",
