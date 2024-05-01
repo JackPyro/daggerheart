@@ -101,7 +101,7 @@ export default class DaggerHeartCharacter extends DaggerHeartActorBase {
           value: new fields.NumberField({
             ...requiredInteger,
             initial: 10,
-            min: 0,
+            min: -1,
           }),
           label: new fields.StringField({ required: true, blank: true }),
           checked: new fields.BooleanField({}),
