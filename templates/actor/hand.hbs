@@ -1,29 +1,27 @@
 <div class="daggerheart-ui-hand">
   <form></form>
-  <div class="ui-cards">\
-    {{#each subclasses as |card id|}}
-    <div class="ui-card">
-      <img
-        src="https://app.demiplane.com/_next/image?url=https%3A%2F%2Fcontent.demiplane.com%2Felements%2Fdaggerheart%2Fsubclasses%2Fseraph-playtest.jpg&w=384&q=75"
-        class="ui-card-image" />
-      <div class="ui-card-body">
-        <div class="ui-card-tooltip" data-name="{{card.name}}">{{{card.system.feature}}}</div>
-        <div class="ui-card-name">{{card.name}}</div>
-        <div class="ui-card-domain">{{card.system.cardType}}</div>
+  <aside class="ui-rolls">
+    <div class="hand-roll">
+      <label>Roll</label>
+      <div class="icon">
+        <i class="fas fa-dice-d12 hope-die"></i>
+        <i class="fas fa-dice-d12 fear-die"></i>
       </div>
     </div>
+    <div class="open-actor-sheet">
+      <i class="fas fa-user"></i>
+    </div>
+  </aside>
+  <div class="ui-cards">
+    {{#each subclasses as |card id|}}
+    {{> "systems/daggerheart/templates/actor/parts/hand-card.hbs" name=card.name feature=card.system.feature
+    domain=card.system.cardType img=card.img}}
+
     {{/each}}
 
     {{#each domains as |card id|}}
-    <div class="ui-card">
-      <img src="https://i.imgur.com/WJZlsn3.png" class="ui-card-image" />
-      <div class="ui-card-body">
-        <div class="ui-card-tooltip" data-name="{{card.name}}">{{{card.system.feature}}}</div>
-        <div class="ui-card-name">{{card.name}}</div>
-        <div class="ui-card-domain">{{card.system.domain}}</div>
-      </div>
-    </div>
-
+    {{> "systems/daggerheart/templates/actor/parts/hand-card.hbs" name=card.name feature=card.system.feature
+    domain=card.system.domain img=card.img}}
     {{/each}}
   </div>
 </div>

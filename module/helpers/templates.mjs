@@ -17,6 +17,7 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/daggerheart/templates/actor/parts/actor-leveling.hbs',
     'systems/daggerheart/templates/actor/parts/actor-weapons.hbs',
     'systems/daggerheart/templates/actor/parts/actor-equipped.hbs',
+    'systems/daggerheart/templates/actor/parts/hand-card.hbs',
     // Item partials
     'systems/daggerheart/templates/item/parts/item-effects.hbs',
     'systems/daggerheart/templates/item/parts/item-tier.hbs',
