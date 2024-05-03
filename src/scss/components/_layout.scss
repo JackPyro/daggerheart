@@ -1,0 +1,23 @@
+.layout {
+  display: grid;
+  height: 100%;
+  grid-template:
+    "sidebar" 170px
+    "sidebar" 35px
+    "sidebar" 1fr / 220px 1fr;
+
+  .sidebar {
+    grid-area: sidebar;
+    background-color: $primary;
+    color: $hyper-white;
+
+    align-items: center;
+    gap: 5px;
+  }
+
+  .header {
+    background-color: $secondary;
+    color: $hyper-white;
+  }
+}
+

@@ -8,6 +8,7 @@ import openChoiceMenu from "../helpers/item-choices.mjs";
 import doDHRoll from "../helpers/roll-macro.mjs";
 import { DaggerHeartHandSheet } from "./hand-sheet.mjs";
 
+// tabs.bind(window);
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -17,13 +18,18 @@ export class DaggerHeartActorSheet extends ActorSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["daggerheart", "sheet", "actor"],
-      width: 600,
-      height: 600,
+      width: 700,
+      height: 700,
       tabs: [
         {
-          navSelector: ".sheet-tabs",
-          contentSelector: ".sheet-body",
-          initial: "features",
+          navSelector: ".navigation-tab",
+          contentSelector: ".content-body",
+          initial: "loadout",
+        },
+        {
+          navSelector: ".inventory-nav",
+          contentSelector: ".inventory-content",
+          initial: "normal_cards",
         },
       ],
     });
@@ -34,78 +40,48 @@ export class DaggerHeartActorSheet extends ActorSheet {
     return `systems/daggerheart/templates/actor/actor-${this.actor.type}-sheet.hbs`;
   }
 
+  async _onDropActor(event, actorData) {
+    console.log(actorData);
+    let actor = await fromUuid(actorData.uuid);
+
+    console.log(actor)
+    return;
+  }
+
   async _onDropItemCreate(itemData) {
     if (this.actor.type === "character") {
       if (itemData.type === "class") {
-        this.actor.update({
-          "system.class": itemData.system,
-          "system.hitpoints": itemData.system.defaultThreshold,
-          "system.evasion": itemData.system.defaultEvasion,
-          "system.wallet": itemData.system.wallet,
-        });
-
-        if (itemData.system.choiceItems) {
-          const items = await openChoiceMenu(itemData);
-
-          console.log(items);
-
-          items.forEach(async (item) => {
-            await Item.create(
-              { type: "item", name: item },
-              { parent: this.actor }
-            );
-          });
-        }
-
-        if (itemData.system.classFeatures) {
-          itemData.system.classFeatures.forEach(async (classFeature) => {
-            await Item.create(
-              { type: "card", name: classFeature.name, system: {cardType: "class", feature: classFeature.description} },
-              { parent: this.actor }
-            );
-          })
-        }
-
-        await Item.create(
-          { type: "item", name: "A torch" },
-          { parent: this.actor }
-        );
-        await Item.create(
-          { type: "item", name: "50ft of rope" },
-          { parent: this.actor }
-        );
-        await Item.create(
-          { type: "item", name: "Basic supplies" },
-          { parent: this.actor }
-        );
+        this._handleClassUpdate(itemData);
       }
 
-      if (itemData.type === "card") {
-        if (
-          itemData.system.cardType ===
-          DAGGERHEART.cardTypes.community.toLowerCase()
-        ) {
-          this.actor.update({
-            "system.community.name": itemData.name,
-            "system.community.img": itemData.img,
-            "system.community.feature": itemData.system.feature,
-            "system.community.description": itemData.system.description,
-          });
-          return;
-        }
+      if (
+        (itemData.type === "card") &
+        (itemData.system.cardType === "ancestry")
+      ) {
+        this.actor.items.forEach(async (item) => {
+          if (
+            (item.type === "card") &
+            (item.system.cardType === "ancestry") &
+            (item._id !== itemData._id)
+          ) {
+            await item.delete();
+          }
+        });
+      }
 
-        if (
-          itemData.system.cardType ===
-          DAGGERHEART.cardTypes.ancestry.toLowerCase()
-        ) {
-          this.actor.update({
-            "system.ancestry.name": itemData.name,
-            "system.ancestry.img": itemData.img,
-            "system.ancestry.feature": itemData.system.feature,
-            "system.ancestry.description": itemData.system.description,
-          });
-          return;
-        }
+      if (
+        (itemData.type === "card") &
+        (itemData.system.cardType === "community")
+      ) {
+        this.actor.items.forEach(async (item) => {
+          if (
+            (item.type === "card") &
+            (item.system.cardType === "community") &
+            (item._id !== itemData._id)
+          ) {
+            await item.delete();
+          }
+        });
       }
     }
 
@@ -116,7 +92,7 @@ export class DaggerHeartActorSheet extends ActorSheet {
 
   /** @override */
   getData() {
-    console.log(this)
+    console.log(this.actor.items);
     // Retrieve the data structure from the base sheet. You can inspect or log
     // the context variable to see the structure, but some key properties for
     // sheets are the actor object, the data object, whether or not it's
@@ -215,6 +191,7 @@ export class DaggerHeartActorSheet extends ActorSheet {
     // Initialize containers.
     const gear = [];
     const features = [];
+    const cards = {};
     const active_loadout = [];
     let armor = null;
     const armors = [];
@@ -281,6 +258,9 @@ export class DaggerHeartActorSheet extends ActorSheet {
       }
 
       if (i.type === "card") {
+        cards[i.system.cardType] = cards[i.system.cardType]
+          ? [...cards[i.system.cardType], i]
+          : [i];
         if (["subclass", "class"].includes(i.system.cardType)) {
           subclasses.push(i);
         }
@@ -291,13 +271,21 @@ export class DaggerHeartActorSheet extends ActorSheet {
       }
     }
 
-    console.log(this.actor.img)
+    console.log(cards);
     // Assign and return
     context.gear = gear;
     context.features = features;
+    context.cards = [
+      ...(cards.ancestry ? cards.ancestry : []),
+      ...(cards.community ? cards.community : []),
+      ...(cards.class ? cards.class : []),
+      ...(cards.subclass ? cards.subclass : []),
+    ];
     context.active_loadout = active_loadout;
     context.vault = vault;
-    context.subclasses = subclasses.sort((a,b) => a.system.cardType > b.system.cardType ? 1 : -1);
+    context.subclasses = subclasses.sort((a, b) =>
+      a.system.cardType > b.system.cardType ? 1 : -1
+    );
     context.weapons = weapons;
     context.primary = primaryWeapon;
     context.secondary = secondaryWeapon;
@@ -311,14 +299,23 @@ export class DaggerHeartActorSheet extends ActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
-    html.on('click', ".enemy-attack-roll", async () => {
-      doGMRoll(this.actor, `Attack Roll`)
+    if (this.actor.type === "character") {
+      this._activateCharacterListeners(html);
+    }
+
+    html.on("click", '[data-action="delete-item"]', (ev) => {
+      const id = $(ev.currentTarget).data("id");
+      const item = this.actor.items.get(id);
+      console.log(item);
+      item.delete();
     });
 
-    html.on('click', ".enemy-damage-roll", async () => {
-      const roll = await new Roll(
-        `${this.actor.system.weapon.damage}`
-      );
+    html.on("click", ".enemy-attack-roll", async () => {
+      doGMRoll(this.actor, `Attack Roll`);
+    });
+
+    html.on("click", ".enemy-damage-roll", async () => {
+      const roll = await new Roll(`${this.actor.system.weapon.damage}`);
 
       roll.toMessage({
         flavor: `<div class="action-type weapon-roll-type">${this.actor.system.weapon.name}</div> <div class="attack-roll-traits"> ${this.actor.system.weapon.range} - ${this.actor.system.weapon.type} dmg</div>`,
@@ -334,10 +331,10 @@ export class DaggerHeartActorSheet extends ActorSheet {
     });
 
     html.on("click", ".incremental .fas", (ev) => {
-      const item = $(ev.currentTarget).data("type")
-      const increment = $(ev.currentTarget).data("increment")
+      const item = $(ev.currentTarget).data("type");
+      const increment = $(ev.currentTarget).data("increment");
       const mod = increment ? +1 : -1;
-      this.actor.update({[`system.${item}`]: this.actor.system[item]+mod})
+      this.actor.update({ [`system.${item}`]: this.actor.system[item] + mod });
     });
 
     html.on("click", ".accordion", (ev) => {
@@ -469,7 +466,7 @@ export class DaggerHeartActorSheet extends ActorSheet {
 
     html.on("click", ".time-to-roll", (ev) => {
       const type = $(ev.currentTarget).data("type");
-   
+
       const label = $(ev.currentTarget).data("label");
       return doDHRoll(this.actor, type, `${label} roll`);
     });
@@ -621,7 +618,57 @@ export class DaggerHeartActorSheet extends ActorSheet {
     // Finally, create the item!
     return await Item.create(itemData, { parent: this.actor });
   }
+  async _handleClassUpdate(itemData) {
+    this.actor.update({
+      "system.hitpoints": itemData.system.defaultThreshold,
+      "system.evasion": itemData.system.defaultEvasion,
+      "system.wallet": itemData.system.wallet,
+    });
 
+    if (itemData.system.choiceItems) {
+      const items = await openChoiceMenu(itemData);
+      items.forEach(async (item) => {
+        await Item.create({ type: "item", name: item }, { parent: this.actor });
+      });
+    }
+
+    this.actor.items.forEach(async (item) => {
+      if (
+        (item.type === "card") & (item.system.cardType === "class") ||
+        (item.type === "class") & (item._id !== this.actor.system.class._id)
+      ) {
+        await item.delete();
+      }
+    });
+
+    if (itemData.system.classFeatures) {
+      itemData.system.classFeatures.forEach(async (classFeature) => {
+        await Item.create(
+          {
+            type: "card",
+            name: classFeature.name,
+            system: { cardType: "class", feature: classFeature.description },
+          },
+          { parent: this.actor }
+        );
+      });
+    }
+
+    await Item.create(
+      { type: "item", name: "A torch" },
+      { parent: this.actor }
+    );
+    await Item.create(
+      { type: "item", name: "50ft of rope" },
+      { parent: this.actor }
+    );
+    await Item.create(
+      { type: "item", name: "Basic supplies" },
+      { parent: this.actor }
+    );
+  }
+
+  _activateCharacterListeners = (html) => {};
   /**
    * Handle clickable rolls.
    * @param {Event} event   The originating click event

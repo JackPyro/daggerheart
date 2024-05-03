@@ -34,54 +34,19 @@ export default class DaggerHeartCharacter extends DaggerHeartActorBase {
     });
 
     schema.armor_slots = new fields.SchemaField({
-      current: new fields.NumberField({ initial: 0, integer: true }),
+      value: new fields.NumberField({ initial: 0, integer: true }),
       max: new fields.NumberField({ initial: 0, integer: true }),
     });
 
     schema.primary = new fields.BooleanField({ initial: false });
     schema.secondary = new fields.BooleanField({ initial: false });
 
-    schema.ancestry = new fields.SchemaField({
-      name: new fields.StringField({
-        required: true,
-        initial: "",
-      }),
-      img: new fields.StringField({
-        required: true,
-        initial: "",
-      }),
-      feature: new fields.StringField({
-        required: true,
-        initial: "",
-      }),
-      description: new fields.StringField({
-        required: true,
-        initial: "",
-      }),
-    });
-
-    schema.community = new fields.SchemaField({
-      name: new fields.StringField({
-        required: true,
-        initial: "",
-      }),
-      img: new fields.StringField({
-        required: true,
-        initial: "",
-      }),
-      feature: new fields.StringField({
-        required: true,
-        initial: "",
-      }),
-      description: new fields.StringField({
-        required: true,
-        initial: "",
-      }),
-    });
-
     schema.evasion = new fields.NumberField({ initial: 0, integer: true });
     schema.armor = new fields.NumberField({ initial: 0, integer: true });
-    schema.hope = new fields.NumberField({ initial: 0, integer: true });
+    schema.hope = new fields.SchemaField({
+      value: new fields.NumberField({ initial: 0, integer: true }),
+      max: new fields.NumberField({ initial: 6, integer: true }),
+    });
     schema.proficiency = new fields.NumberField({ initial: 1, integer: true });
     schema.pronouns = new fields.StringField({ blank: true });
 
@@ -99,9 +64,6 @@ export default class DaggerHeartCharacter extends DaggerHeartActorBase {
         editMode: new fields.BooleanField({ initial: false }),
       })
     );
-
-    schema.class = new fields.ObjectField();
-
     // Iterate over ability names and create a new SchemaField for each.
     schema.abilities = new fields.SchemaField(
       Object.keys(CONFIG.DAGGERHEART.abilities).reduce((obj, ability) => {
@@ -149,4 +111,27 @@ export default class DaggerHeartCharacter extends DaggerHeartActorBase {
 
     return data;
   }
+
+  get class() {
+    const classes = this.parent.items.filter(i => i.type === "class");
+    if (classes) return classes[0]
+
+    return {}
+  }
+
+  get ancestry() {
+    const ancestry = this.parent.items.filter(i => i.type === "card" && i.system.cardType === 'ancestry');
+    if (ancestry) return ancestry[0]
+
+    return {}
+  }
+
+  get community() {
+    const community = this.parent.items.filter(i => i.type === "card" && i.system.cardType === 'community' );
+    if (community) return community[0]
+
+    return {}
+  }
+
+  
 }

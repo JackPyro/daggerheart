@@ -1,3 +1,4 @@
+import DaggerHeartFeature from "../data/feature.mjs";
 import {
   onManageActiveEffect,
   prepareActiveEffectCategories,
@@ -140,6 +141,16 @@ export class DaggerHeartItemSheet extends ItemSheet {
       const newDomain = { id: await crypto.randomUUID(), name: "" };
       allDomains.push(newDomain);
       await this.item.update({ "system.selectedDomains": allDomains });
+    });
+
+    html.on("click", ".add-feature-for-card", async (ev) => {
+      const newFeature = {
+        id: await crypto.randomUUID(),
+        name: "",
+        description: "",
+      };
+
+      this.item.update({"system.cardFeatures": [...this.item.system.cardFeatures, newFeature]})
     });
 
     html.on("click", ".class-feature-add", async (ev) => {

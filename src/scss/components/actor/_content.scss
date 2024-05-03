@@ -1,0 +1,34 @@
+.content {
+  padding: $p-5;
+}
+
+.inventory-nav {
+  .inventory-nav-item {
+    width: 100px;
+    text-align: center;
+    transition: 0.2s;
+    font-weight: bold;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      color: $primary;
+      text-shadow: none;
+    }
+
+    &.active {
+      border-bottom: 1px solid $primary;
+    }
+  }
+}
+
+.inventory-content-normal {
+  .character-card {
+    background-color: $gray;
+    padding: 5px;
+
+    &-feature {
+      font-size: 10px;
+      letter-spacing: -0.5px;
+    }
+  }
+}

@@ -1,55 +1,99 @@
-.item-form {
-  font-family: $font-primary;
+.input {
+  background: none;
+  font-family: "Oswald";
+  gap: 10px;
+  line-height: 23px;
+  height: 23px;
+  padding: 5px;
+  border-radius: 3px;
+  border: solid 1px $black;
+
+  &::placeholder {
+    color: transparentize($color: $white, $amount: 0.5);
+  }
+
+  &.white {
+    color: white;
+    border: solid 1px #fff;
+  }
+
+  &.ability {
+    height: 40px;
+    font-size: 36px;
+    width: 50px;
+    height: 40px;
+  }
+
+  &.center {
+    text-align: center;
+  }
+
+  &.huge {
+    height: 36px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &.w128 {
+    width: 128px;
+  }
+
+  &.number {
+    display: flex;
+    width: 32px;
+    height: 23px;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
-.sheet-header {
-  flex: 0 auto;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-bottom: 10px;
-
-  .profile-img {
-    flex: 0 0 100px;
-    height: 100px;
-    margin-right: 10px;
+.checkbox-container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 10px;
+  height: 10px;
+  & input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
   }
 
-  .header-fields {
-    flex: 1;
-  }
-
-  h1.charname {
-    height: 50px;
-    padding: 0px;
-    margin: 5px 0;
-    border-bottom: 0;
-    input {
-      width: 100%;
-      height: 100%;
-      margin: 0;
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 10px;
+    width: 10px;
+    background-color: transparent;
+    border: 1px solid $hyper-white;
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
     }
   }
-}
 
-.sheet-tabs {
-  flex: 0;
-}
-
-.sheet-body,
-.sheet-body .tab,
-.sheet-body .tab .editor {
-  height: 100%;
-}
-
-.tox {
-  .tox-editor-container {
-    background: $c-white;
+  &:hover input ~ .checkmark {
+    background-color: #ccc;
   }
 
-  .tox-edit-area {
-    padding: 0 8px;
+  & input:checked ~ .checkmark {
+    background-color: $hyper-white;
+  }
+
+  & input:checked ~ .checkmark:after {
+    display: block;
   }
 }

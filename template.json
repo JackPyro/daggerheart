@@ -1,8 +1,8 @@
 {
   "Actor": {
-    "types": ["character", "gm", "adversary"]
+    "types": ["character", "gm", "adversary" ]
   },
   "Item": {
-    "types": ["item", "class", "domain", "card", "weapon", "armor"]
+    "types": ["item", "class", "domain","card", "feature", "weapon", "armor"]
   }
 }

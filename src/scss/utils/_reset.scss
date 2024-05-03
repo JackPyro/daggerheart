@@ -1,0 +1,14 @@
+.window-content {
+  padding: 0;
+  background: white;
+}
+
+hr {
+  border: 1px solid transparentize($color: $white, $amount: 0.9) ;
+  width: 100%;
+  margin: 3px 0px;
+  padding: 0px;
+  &.black {
+    border-color: $black;
+  }
+}

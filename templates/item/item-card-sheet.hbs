@@ -16,5 +16,17 @@
       <label for="system.feature" class="resource-label">Feature</label>
       {{{editor system.feature target="system.feature" button=true owner=owner editable=editable}}}
     </div>
+
+    <div class="add-feature-for-card">
+      test
+    </div>
+
+    <div>
+      {{#each system.cardFeatures as |feature key|}}
+      <input name="system.cardFeatures.{{key}}.id" value="{{feature.id}}" />
+      <input name="system.cardFeatures.{{key}}.name" value="{{feature.name}}" />
+      <input name="system.cardFeatures.{{key}}.description" value="{{feature.description}}" />
+      {{/each}}
+    </div>
   </section>
 </form>

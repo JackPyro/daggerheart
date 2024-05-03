@@ -1,0 +1,14 @@
+.button {
+  padding: 2px;
+  &.white {
+    border: 1px solid $hyper-white;
+    color: $hyper-white;
+    transition: 0.2s;
+
+    cursor: pointer;
+    &:hover {
+      background-color: $hyper-white;
+      color: $dark;
+    }
+  }
+}

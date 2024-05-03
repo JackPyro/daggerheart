@@ -89,6 +89,15 @@ Handlebars.registerHelper("toLowerCase", function (str) {
   return str.toLowerCase();
 });
 
+Handlebars.registerHelper("checkbox", function (name, checked) {
+  return `
+    <label class="checkbox-container">
+      <input type="checkbox" name="${name}" ${checked ? "checked" : ""}/>
+      <span class="checkmark"></span>
+    </label>
+  `
+})
+
 Handlebars.registerHelper("ternary", function (cond, v1, v2) {
   return cond ? v1 : v2;
 });
@@ -101,6 +110,17 @@ Handlebars.registerHelper("concat", function () {
     }
   }
   return outStr;
+});
+
+Handlebars.registerHelper("get", function (item, name, ) {
+  if(!item) {
+    return ''
+  }
+  if(item[name]) {
+    return item[name]
+  }
+
+  return ""
 });
 /* -------------------------------------------- */
 /*  Ready Hook                                  */

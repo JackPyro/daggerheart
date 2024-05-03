@@ -1,0 +1,13 @@
+.character-card {
+  &-header {
+    background-color: $white;
+    padding: 5px;
+    &-name {
+      text-transform: uppercase;
+      font-weight: bolder;
+    }
+    &-type {
+      text-transform: uppercase;
+    }
+  }
+}

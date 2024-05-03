@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: $padding-default;
+  &-name {
+    padding: 2px 0px;
+  }
+  &-title {
+    display: flex;
+    gap: 5px;
+    label {
+      background-color: $primary;
+      padding: 2px 4px;
+    }
+  }
+}

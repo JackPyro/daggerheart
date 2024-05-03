@@ -42,4 +42,6 @@ export class DaggerHeartActor extends Actor {
     return { ...super.getRollData(), ...this.system.getRollData?.() ?? null };
   }
 
+  
+
 }

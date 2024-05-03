@@ -1,2 +1,11 @@
-$font-primary: 'Roboto', sans-serif;
-$font-secondary: 'Roboto', sans-serif;
+$font-primary: 'Oswald';
+$font-secondary: 'Oswald';
+
+.text-bold {
+  font-size: bold;
+}
+
+.label {
+  font-size: 12px;
+  text-transform: uppercase;
+}
