@@ -1,0 +1,38 @@
+
+.duality-dice-msg {
+
+    .container {
+        display: flex;
+        width: 100%;
+    }
+
+    .die {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 25px;
+        height: 25px;
+
+        .fear {
+            background-image: url("/systems/daggerheart/assets/svgs/d12-solid-fear.svg");
+        }
+
+        .hope {
+            background-image: url("/systems/daggerheart/assets/svgs/d12-solid-hope.svg");
+        }
+
+        .crit-fail {
+            background-image: url("/systems/daggerheart/assets/svgs/d12-solid-crit-fail.svg");
+        }
+
+        .crit-success {
+            background-image: url("/systems/daggerheart/assets/svgs/d12-solid-crit-success.svg");
+        }
+
+        .resut-text {
+            font-weight: bolder;
+            font-size: medium;
+            text-shadow: 1cm;
+        }
+    }
+}

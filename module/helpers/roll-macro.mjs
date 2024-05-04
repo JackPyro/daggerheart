@@ -3,7 +3,8 @@ const hopeColor = {
   // Hope colors
   colorset: "custom",
   foreground: "#000000",
-  background: "#FFFFFF",
+  //background: "#FFFFFF",
+  Image: "systems/daggerheart/assets/d12-no-text.svg",
   outline: "#000000",
   edge: "#000000",
   texture: "none",
@@ -108,6 +109,26 @@ const template = (roll, { isCrit, isHope, isFear, hopeResult, fearResult, prefix
                       <ol class="dice-rolls">
                         ${list}
                       </ol>
+
+                      <hr>
+                      <div class="duality-dice-msg-container">
+                        <div class="duality-dice-msg-die-fear">
+                          <label class="duality-dice-msg-resut-text-fear">12</label>
+                        </div>
+                        <div class="duality-dice-msg-die-spacer"></div>
+                        <div class="duality-dice-msg-die-hope">
+                          <label class="duality-dice-msg-resut-text-hope">6</label>
+                        </div>
+                        <div class="duality-dice-msg-die-spacer"></div>
+                        <div class="duality-dice-msg-die-crit-success">
+                          <label class="duality-dice-msg-resut-text-crit-success">3</label>
+                        </div>
+                        <div class="duality-dice-msg-die-spacer"></div>
+                        <div class="duality-dice-msg-die-crit-fail">
+                          <label class="duality-dice-msg-resut-text-crit-fail">3</label>
+                        </div>
+                      </div>
+
                   </div>
               </section>
           </div>
@@ -189,8 +210,8 @@ const doDHRoll = async (actor, abilityMod, prefix = '') => {
   const isFear = fearResult > hopeResult;
 
   // Dice colors
-  roll.dice[0].options.appearance = hopeColor;
-  roll.dice[1].options.appearance = fearColor;
+  //roll.dice[0].options.appearance = hopeColor;
+  //roll.dice[1].options.appearance = fearColor;
   console.log(isCrit, isHope, isFear, hopeResult, fearResult);
   // roll.toMessage({
   //   speaker: ChatMessage.implementation.getSpeaker({actor: actor}),
