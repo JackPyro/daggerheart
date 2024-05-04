@@ -45,6 +45,63 @@ const formHTML = (actor) => {
 `;
 };
 
+
+function getDiceDetailsHTML(hopeResult, hopeRemovedResult, fearResult, isAdvantage, isDisadvantage) {
+  const hopeTemplate = (dieResult) => {
+    return(
+      `
+      <div class="duality-dice-msg-die-hope">
+        <label class="duality-dice-msg-resut-text-hope">${dieResult}</label>
+      </div>
+      `
+    )};
+
+  const hopeSelectedTemplate = (dieResult) => {
+    return(
+      `
+      <div class="duality-dice-msg-die-hope duality-dice-msg-die-highlight-hope">
+        <label class="duality-dice-msg-resut-text-hope">${dieResult}</label>
+      </div>
+      `)
+  };
+
+  const fearTemplate = (dieResult) => {
+    return(
+      `
+      <div class="duality-dice-msg-die-fear">
+        <label class="duality-dice-msg-resut-text-fear">${dieResult}</label>
+      </div>
+      `)
+  };
+
+  const fearSelectedTemplate = (dieResult) => { 
+    return(
+      `
+      <div class="duality-dice-msg-die-fear duality-dice-msg-die-highlight-fear">
+        <label class="duality-dice-msg-resut-text-fear">${dieResult}</label>
+      </div>
+      `)
+  };
+
+  const critTemplate = (dieResult) => {
+    return(
+    `
+    <div class="duality-dice-msg-die-crit-success">
+      <label class="duality-dice-msg-resut-text-crit-success">${dieResult}</label>
+    </div>
+    `)
+  };
+
+  
+  if(isAdvantage){
+
+  }else if(isDisadvantage){
+    
+  }else{
+
+  }
+}
+
 const template = (roll, { isCrit, isHope, isFear, hopeResult, fearResult, prefix }) => {
   const rolls = roll.terms.reduce((acc, item) => {
     if (!item.results) {
@@ -69,6 +126,9 @@ const template = (roll, { isCrit, isHope, isFear, hopeResult, fearResult, prefix
   );
 
   console.log(roll)
+
+  // Create Die List HTML
+  let dieListHTML = createRollString(rolls, isAdvantage, isDisadvantage);
 
   return `
   
@@ -112,21 +172,59 @@ const template = (roll, { isCrit, isHope, isFear, hopeResult, fearResult, prefix
 
                       <hr>
                       <div class="duality-dice-msg-container">
+                        <!-- Disadvantage roll Highlight -->
                         <div class="duality-dice-msg-die-fear">
-                          <label class="duality-dice-msg-resut-text-fear">12</label>
+                          <label class="duality-dice-msg-resut-text-fear">8</label>
                         </div>
-                        <div class="duality-dice-msg-die-spacer"></div>
+                        <div class="duality-dice-msg-die-fear duality-dice-msg-die-highlight-fear">
+                          <label class="duality-dice-msg-resut-text-fear">8</label>
+                        </div>
+                        <div class="duality-dice-msg-die-hope">
+                          <label class="duality-dice-msg-resut-text-hope">10</label>
+                        </div>
+                        <div class="duality-dice-msg-die-spacer">|</div>
+
+                        <!-- Advantage Roll Highlight -->
                         <div class="duality-dice-msg-die-hope">
                           <label class="duality-dice-msg-resut-text-hope">6</label>
                         </div>
+                        <div class="duality-dice-msg-die-hope duality-dice-msg-die-highlight-hope">
+                          <label class="duality-dice-msg-resut-text-hope">10</label>
+                        </div>
+                        <div class="duality-dice-msg-die-fear">
+                          <label class="duality-dice-msg-resut-text-fear">8</label>
+                        </div>
                         <div class="duality-dice-msg-die-spacer"></div>
+
+                        <!-- Critical Roll (Rolling Doubles)-->
+                        <div class="duality-dice-msg-die-crit-success">
+                          <label class="duality-dice-msg-resut-text-crit-success">3</label>
+                        </div>
                         <div class="duality-dice-msg-die-crit-success">
                           <label class="duality-dice-msg-resut-text-crit-success">3</label>
                         </div>
                         <div class="duality-dice-msg-die-spacer"></div>
+
+                        <!-- Test Multiple Lines Wrap 
                         <div class="duality-dice-msg-die-crit-fail">
                           <label class="duality-dice-msg-resut-text-crit-fail">3</label>
                         </div>
+                        <div class="duality-dice-msg-die-crit-fail">
+                          <label class="duality-dice-msg-resut-text-crit-fail">3</label>
+                        </div>
+                        <div class="duality-dice-msg-die-crit-fail">
+                          <label class="duality-dice-msg-resut-text-crit-fail">3</label>
+                        </div>
+                        <div class="duality-dice-msg-die-crit-fail">
+                          <label class="duality-dice-msg-resut-text-crit-fail">3</label>
+                        </div>
+                        <div class="duality-dice-msg-die-crit-fail">
+                          <label class="duality-dice-msg-resut-text-crit-fail">3</label>
+                        </div>
+                        <div class="duality-dice-msg-die-crit-fail">
+                          <label class="duality-dice-msg-resut-text-crit-fail">3</label>
+                        </div>
+                        -->
                       </div>
 
                   </div>
@@ -146,9 +244,16 @@ const buttons = ["Disadvantage", "Normal", "Advantage"].reduce(
   {}
 );
 
-// Button callback
+// Button "Advantage/Disadvantige/Modifier" callback
 function callback(html, event) {
+
+// Get any roll modifiers
+  // Get Base Modieifer
   const input = html.find("#mod_input");
+
+  //Get Additional Modifier
+
+  // Get experience Modifier
   const expMod = $(".dialog-input-group input:checked")
     .toArray()
     .reduce((acc, item) => {
@@ -157,6 +262,7 @@ function callback(html, event) {
         return acc + mod;
       }
     }, 0);
+
   const mod = parseInt(input.val()) || 0;
   const result = {
     hope: {
@@ -185,25 +291,37 @@ function callback(html, event) {
   return result;
 }
 
-// Define rolls
+// Define rolls (Button gets pressed to create a Duality Dice roll, Call this fn) 
 const doDHRoll = async (actor, abilityMod, prefix = '') => {
+
+  // Create Popup Dialogue and get user inputs (Experience's, Advantage disadvantage)
   const { hope, expMod, fear, isAdvantage, isDisadvantage, mod } =
     await Dialog.wait({
       buttons,
       content: formHTML(actor),
     });
+  console.log(mod, expMod, abilityMod);
 
-    console.log(mod, expMod, abilityMod)
-
+  // Do the roll
   const roll = await new Roll(`${hope.formula} + ${fear.formula} + @mod`, {
     mod: mod + expMod + abilityMod,
   }).evaluate();
+
+  // Get the specific results 
   const hopeResult = roll.dice[0].results.find(
     (result) => result.active == true
   ).result;
+
+  // Get unused result from advantage / disadvantage roll
+  const hopeRemovedResult = roll.dice[0].results.find(
+    (result) => result.active == false
+  ).result;
+
   const fearResult = roll.dice[1].results.find(
     (result) => result.active == true
   ).result;
+
+  let diceDetailsHTML = getDiceDetailsHTML(hopeResult, hopeRemovedResult, fearResult, isAdvantage, isDisadvantage);
 
   const isCrit = hopeResult == fearResult;
   const isHope = hopeResult > fearResult;
