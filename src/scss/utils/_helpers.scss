@@ -1,6 +1,7 @@
 .text-center {
   text-align: center;
 }
+
 .gap {
   &-5 {
     gap: 5px;
@@ -15,13 +16,29 @@
   }
 }
 
+.p {
+  &-5 {
+    padding: 5px;
+  }
+
+  &-10 {
+    padding: 10px
+  }
+
+  &-15 {
+    padding: 15px;
+  }
+}
+
 .mb {
   &-5 {
     margin-bottom: 5px;
   }
+
   &-10 {
     margin-bottom: 10px;
   }
+
   &-15 {
     margin-bottom: 15px;
   }
@@ -31,11 +48,98 @@
   &-5 {
     margin-top: 5px;
   }
+
   &-10 {
     margin-top: 10px;
   }
+
   &-15 {
     margin-top: 15px;
   }
 }
 
+.accordion {
+  cursor: pointer;
+  z-index: 10;
+  position: relative;
+
+  &:after {
+    font-family: "Font Awesome 6 Pro";
+    font-size: 14px;
+    width: 15px;
+    content: "\f0da";
+  }
+
+  &.active:after {
+    font-family: "Font Awesome 6 Pro";
+    content: "\f0d7";
+  }
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.accordion-content {
+  display: none;
+  overflow: hidden;
+  padding: 0em 0.25em;
+}
+
+.accordion-content.active {
+  display: block;
+}
+
+
+.badge {
+  color: white;
+  background-color: $dark;
+  min-width: 80px;
+  text-align: center;
+
+  &.class {
+    background-color: $classColor;
+    color: $dark;
+  }
+
+  &.community {
+    background-color: $communityColor;
+    color: $dark;
+  }
+
+  &.subclass {
+    background-color: $subClass;
+    color: $dark;
+  }
+
+  &.ancestry {
+    background-color: $ancestry;
+    color: $dark;
+  }
+}
+
+.section {
+  background-color: $secondary;
+  color: white;
+  padding: 5px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+}
+
+.row-2 {
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+.col-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.bg {
+  &-primary {
+    background-color: $primary;
+    color:white
+  }
+}

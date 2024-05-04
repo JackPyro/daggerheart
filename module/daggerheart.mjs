@@ -2,7 +2,7 @@
 import { DaggerHeartActor } from "./documents/actor.mjs";
 import { DaggerHeartItem } from "./documents/item.mjs";
 // Import sheet classes.
-import { DaggerHeartActorSheet } from "./sheets/actor-sheet.mjs";
+import { DaggerHeartCharacterSheet } from "./sheets/character-sheet.mjs";
 import { DaggerHeartItemSheet } from "./sheets/item-sheet.mjs";
 import { DaggerHeartHandSheet } from "./sheets/hand-sheet.mjs";
 // Import helper/utility classes and constants.
@@ -10,6 +10,8 @@ import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { DAGGERHEART } from "./helpers/config.mjs";
 // Import DataModel classes
 import * as models from "./data/_module.mjs";
+import { DaggerHeartAdversarySheet } from "./sheets/adversary-sheet.mjs";
+import { DaggerHeartGMSheet } from "./sheets/gm-sheet.mjs";
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -66,8 +68,19 @@ Hooks.once("init", function () {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("daggerheart", DaggerHeartActorSheet, {
+  Actors.registerSheet("daggerheart", DaggerHeartCharacterSheet, {
     makeDefault: true,
+    types: ["character"],
+    label: "DAGGERHEART.SheetLabels.Actor",
+  });
+
+  Actors.registerSheet("daggerheart", DaggerHeartAdversarySheet, {
+    types: ["adversary"],
+    label: "DAGGERHEART.SheetLabels.Actor",
+  });
+
+  Actors.registerSheet("daggerheart", DaggerHeartGMSheet, {
+    types: ["gm"],
     label: "DAGGERHEART.SheetLabels.Actor",
   });
   Items.unregisterSheet("core", ItemSheet);
@@ -95,11 +108,35 @@ Handlebars.registerHelper("checkbox", function (name, checked) {
       <input type="checkbox" name="${name}" ${checked ? "checked" : ""}/>
       <span class="checkmark"></span>
     </label>
-  `
-})
+  `;
+});
+
+Handlebars.registerHelper("action", function (context) {
+  const { action, ...options } = context.hash;
+
+  const dataString = [];
+
+  if (!action) {
+    return "";
+  }
+
+  dataString.push(`data-action="${action}"`);
+
+  Object.keys(options).forEach((key) => {
+    if (options[key]) {
+      dataString.push(`data-${key}="${options[key]}"`);
+    }
+  });
+
+  return dataString.join(" ");
+});
 
 Handlebars.registerHelper("ternary", function (cond, v1, v2) {
   return cond ? v1 : v2;
+});
+
+Handlebars.registerHelper("icon", function (icon) {
+  return `<i class="fas fa-${icon}"></i>`;
 });
 
 Handlebars.registerHelper("concat", function () {
@@ -112,15 +149,15 @@ Handlebars.registerHelper("concat", function () {
   return outStr;
 });
 
-Handlebars.registerHelper("get", function (item, name, ) {
-  if(!item) {
-    return ''
+Handlebars.registerHelper("get", function (item, name) {
+  if (!item) {
+    return "";
   }
-  if(item[name]) {
-    return item[name]
+  if (item[name]) {
+    return item[name];
   }
 
-  return ""
+  return "";
 });
 /* -------------------------------------------- */
 /*  Ready Hook                                  */

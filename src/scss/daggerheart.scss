@@ -1,13 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed:wght@400;500;600;700&display=swap');
 
 @import "utils/typography";
 @import "utils/variables";
 @import "utils/colors";
 @import "utils/flex";
 @import "utils/helpers";
+@import "components/items";
 
 .daggerheart {
   @import "utils/reset";
+  @import "utils/editor";
   
   @import "components/forms";
   @import "components/layout";
@@ -18,6 +21,9 @@
   @import "components/actor/navigation";
   @import "components/actor/content";
   @import "components/actor/cards";
+  @import "components/actor/leveling";
+  @import "components/actor/inventory";
+
 
   font-family: $font-primary;
 }

@@ -1,5 +1,5 @@
 $font-primary: 'Oswald';
-$font-secondary: 'Oswald';
+$font-secondary:  "Cabin Condensed", sans-serif;
 
 .text-bold {
   font-size: bold;
@@ -8,4 +8,7 @@ $font-secondary: 'Oswald';
 .label {
   font-size: 12px;
   text-transform: uppercase;
+  &.strong {
+    font-weight: bold;
+  }
 }

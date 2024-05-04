@@ -1,25 +1,21 @@
-<form class="{{cssClass}} " autocomplete="off">
-  <div class="weapon-form">
-
-    <div class="weapon-grid">
-      <img class="img-wrap" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
-      <div class="weapon-grid-options">
-        <div class="weapon-input-group flex-grow">
-          <label for="name">Name</label>
-          <input name="name" type="text" value="{{item.name}}" placeholder="Name" />
-        </div>
-        <div class="weapon-input-group">
-          <label for="system.score">Base Score</label>
-          <input name="system.score" type="number" value="{{system.score}}" placeholder="Damage" />
-        </div>
-        <div class="weapon-input-group weapon-input-group-flex">
-        </div>
-      </div>
+<form class="{{cssClass}} item-sheet armor" autocomplete="off">
+  <div class="item-wrap flex items-center column gap-10">
+    <div class="item-sidebar flex-shrink">
+      <img class="img-wrap" width="128" height="128" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
     </div>
-
-    <div class="editor-wrap">
-      <label for="system.feature">Feature</label>
-      <textarea name="system.feature">{{{system.feature}}}</textarea>
+    <div class="item-info flex column gap-10 w-100">
+      <div>
+        <label class="label strong" for="name">Name</label>
+        <input class="input w-100" name="name" type="text" value="{{item.name}}" placeholder="Name" />
+      </div>
+      <div>
+        <label class="label strong" for="system.score">Base Score</label>
+        <input class="input w-100" name="system.score" type="number" value="{{system.score}}" placeholder="Damage" />
+      </div>
+      <div class="flex column gap-10">
+         <label class="label strong" for="system.biography">Feature: </label>
+        {{editor system.feature target="system.feature" class="simple h150 white" owner=owner}}
+      </div>
     </div>
   </div>
 </form>

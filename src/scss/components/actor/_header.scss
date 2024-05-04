@@ -9,8 +9,10 @@
   &-title {
     display: flex;
     gap: 5px;
+    span {
+      cursor: pointer;
+    }
     label {
-      background-color: $primary;
       padding: 2px 4px;
     }
   }

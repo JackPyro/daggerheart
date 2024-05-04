@@ -4,21 +4,21 @@
 
 <div class="header-title">
   {{#if actor.system.community}}
-  <label>
-    {{get actor.system.community "name"}}
-    <i data-action="delete-item" data-id="{{get actor.system.community '_id'}}" class="fas fa-xmark remove"></i>
+  <label class="community">
+    <span {{{action action="item-edit" id=actor.system.community._id}}}>{{get actor.system.community "name"}}</span>
+    <i data-action="item-delete" data-id="{{get actor.system.community '_id'}}" class="fas fa-xmark remove"></i>
   </label>
   {{/if}}
   {{#if actor.system.ancestry}}
-  <label>
-    {{get actor.system.ancestry "name"}}
-    <i data-action="delete-item" data-id="{{get actor.system.ancestry '_id'}}" class="fas fa-xmark remove"> </i>
+  <label class="ancestry">
+    <span {{{action action="item-edit" id=actor.system.ancestry._id}}}>{{get actor.system.ancestry "name"}}</span>
+    <i data-action="item-delete" data-id="{{get actor.system.ancestry '_id'}}" class="fas fa-xmark remove"> </i>
   </label>
   {{/if}}
   {{#if actor.system.class}}
-  <label>
-    {{get actor.system.class "name"}}
-    <i data-action="delete-item" data-id="{{get actor.system.class '_id'}}" class="fas fa-xmark remove"> </i>
+  <label class="class">
+    <span {{{action action="item-edit" id=actor.system.classItem._id}}}>{{get actor.system.classItem "name"}}</span>
+    <i data-action="item-delete" data-id="{{get actor.system.classItem '_id'}}" class="fas fa-xmark remove"> </i>
   </label>
   {{/if}}
 </div>
@@ -26,8 +26,7 @@
 <div class="header-ability-score flex items-center justify-between flex-grow">
   {{#each system.abilities as |ability key|}}
   <div class="flex column items-center gap-5 text-center justify-center">
-    <label for="system.abilities.{{key}}.value" data-type="{{key}}" class="class label time-to-roll"
-      data-label="{{ability.label}}">{{ability.label}}</label>
+    <label for="system.abilities.{{key}}.value" class="label" {{{action action="ability-roll" type=key label=ability.label}}}>{{ability.label}}</label>
     <input class="input white ability" type="number" name="system.abilities.{{key}}.value" value="{{ability.value}}"
       data-dtype="Number" />
     {{!-- <input type="checkbox" name="system.abilities.{{key}}.checked" {{checked ability.checked}} /> --}}

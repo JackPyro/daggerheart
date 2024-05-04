@@ -1,1 +1,36 @@
-inventory tab
+{{#if (or equipment.primary equipment.secondary equipment.armor)}}
+<div class="section">Active Items</div>
+{{/if}}
+<div class="inventory active-items">
+  {{log equipment}}
+  {{#if equipment.primary}}
+  {{> "systems/daggerheart/templates/actor/parts/character-equipable.hbs" item=equipment.primary}}
+  {{/if}}
+
+  {{#if equipment.secondary}}
+  {{> "systems/daggerheart/templates/actor/parts/character-equipable.hbs" item=equipment.secondary}}
+  {{/if}}
+
+  {{#if equipment.armor}}
+  {{> "systems/daggerheart/templates/actor/parts/character-equipable.hbs" item=equipment.armor}}
+  {{/if}}
+</div>
+
+<div class="section flex justify-between items-center" {{{action action="add-character-item" }}}>
+  <span>Items</span>
+  <div>{{{icon "plus"}}}</div>
+</div>
+{{#each gear as |item key|}}
+{{#if (eq item.type "weapon")}}
+{{> "systems/daggerheart/templates/actor/parts/character-equipable.hbs" item=item}}
+{{/if}}
+
+{{#if (eq item.type "armor")}}
+{{> "systems/daggerheart/templates/actor/parts/character-equipable.hbs" item=item}}
+{{/if}}
+
+{{#if (eq item.type "item")}}
+{{> "systems/daggerheart/templates/actor/parts/character-item.hbs" item=item}}
+{{/if}}
+
+{{/each}}

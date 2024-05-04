@@ -36,10 +36,7 @@ const template = (roll, { prefix }) => {
       `<li class="roll die ${rollResult.discarded ? "discarded" : ""} d20">${rollResult.value}</li>`
   );
 
-  console.log(roll)
-
   return `
-  
   <div class="dice-roll">
       <div class="dice-result">
           <div class="daggerheart-roll-result">
@@ -131,7 +128,6 @@ const doGMRoll = async (actor, prefix = '') => {
       content: formHTML(actor),
     });
 
-    console.log(mod, expMod)
 
   const roll = await new Roll(`${attack.formula} + @mod`, {
     mod: mod + expMod,

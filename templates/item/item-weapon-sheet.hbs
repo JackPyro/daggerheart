@@ -1,65 +1,48 @@
-<form class="{{cssClass}} " autocomplete="off">
-  <div class="weapon-form">
-
-    <div class="weapon-grid">
-      <img class="img-wrap" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
-      <div class="weapon-grid-options">
-        <div class="weapon-input-group flex-grow">
-          <label for="name">Name</label>
-          <input name="name" type="text" value="{{item.name}}" placeholder="Name" />
-        </div>
-        <div class="weapon-input-group weapon-input-group-flex">
-
-          <div class="weapon-input-group weapon-input-group-flex">
-            <div class="weapon-input-group">
-              <label for="system.isSecondary">is Secondary?</label>
-              <input type="checkbox" name="system.isSecondary" {{checked system.isSecondary}} />
-            </div>
-            <div class="weapon-input-group">
-              <label for="system.burden">Burden</label>
-              <select name="system.burden">
-                {{selectOptions burden selected=system.burden nameAttr="value" labelAttr="label"}}
-              </select>
-            </div>
-          </div>
-
-        </div>
-      </div>
+<form class="{{cssClass}} item-sheet weapon" autocomplete="off">
+  <div class="item-wrap flex items-center column gap-10">
+    <div class="item-sidebar flex-shrink">
+      <img class="img-wrap" width="128" height="128" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
     </div>
+    <div class="item-info flex column gap-10 w-100">
 
-
-    <div class="weapon-input-group weapon-input-group-flex">
-      <div class="weapon-input-group">
-        <label for="system.trait">Trait</label>
-        <select name="system.trait">
-          {{selectOptions traits selected=system.trait nameAttr="value" labelAttr="label"}}
-        </select>
-      </div>
-
-      <div class="weapon-input-group flex-grow ">
-        <label for="system.range">Range</label>
-        <select name="system.range">
-          {{selectOptions range selected=system.range nameAttr="value" labelAttr="label"}}
-        </select>
-      </div>
-
-      <div class="weapon-input-group">
-        <label for="system.damage">Damage</label>
-        <input name="system.damage" type="text" value="{{system.damage}}" placeholder="Damage" />
-      </div>
-
-      <div class="weapon-input-group">
-        <label for="system.type">Damage Type</label>
-        <select name="system.type" value="{{system.type}}">
-          {{selectOptions attack_types selected=system.type nameAttr="value" labelAttr="label"}}
-        </select>
-      </div>
+      <label class="label strong" for="name">Name</label>
+      <input class="input w-100" name="name" type="text" value="{{item.name}}" placeholder="Name" />
     </div>
-
-
-    <div class="editor-wrap">
-      <label for="system.feature">Feature</label>
-      <textarea name="system.feature">{{{system.feature}}}</textarea>
+    <div class="item-info flex column gap-10 w-100">
+      <label class="label strong" for="system.damage">Damage</label>
+      <input class="input w-100" name="system.damage" type="text" value="{{system.damage}}" placeholder="Damage" />
+    </div>
+    <div class="flex items-center justify-between w-100">
+      <label class="label strong" for="system.isSecondary">is Secondary?</label>
+      <input type="checkbox" name="system.isSecondary" {{checked system.isSecondary}} />
+    </div>
+    <div class="w-100">
+      <label class="label strong" for="system.burden">Burden</label>
+      <select name="system.burden" class="w-100">
+        {{selectOptions burden selected=system.burden nameAttr="value" labelAttr="label"}}
+      </select>
+    </div>
+    <div class="w-100">
+      <label class="label strong" for="system.trait">Trait</label>
+      <select name="system.trait" class="w-100">
+        {{selectOptions traits selected=system.trait nameAttr="value" labelAttr="label"}}
+      </select>
+    </div>
+    <div class="w-100">
+      <label class="label strong" for="system.range">Range</label>
+      <select name="system.range" class="w-100">
+        {{selectOptions range selected=system.range nameAttr="value" labelAttr="label"}}
+      </select>
+    </div>
+    <div class="w-100">
+      <label class="label strong" for="system.type">Damage Type</label>
+      <select name="system.type" class="w-100" value="{{system.type}}">
+        {{selectOptions attack_types selected=system.type nameAttr="value" labelAttr="label"}}
+      </select>
+    </div>
+    <div class="flex column gap-10 w-100">
+      <label class="label strong" for="system.feature">Feature</label>
+      {{editor system.feature target="system.feature" class="simple h150 white" owner=owner}}
     </div>
   </div>
 </form>

@@ -5,7 +5,7 @@
 </div>
 
 <div class="inventory-content">
-  <div class="tab" data-group="loadout_group" data-tab="normal_cards">
+  <div class="inventory-tab tab" data-group="loadout_group" data-tab="normal_cards">
     <div class="inventory-content-normal">
       {{#each cards as |card key|}}
       {{> "systems/daggerheart/templates/actor/parts/character-card.hbs" card=card}}
@@ -14,10 +14,14 @@
     </div>
 
   </div>
-  <div class="tab" data-group="loadout_group" data-tab="loadout_cards">
-    test 2
+  <div class="inventory-tab tab" data-group="loadout_group" data-tab="loadout_cards">
+    {{#each active_loadout as |card key|}}
+    {{> "systems/daggerheart/templates/actor/parts/character-domain-card.hbs" card=card}}
+    {{/each}}
   </div>
-  <div class="tab" data-group="loadout_group" data-tab="vault_cards">
-    test 3
+  <div class="inventory-tab tab" data-group="loadout_group" data-tab="vault_cards">
+    {{#each vault as |card key|}}
+    {{> "systems/daggerheart/templates/actor/parts/character-domain-card.hbs" card=card}}
+    {{/each}}
   </div>
 </div>

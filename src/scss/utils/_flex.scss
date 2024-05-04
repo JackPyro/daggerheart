@@ -6,14 +6,24 @@
   flex-grow: 1;
 }
 
+.flex-shrink {
+  flex-shrink: 0;
+}
+
 .items-center {
   align-items: center;
 }
+
 .relative {
   position: relative;
 }
+
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
 }
 
 .justify-center {
@@ -32,4 +42,10 @@
 
 .column {
   flex-direction: column;
+}
+
+.self-stretch {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
 }

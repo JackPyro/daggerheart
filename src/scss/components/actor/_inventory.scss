@@ -1,0 +1,86 @@
+.inventory-item {
+  border: 1px solid black;
+  margin: 5px 0px;
+  background-color: $cardBG;
+  border: 2px solid $cardBorder;
+
+  &.weapon {
+    display: grid;
+    grid: 1fr / 40px 2fr 1fr 20px;
+    align-items: center;
+  }
+
+  .weapon, .item {
+    &-name {
+      font-size: 16px;
+    }
+
+    &-meta {
+      padding-left: 5px;
+    }
+
+    &-description {
+      font-size: 12px;
+    }
+
+    &-image {
+      position: relative;
+      cursor: pointer;
+      display: block;
+      &:after {
+        content:" ";
+        
+      }
+    }
+
+    &-rollables {}
+
+    &-ability,
+    &-damage {
+      padding: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      &:hover {
+        background-color: $dark;
+        color: $white;
+      }
+    }
+    &-status {
+      .equip-icon {
+        border-radius: 100%;
+        width: 14px;
+        height: 14px;
+        display: block;
+        margin: 0px auto;
+        transition: 0.2s;
+        cursor: pointer;
+        &.equip {
+          background-color: transparent;
+          border: 1px solid $primary;
+
+          &:hover {
+            background-color: $primary;
+          }
+        }
+        &.unequip {
+          background-color: $primary;
+          border: 1px solid $primary;
+
+          &:hover {
+            border: 1px solid $primary;
+            background-color: transparent;
+          }
+        }
+      }
+    }
+
+    &-options {
+      font-size: 12px;
+      font-family: $font-secondary;
+      grid-column: 4 span;
+      background-color: transparentize($secondary-alt, 0.5);
+      color: white;
+      padding: 4px;
+    }
+  }
+}

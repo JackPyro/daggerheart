@@ -1,4 +1,5 @@
 import DaggerHeartActorBase from "./actor-base.mjs";
+import DaggerHeartClass from "./class.mjs";
 
 export default class DaggerHeartCharacter extends DaggerHeartActorBase {
   static defineSchema() {
@@ -20,6 +21,7 @@ export default class DaggerHeartCharacter extends DaggerHeartActorBase {
       attitude: new fields.StringField({ initial: "" }),
     });
 
+    schema.class = new fields.EmbeddedDataField(DaggerHeartClass);
     schema.wallet = new fields.SchemaField({
       coins: new fields.NumberField({ initial: 0, integer: true }),
       handful: new fields.NumberField({ initial: 0, integer: true }),
@@ -112,26 +114,28 @@ export default class DaggerHeartCharacter extends DaggerHeartActorBase {
     return data;
   }
 
-  get class() {
-    const classes = this.parent.items.filter(i => i.type === "class");
-    if (classes) return classes[0]
+  get classItem() {
+    const classes = this.parent.items.filter((i) => i.type === "class");
+    if (classes) return classes[0];
 
-    return {}
+    return {};
   }
 
   get ancestry() {
-    const ancestry = this.parent.items.filter(i => i.type === "card" && i.system.cardType === 'ancestry');
-    if (ancestry) return ancestry[0]
+    const ancestry = this.parent.items.filter(
+      (i) => i.type === "card" && i.system.cardType === "ancestry"
+    );
+    if (ancestry) return ancestry[0];
 
-    return {}
+    return {};
   }
 
   get community() {
-    const community = this.parent.items.filter(i => i.type === "card" && i.system.cardType === 'community' );
-    if (community) return community[0]
+    const community = this.parent.items.filter(
+      (i) => i.type === "card" && i.system.cardType === "community"
+    );
+    if (community) return community[0];
 
-    return {}
+    return {};
   }
-
-  
 }

@@ -70,25 +70,36 @@
 </div>
 <hr />
 <div class="sidebar-weapons w-100">
+  {{#if equipment.primary}}
   <div class="sidebar-weapons-item flex items-center justify-between">
-    <label class="label">Primary</label>
+    <label class="label">{{equipment.primary.name}}</label>
     <div class="sidebar-weapons-item-buttons flex align-center gap-5">
-      <div class="button white">+2 AGI <i class="fas fa-dice-d12"></i></div>
-      <div class="button white">D8</div>
+      <div class="button white center min-width items-center center flex gap-5" {{{action action="weapon-roll" id=equipment.primary._id}}}>
+        <span> {{equipment.primary.abilityScorePrefix}}{{equipment.primary.abilityScore}} </span>
+        <span class="uppercase"> {{equipment.primary.system.trait}} <i class="fas fa-dice-d12"></i></span>
+
+      </div>
+      <div class="button white center min-width" {{{action action="weapon-damage" id=equipment.primary._id}}}>{{equipment.primary.system.damage}}</div>
     </div>
   </div>
+  {{/if}}
+  {{#if equipment.secondary}}
   <div class="sidebar-weapons-item flex items-center justify-between">
-    <label class="label">Secondary</label>
+    <label class="label">{{equipment.secondary.name}}</label>
     <div class="sidebar-weapons-item-buttons flex align-center gap-5">
-      <div class="button white">+2 AGI <i class="fas fa-dice-d12"></i></div>
-      <div class="button white">D8</div>
+      <div class="button white center min-width items-center center flex gap-5" {{{action action="weapon-roll" id=equipment.secondary._id}}}>
+        <span> {{equipment.secondary.abilityScorePrefix}}{{equipment.secondary.abilityScore}} </span>
+        <span class="uppercase"> {{equipment.secondary.system.trait}} <i class="fas fa-dice-d12"></i></span>
+      </div>
+      <div class="button white center min-width" {{{action action="weapon-damage" id=equipment.secondary._id}}}>{{equipment.secondary.system.damage}}</div>
     </div>
   </div>
+  {{/if}}
 </div>
 <div class="sidebar-experiences w-100">
   <div class="flex items-center justify-between">
     <label>Experiences</label>
-    <div class="add-experience"> <i class='fas fa-plus'></i> </div>
+    <div {{{action action="experience-add"}}}> <i class='fas fa-plus'></i> </div>
   </div>
 
   <div class="sidebar-experiences-list">
@@ -101,7 +112,7 @@
           data-dtype="Number" />
       </div>
 
-      <a class="item-control exp-delete" data-id="{{exp.id}}" title="Delete experience">
+      <a class="item-control" {{{action action="experience-delete" id=exp.id}}} title="Delete experience">
         <i class="fas fa-trash"></i>
       </a>
     </div>

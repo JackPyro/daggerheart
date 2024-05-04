@@ -15,6 +15,7 @@ export class DaggerHeartItemSheet extends ItemSheet {
       classes: ["daggerheart", "sheet", "item"],
       width: 520,
       height: 480,
+      dragDrop: [{dragSelector: ".daggerheart.item", dropSelector: null}],
       tabs: [
         {
           navSelector: ".sheet-tabs",
@@ -23,6 +24,13 @@ export class DaggerHeartItemSheet extends ItemSheet {
         },
       ],
     });
+  }
+
+  async _onDrop(event) {
+    const data = TextEditor.getDragEventData(event);
+    const item = await fromUuid(data.uuid);
+    
+    console.log(data, item);
   }
 
   /** @override */
@@ -56,22 +64,10 @@ export class DaggerHeartItemSheet extends ItemSheet {
     context.system = itemData.system;
     context.flags = itemData.flags;
 
-    console.log(itemData);
 
     // Prepare active effects for easier access
     context.effects = prepareActiveEffectCategories(this.item.effects);
 
-    // if(itemData.type === 'class') {
-    //   const validatedItems = itemData.system.classFeatures.map(item => {
-    //     if(!item.id) {
-    //       item.id = crypto.randomUUID()
-    //     }
-
-    //     return item;
-    //   })
-
-    //   this.item.update({"system.classFeatures": validatedItems})
-    // }
 
     if (["domain", "class"].includes(itemData.type)) {
       context.domains = CONFIG.DAGGERHEART.domains;
@@ -109,7 +105,6 @@ export class DaggerHeartItemSheet extends ItemSheet {
         return { label, value };
       });
 
-      console.log(context.traits);
     }
 
     if (itemData.type === "card") {

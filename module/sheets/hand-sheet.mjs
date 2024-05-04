@@ -71,7 +71,6 @@ export class DaggerHeartHandSheet extends ActorSheet {
     context.domains = this.actor.items.filter((i) => i.type === "domain");
     context.subclasses = subclasses;
 
-    console.log(subclasses)
     return context;
   }
 

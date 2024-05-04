@@ -1,1 +1,23 @@
-leveling
+{{#each leveling as |tier key|}}
+<div class="leveling-tier">
+  <div class="flex items-center justify-between section">
+    <label class="leveling-tier-levels">{{tier.level}}</label>
+    <label class="leveling-tier-level-bonus">{{tier.bonus}}</label>
+  </div>
+  <div class="leveling-tier-description">
+    {{{tier.description}}}
+  </div>
+  <div class="leveling-tier-options">
+    {{#each tier.items as |levelOption key|}}
+    <div class="leveling-option">
+      <input type="hidden" name="system.class.tier{{tier.position}}.{{key}}.id" value="{{levelOption.id}}" />
+      <input type="hidden" name="system.class.tier{{tier.position}}.{{key}}.option" value="{{levelOption.option}}" />
+      <input type="checkbox" name="system.class.tier{{tier.position}}.{{key}}.checked" {{checked
+        levelOption.checked}} />
+      <div>{{levelOption.option}}</div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+
+{{/each}}

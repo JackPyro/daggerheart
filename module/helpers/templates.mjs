@@ -26,6 +26,9 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/daggerheart/templates/actor/parts/character-description.hbs',
     'systems/daggerheart/templates/actor/parts/character-leveling.hbs',
     'systems/daggerheart/templates/actor/parts/character-card.hbs',
+    'systems/daggerheart/templates/actor/parts/character-domain-card.hbs',
+    'systems/daggerheart/templates/actor/parts/character-equipable.hbs',
+    'systems/daggerheart/templates/actor/parts/character-item.hbs',
   ]);
 
   return;

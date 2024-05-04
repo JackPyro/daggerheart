@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cabin+Condensed:wght@400;500;600;700&display=swap");
 .text-bold {
   font-size: bold;
 }
@@ -7,6 +8,69 @@
   font-size: 12px;
   text-transform: uppercase;
 }
+.label.strong {
+  font-weight: bold;
+}
+
+.class {
+  background-color: rgba(155, 29, 32, 0.5215686275);
+  color: white;
+}
+
+.community {
+  background-color: rgba(73, 132, 103, 0.5215686275);
+  color: white;
+}
+
+.ancestry {
+  background-color: rgba(255, 170, 51, 0.5215686275);
+  color: white;
+}
+
+.arcana {
+  background-color: #4E276A;
+  color: white;
+}
+
+.blade {
+  background-color: #96352C;
+  color: white;
+}
+
+.bone {
+  background-color: #666769;
+  color: white;
+}
+
+.codex {
+  background-color: #1F335F;
+  color: white;
+}
+
+.grace {
+  background-color: #7A3662;
+  color: white;
+}
+
+.midnight {
+  background-color: #333439;
+  color: white;
+}
+
+.sage {
+  background-color: #0C6B41;
+  color: white;
+}
+
+.splendor {
+  background-color: #AF9F40;
+  color: white;
+}
+
+.valor {
+  background-color: #B97A23;
+  color: white;
+}
 
 .flex {
   display: flex;
@@ -14,6 +78,10 @@
 
 .flex-grow {
   flex-grow: 1;
+}
+
+.flex-shrink {
+  flex-shrink: 0;
 }
 
 .items-center {
@@ -26,6 +94,10 @@
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
 }
 
 .justify-center {
@@ -44,6 +116,12 @@
   flex-direction: column;
 }
 
+.self-stretch {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
 .text-center {
   text-align: center;
 }
@@ -56,6 +134,16 @@
 }
 .gap-15 {
   gap: 15px;
+}
+
+.p-5 {
+  padding: 5px;
+}
+.p-10 {
+  padding: 10px;
+}
+.p-15 {
+  padding: 15px;
 }
 
 .mb-5 {
@@ -78,6 +166,94 @@
   margin-top: 15px;
 }
 
+.accordion {
+  cursor: pointer;
+  z-index: 10;
+  position: relative;
+}
+.accordion:after {
+  font-family: "Font Awesome 6 Pro";
+  font-size: 14px;
+  width: 15px;
+  content: "\f0da";
+}
+.accordion.active:after {
+  font-family: "Font Awesome 6 Pro";
+  content: "\f0d7";
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.accordion-content {
+  display: none;
+  overflow: hidden;
+  padding: 0em 0.25em;
+}
+
+.accordion-content.active {
+  display: block;
+}
+
+.badge {
+  color: white;
+  background-color: #1B1A1A;
+  min-width: 80px;
+  text-align: center;
+}
+.badge.class {
+  background-color: rgba(155, 29, 32, 0.5215686275);
+  color: #1B1A1A;
+}
+.badge.community {
+  background-color: rgba(73, 132, 103, 0.5215686275);
+  color: #1B1A1A;
+}
+.badge.subclass {
+  background-color: rgba(153, 70, 54, 0.5215686275);
+  color: #1B1A1A;
+}
+.badge.ancestry {
+  background-color: rgba(255, 170, 51, 0.5215686275);
+  color: #1B1A1A;
+}
+
+.section {
+  background-color: #2B226D;
+  color: white;
+  padding: 5px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+}
+
+.row-2 {
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+.col-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.bg-primary {
+  background-color: #38227b;
+  color: white;
+}
+
+.sheet .item-sheet {
+  background-color: rgb(217, 216, 214);
+}
+
+.item-wrap {
+  padding: 10px;
+}
+.item-wrap .item-sidebar {
+  width: 128px;
+}
+
 .daggerheart {
   font-family: "Oswald";
 }
@@ -94,6 +270,41 @@
 .daggerheart hr.black {
   border-color: #000;
 }
+.daggerheart .editor .tox.tox-tinymce {
+  min-height: 200px;
+  background: rgb(217, 216, 214);
+  border: 2px solid rgb(205, 205, 205);
+}
+.daggerheart .editor .tox-sidebar-wrap {
+  padding: 0px 5px;
+}
+.daggerheart .editor .white ~ .tox.tox-tinymce {
+  border: 1px solid white;
+  background: #F3F3F3;
+}
+.daggerheart .editor .h150 ~ .tox.tox-tinymce {
+  min-height: 150px;
+}
+.daggerheart .editor .h180 ~ .tox.tox-tinymce {
+  min-height: 180px;
+}
+.daggerheart .editor .simple ~ .tox.tox-tinymce .tox-toolbar__primary button[aria-label=Formats],
+.daggerheart .editor .simple ~ .tox.tox-tinymce .tox-toolbar__primary button[aria-label="Numbered list"],
+.daggerheart .editor .simple ~ .tox.tox-tinymce .tox-toolbar__primary button[aria-label="Insert/edit image"],
+.daggerheart .editor .simple ~ .tox.tox-tinymce .tox-toolbar__primary button[aria-label=Table],
+.daggerheart .editor .simple ~ .tox.tox-tinymce .tox-toolbar__primary button[aria-label="Horizontal line"],
+.daggerheart .editor .simple ~ .tox.tox-tinymce .tox-toolbar__primary button[aria-label="Insert/edit link"],
+.daggerheart .editor .simple ~ .tox.tox-tinymce .tox-toolbar__primary button[aria-label="Clear formatting"],
+.daggerheart .editor .simple ~ .tox.tox-tinymce .tox-toolbar__primary button[aria-label="Source code"],
+.daggerheart .editor .simple ~ .tox.tox-tinymce .tox-toolbar__primary button[aria-label="Bullet list"] {
+  display: none;
+}
+.daggerheart .editor .simple ~ .tox.tox-tinymce .tox-toolbar__primary button[aria-label=Save] {
+  height: 24px;
+  width: 24px;
+  padding: 0px;
+  margin: 0px;
+}
 .daggerheart .input {
   background: none;
   font-family: "Oswald";
@@ -103,6 +314,10 @@
   padding: 5px;
   border-radius: 3px;
   border: solid 1px #000;
+}
+.daggerheart .input:focus {
+  box-shadow: none;
+  border: solid 1px #38227b;
 }
 .daggerheart .input::placeholder {
   color: rgba(243, 243, 243, 0.5);
@@ -194,7 +409,7 @@
   gap: 5px;
 }
 .daggerheart .layout .header {
-  background-color: #1e184d;
+  background-color: #2B226D;
   color: #fff;
 }
 .daggerheart .button {
@@ -209,6 +424,12 @@
 .daggerheart .button.white:hover {
   background-color: #fff;
   color: #1B1A1A;
+}
+.daggerheart .button.min-width {
+  min-width: 40px;
+}
+.daggerheart .button.center {
+  text-align: center;
 }
 .daggerheart .sidebar {
   display: flex;
@@ -242,8 +463,10 @@
   display: flex;
   gap: 5px;
 }
+.daggerheart .header-title span {
+  cursor: pointer;
+}
 .daggerheart .header-title label {
-  background-color: #38227b;
   padding: 2px 4px;
 }
 .daggerheart .navigation-tab {
@@ -286,24 +509,198 @@
 .daggerheart .inventory-nav .inventory-nav-item.active {
   border-bottom: 1px solid #38227b;
 }
-.daggerheart .inventory-content-normal .character-card {
-  background-color: #e0dede;
-  padding: 5px;
-}
-.daggerheart .inventory-content-normal .character-card-feature {
-  font-size: 10px;
-  letter-spacing: -0.5px;
+.daggerheart .character-card {
+  padding: 0px 5px;
 }
 .daggerheart .character-card-header {
-  background-color: #F3F3F3;
-  padding: 5px;
+  background-color: rgb(217, 216, 214);
+  border: 2px solid rgb(205, 205, 205);
+  color: #F3F3F3;
+  font-size: 12px;
 }
 .daggerheart .character-card-header-name {
   text-transform: uppercase;
+  color: black;
   font-weight: bolder;
+  padding: 5px;
+  min-width: 80px;
 }
 .daggerheart .character-card-header-type {
   text-transform: uppercase;
+  padding: 5px;
+}
+.daggerheart .character-card-feature {
+  font-size: 12px;
+  font-family: "Cabin Condensed", sans-serif;
+}
+.daggerheart .character-card-roll {
+  position: relative;
+  z-index: 100;
+  padding: 3px;
+  transition: 0.2s;
+  color: #1B1A1A;
+}
+.daggerheart .character-card-roll:hover {
+  color: white;
+  background-color: #1B1A1A;
+}
+.daggerheart .character-card-roll .fas.fa-comment {
+  margin-top: -1px;
+}
+.daggerheart .domain-card-roll {
+  position: relative;
+  z-index: 100;
+  padding: 3px;
+  transition: 0.2s;
+}
+.daggerheart .domain-card-roll:hover {
+  color: white;
+  background-color: #1B1A1A;
+}
+.daggerheart .domain-card-roll .fas.fa-comment {
+  margin-top: -1px;
+}
+.daggerheart .domain-card .domain-card-header-name {
+  font-size: 14px;
+}
+.daggerheart .domain-card-level {
+  padding: 0px 5px;
+}
+.daggerheart .domain-card-domain {
+  text-transform: uppercase;
+  padding: 0px 5px;
+  border-radius: 3px;
+}
+.daggerheart .domain-card-name {
+  font-size: 14px;
+  font-weight: bold;
+  padding-bottom: 0px;
+}
+.daggerheart .domain-card-type {
+  font-size: 11px;
+  text-transform: uppercase;
+}
+.daggerheart .domain-card-recall {
+  background-color: #1B1A1A;
+  border: 1px solid #f3c267;
+  color: #F3F3F3;
+  padding: 0px 5px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+}
+.daggerheart .domain-card-recall i.fas.fa-bolt {
+  font-size: 10px;
+  margin-top: 1px;
+}
+.daggerheart .domain-card-feature {
+  font-size: 12px;
+  font-family: "Cabin Condensed", sans-serif;
+}
+.daggerheart .domain-card-meta {
+  background-color: rgb(217, 216, 214);
+  border: 2px solid rgb(205, 205, 205);
+}
+.daggerheart .inventory-tab.active[data-tab=vault_cards] .checkmark {
+  background-color: #4CB944 !important;
+  border: 1px solid #4CB944;
+}
+.daggerheart .inventory-tab.active[data-tab=loadout_cards] .checkmark {
+  background-color: #92140C !important;
+  border: 1px solid #92140C;
+}
+.daggerheart .leveling-tier-options {
+  display: grid;
+  grid: 1fr/1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.daggerheart .leveling-tier-description {
+  text-align: center;
+  font-family: "Cabin Condensed", sans-serif;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+.daggerheart .leveling-tier-level-bonus {
+  font-size: 12px;
+  font-family: "Cabin Condensed", sans-serif;
+}
+.daggerheart .leveling-tier .leveling-option {
+  display: flex;
+  gap: 5px;
+  font-size: 12px;
+  text-align: justify;
+  font-family: "Cabin Condensed", sans-serif;
+  align-items: flex-start;
+}
+.daggerheart .inventory-item {
+  border: 1px solid black;
+  margin: 5px 0px;
+  background-color: rgb(217, 216, 214);
+  border: 2px solid rgb(205, 205, 205);
+}
+.daggerheart .inventory-item.weapon {
+  display: grid;
+  grid: 1fr/40px 2fr 1fr 20px;
+  align-items: center;
+}
+.daggerheart .inventory-item .weapon-name, .daggerheart .inventory-item .item-name {
+  font-size: 16px;
+}
+.daggerheart .inventory-item .weapon-meta, .daggerheart .inventory-item .item-meta {
+  padding-left: 5px;
+}
+.daggerheart .inventory-item .weapon-description, .daggerheart .inventory-item .item-description {
+  font-size: 12px;
+}
+.daggerheart .inventory-item .weapon-image, .daggerheart .inventory-item .item-image {
+  position: relative;
+  cursor: pointer;
+  display: block;
+}
+.daggerheart .inventory-item .weapon-image:after, .daggerheart .inventory-item .item-image:after {
+  content: " ";
+}
+.daggerheart .inventory-item .weapon-ability, .daggerheart .inventory-item .weapon-damage, .daggerheart .inventory-item .item-ability, .daggerheart .inventory-item .item-damage {
+  padding: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.daggerheart .inventory-item .weapon-ability:hover, .daggerheart .inventory-item .weapon-damage:hover, .daggerheart .inventory-item .item-ability:hover, .daggerheart .inventory-item .item-damage:hover {
+  background-color: #1B1A1A;
+  color: #F3F3F3;
+}
+.daggerheart .inventory-item .weapon-status .equip-icon, .daggerheart .inventory-item .item-status .equip-icon {
+  border-radius: 100%;
+  width: 14px;
+  height: 14px;
+  display: block;
+  margin: 0px auto;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.daggerheart .inventory-item .weapon-status .equip-icon.equip, .daggerheart .inventory-item .item-status .equip-icon.equip {
+  background-color: transparent;
+  border: 1px solid #38227b;
+}
+.daggerheart .inventory-item .weapon-status .equip-icon.equip:hover, .daggerheart .inventory-item .item-status .equip-icon.equip:hover {
+  background-color: #38227b;
+}
+.daggerheart .inventory-item .weapon-status .equip-icon.unequip, .daggerheart .inventory-item .item-status .equip-icon.unequip {
+  background-color: #38227b;
+  border: 1px solid #38227b;
+}
+.daggerheart .inventory-item .weapon-status .equip-icon.unequip:hover, .daggerheart .inventory-item .item-status .equip-icon.unequip:hover {
+  border: 1px solid #38227b;
+  background-color: transparent;
+}
+.daggerheart .inventory-item .weapon-options, .daggerheart .inventory-item .item-options {
+  font-size: 12px;
+  font-family: "Cabin Condensed", sans-serif;
+  grid-column: 4 span;
+  background-color: rgba(34, 62, 109, 0.5);
+  color: white;
+  padding: 4px;
 }
 
 /*# sourceMappingURL=daggerheart.css.map */

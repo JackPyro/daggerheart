@@ -1,0 +1,13 @@
+.sheet {
+  .item-sheet {
+    background-color: $cardBG;
+  }
+}
+.item-wrap {
+  padding: 10px;
+  .item {
+    &-sidebar {
+      width: 128px;
+    }
+  }
+}

@@ -28,7 +28,6 @@ const fearColor = {
 const inputHTML = `<input id="vsratii_input" type="number" value="0"/>`;
 
 const formHTML = (actor, ability) => {
-  console.log(ability, actor.system.abilities)
   return `
   <div class="dialog-input-group"> 
     <label for="ability-select">Ability: </label>
@@ -96,7 +95,7 @@ function getDiceDetailsHTML(hopeResult, hopeRemovedResult, fearResult, isAdvanta
   };
 
 
-  const hopeDisadvantageTemplate = (dieResult) => { 
+  const hopeDisadvantageTemplate = (dieResult) => {
     return(
       `
       <div class="duality-dice-msg-die-selected-hope-disadv">
@@ -130,10 +129,10 @@ function getDiceDetailsHTML(hopeResult, hopeRemovedResult, fearResult, isAdvanta
   return htmlString;
 }
 
-const template = 
-  (roll, 
+const template =
+  (roll,
   { isCrit, isHope, isFear, hopeResult, fearResult, prefix, diceDetailsHTML}) => {
-    
+
   const rolls = roll.terms.reduce((acc, item) => {
     if (!item.results) {
       return acc;
@@ -156,7 +155,6 @@ const template =
       } d12">${rollResult.value}</li>`
   );
 
-  console.log(roll);
 
   // Create Die List HTML
   //let dieListHTML = createRollString(rolls, isAdvantage, isDisadvantage);
@@ -278,8 +276,6 @@ const doDHRoll = async (actor, ability, prefix = "") => {
       buttons,
       content: formHTML(actor, ability),
       close: (html, e) => {
-        console.log(e)
-
         return {cancelled: true}
       }
     });
@@ -292,7 +288,7 @@ const doDHRoll = async (actor, ability, prefix = "") => {
     mod: mod + expMod + abilityMod,
   }).evaluate();
 
-  // Get the specific results 
+  // Get the specific results
   const hopeResult = roll.dice[0].results.find(
     (result) => result.active == true
   ).result;
@@ -304,7 +300,7 @@ const doDHRoll = async (actor, ability, prefix = "") => {
       (result) => result.active == false
     ).result;
   }
- 
+
 
   const fearResult = roll.dice[1].results.find(
     (result) => result.active == true
@@ -319,7 +315,6 @@ const doDHRoll = async (actor, ability, prefix = "") => {
   // Dice colors
   //roll.dice[0].options.appearance = hopeColor;
   //roll.dice[1].options.appearance = fearColor;
-  console.log(isCrit, isHope, isFear, hopeResult, fearResult);
   // roll.toMessage({
   //   speaker: ChatMessage.implementation.getSpeaker({actor: actor}),
   //   flavor: isCrit ? "Crit" : isHope ? "Hope Wins" : isFear ? "Fear Wins" : ""

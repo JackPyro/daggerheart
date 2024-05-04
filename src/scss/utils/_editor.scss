@@ -1,0 +1,49 @@
+.editor {
+  .tox.tox-tinymce {
+    min-height: 200px;
+    background: $cardBG;
+    border: 2px solid $cardBorder;
+  }
+
+  .tox-sidebar-wrap {
+    padding: 0px 5px;
+  }
+
+  .white~.tox.tox-tinymce {
+    border: 1px solid white;
+    background: $white;
+  }
+
+  .h150~.tox.tox-tinymce {
+    min-height: 150px;
+  }
+
+  .h180~.tox.tox-tinymce {
+    min-height: 180px;
+  }
+
+  .simple~.tox.tox-tinymce {
+    .tox-toolbar__primary {
+
+      button[aria-label="Formats"],
+      button[aria-label="Numbered list"],
+      button[aria-label="Insert/edit image"],
+      button[aria-label="Table"],
+      button[aria-label="Horizontal line"],
+      button[aria-label="Insert/edit link"],
+      button[aria-label="Clear formatting"],
+      button[aria-label="Source code"],
+      button[aria-label="Bullet list"] {
+        display: none;
+      }
+
+      button[aria-label="Save"] {
+        height: 24px;
+        width: 24px;
+        padding: 0px;
+        margin: 0px;
+      }
+
+    }
+  }
+}

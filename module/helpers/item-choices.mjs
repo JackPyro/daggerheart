@@ -11,8 +11,6 @@ const html = (choices) => {
     `;
   });
 
-  console.log(choicesTemplate);
-
   const template = `
     <div class='choice-dialog-wrap'>
       ${choicesTemplate}
@@ -24,7 +22,6 @@ const html = (choices) => {
 
 const callback = () => {
   const items = $(".choice-dialog-wrap input:checked").toArray().map(item => $(item).val())
-  console.log(items);
   return items;
 };
 const openChoiceMenu = async (item) => {
@@ -37,8 +34,6 @@ const openChoiceMenu = async (item) => {
     },
     content: html(item.system.choiceItems),
   });
-
-  console.log(items);
 
   return items;
 };

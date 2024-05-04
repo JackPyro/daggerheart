@@ -1,1 +1,59 @@
-description tab
+<div class="section">
+  Looks
+</div>
+
+<div class="description-looks grid col-2 gap-5">
+  <div>
+    <label class="label" for="system.looks.clothes">Clothes that are:</label>
+    <input class="input" type="text" name="system.looks.clothes" value="{{system.looks.clothes}}" />
+  </div>
+  <div>
+    <label class="label" for="system.looks.eyes">Eyes like:</label>
+    <input class="input" type="text" name="system.looks.eyes" value="{{system.looks.eyes}}" />
+  </div>
+  <div>
+    <label class="label" for="system.looks.body">Body that's:</label>
+    <input class="input" type="text" name="system.looks.body" value="{{system.looks.body}}" />
+  </div>
+  <div>
+    <label class="label" for="system.looks.skin">The color of:</label>
+    <input class="input" type="text" name="system.looks.skin" value="{{system.looks.skin}}" />
+  </div>
+  <div>
+    <label class="label" for="system.looks.attitude">Attitude like</label>
+    <input class="input" type="text" name="system.looks.attitude" value="{{system.looks.attitude}}" />
+  </div>
+</div>
+
+<div class="section mt-5">
+  Questions
+</div>
+<div class="description-questions">
+  {{#each system.class.questions as |question key|}}
+  <div class="question">
+    <label class="label">{{question.question}}</label>
+    <input class="input" type="text" name="system.class.questions.{{key}}.answer" value="{{question.answer}}" />
+    <input type="hidden" name="system.class.questions.{{key}}.id" value="{{question.id}}" />
+    <input type="hidden" name="system.class.questions.{{key}}.question" value="{{question.question}}" />
+  </div>
+  {{/each}}
+</div>
+<div class="section mt-5">
+  Connections
+</div>
+<div class="description-connections">
+  {{#each system.class.connections as |connections key|}}
+  <div class="connection">
+    <label class="label">{{connections.question}}</label>
+    <input class="input" type="text" name="system.class.connections.{{key}}.answer" value="{{connections.answer}}" />
+    <input type="hidden" name="system.class.connections.{{key}}.id" value="{{connections.id}}" />
+    <input type="hidden" name="system.class.connections.{{key}}.question" value="{{connections.question}}" />
+  </div>
+  {{/each}}
+</div>
+<div class="section mt-5 mb-5">
+  Biography
+</div>
+<div class="description-biography">
+  {{editor system.biography target="system.biography" class="simple" owner=owner}}
+</div>

@@ -1,12 +1,78 @@
 $primary: #38227b;
-$secondary: #1e184d;
-$secondary-alt: #0A0F21;
+$secondary: #2B226D;
+$secondary-alt: #223E6D;
 $border: #f3c267;
 $hyper-white: #fff;
 $white: #F3F3F3;
 $black: #000;
 $darkred: #7f1d1d;
 $gray: #e0dede;
-$danger: #ef4444;
-$success: #22c55e;
+$danger: #92140C;
+$success: #4CB944;
 $dark: #1B1A1A;
+
+$classColor: #9B1D2085;
+$communityColor: #49846785;
+$ancestry: #ffaa3385;
+$subClass: #99463685;
+$cardBG: rgb(217 216 214);
+$cardBorder: rgb(205 205 205);
+
+.class {
+  background-color: $classColor;
+  color: white;
+}
+.community {
+  background-color: $communityColor;
+  color: white;
+}
+
+.ancestry {
+  background-color: $ancestry;
+  color: white;
+}
+
+.arcana {
+  background-color: #4E276A;
+  color: white;
+}
+
+.blade {
+  background-color: #96352C;
+  color: white;
+}
+
+.bone {
+  background-color: #666769;
+  color: white;
+}
+
+.codex {
+  background-color: #1F335F;
+  color: white;
+}
+
+.grace {
+  background-color: #7A3662;
+  color: white;
+}
+
+.midnight {
+  background-color: #333439;
+  color: white;
+}
+
+.sage {
+  background-color: #0C6B41;
+  color: white;
+}
+
+.splendor {
+  background-color: #AF9F40;
+  color: white;
+}
+
+.valor {
+  background-color: #B97A23;
+  color: white;
+}
