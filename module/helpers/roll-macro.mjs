@@ -207,19 +207,18 @@ const buttons = ["Disadvantage", "Normal", "Advantage"].reduce(
 
 // Button "Advantage/Disadvantige/Modifier" callback
 function callback(html, event) {
+  console.log(event);
 
 // Get any roll modifiers
-  // Get Base Modieifer
-  console.log(event)
+  // Get Any user input Mod
   const input = html.find("#mod_input");
 
-  //Get Additional Modifier
-
-  // Get experience Modifier
+  //Get any additional mods (Effects/ other actor applied mods)
 
   // Get Base Ability Mod
   const abilityMod = $("#ability-select option:selected").data('mod');
 
+  // Get experience Modifier
   // const selectValue = $(select.options[select.selectedIndex]).data('mod');
   const expMod = $(".dialog-input-group input:checked")
     .toArray()
