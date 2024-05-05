@@ -95,13 +95,13 @@ function getDiceDetailsHTML(hopeResult, hopeRemovedResult, fearResult, isAdvanta
 
   let htmlString = `<div class="duality-dice-msg-container">`;
   if(hopeResult == fearResult){
-    htmlString = critTemplate(hopeResult) + critTemplate(fearResult);
+    htmlString += critTemplate(hopeResult) + critTemplate(fearResult);
   }else if(isAdvantage && hopeRemovedResult){
-    htmlString = hopeTemplate(hopeRemovedResult) + hopeAdvantageTemplate(hopeResult) + fearTemplate(fearResult);
+    htmlString += hopeTemplate(hopeRemovedResult) + hopeAdvantageTemplate(hopeResult) + fearTemplate(fearResult);
   }else if(isDisadvantage && hopeRemovedResult){
-    htmlString = hopeTemplate(hopeRemovedResult) + hopeDisadvantageTemplate(hopeResult) + fearTemplate(fearResult);
+    htmlString += hopeTemplate(hopeRemovedResult) + hopeDisadvantageTemplate(hopeResult) + fearTemplate(fearResult);
   }else{
-    htmlString = hopeTemplate(hopeResult) + fearTemplate(fearResult);
+    htmlString += hopeTemplate(hopeResult) + fearTemplate(fearResult);
   }
   htmlString += `</div>`;
 
@@ -173,61 +173,7 @@ const template = (roll, { isCrit, isHope, isFear, hopeResult, fearResult, prefix
                           <span class="part-formula">${roll._formula}</span>
                       </header>
                       ${diceDetailsHTML}
-
                       <hr>
-                      <div class="duality-dice-msg-container">
-                        <!-- Disadvantage roll Highlight -->
-                        <div class="duality-dice-msg-die-hope">
-                          <label class="duality-dice-msg-resut-text-hope">10</label>
-                        </div>
-                        <div class="duality-dice-msg-die-selected-hope-disadv">
-                          <label class="duality-dice-msg-resut-text-crit-fail">3</label>
-                        </div>
-                        <div class="duality-dice-msg-die-fear">
-                          <label class="duality-dice-msg-resut-text-fear">6</label>
-                        </div>
-                        <div class="duality-dice-msg-die-spacer">|</div>
-
-                        <!-- Advantage Roll Highlight -->
-                        <div class="duality-dice-msg-die-hope">
-                          <label class="duality-dice-msg-resut-text-hope">3</label>
-                        </div>
-                        <div class="duality-dice-msg-die-selected-hope-adv">
-                          <label class="duality-dice-msg-resut-text-crit-success">10</label>
-                        </div>
-                        <div class="duality-dice-msg-die-fear">
-                          <label class="duality-dice-msg-resut-text-fear">8</label>
-                        </div>
-                        <div class="duality-dice-msg-die-spacer"></div>
-
-                        <!-- Critical Roll (Rolling Doubles)-->
-                        <div class="duality-dice-msg-die-crit-success">
-                          <label class="duality-dice-msg-resut-text-crit-success">3</label>
-                        </div>
-                        <div class="duality-dice-msg-die-crit-success">
-                          <label class="duality-dice-msg-resut-text-crit-success">3</label>
-                        </div>
-                        <div class="duality-dice-msg-die-spacer"></div>
-
-                        <!-- Test Multiple Lines Wrap 
-                        <div class="duality-dice-msg-die-crit-fail">
-                          <label class="duality-dice-msg-resut-text-crit-fail">3</label>
-                        </div>
-                        <div class="duality-dice-msg-die-crit-fail">
-                          <label class="duality-dice-msg-resut-text-crit-fail">3</label>
-                        </div>
-                        <div class="duality-dice-msg-die-crit-fail">
-                          <label class="duality-dice-msg-resut-text-crit-fail">3</label>
-                        </div>
-                        <div class="duality-dice-msg-die-crit-fail">
-                          <label class="duality-dice-msg-resut-text-crit-fail">3</label>
-                        </div>
-                        <div class="duality-dice-msg-die-crit-fail">
-                          <label class="duality-dice-msg-resut-text-crit-fail">3</label>
-                        </div>
-                        -->
-                      </div>
-
                   </div>
               </section>
           </div>
