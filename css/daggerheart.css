@@ -1630,7 +1630,7 @@
   width: 25px;
   height: 25px;
   margin: 1%;
-  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-hope-disabled.svg");
+  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-hope.svg");
   border: 1px solid rgb(94, 54, 54);
   background-color: #9e5353;
   border-radius: 25%;
@@ -1640,6 +1640,13 @@
 }
 
 .duality-dice-msg-die-selected-hope-adv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  margin: 1%;
+  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-hope.svg");
   border: 1px solid rgb(50, 86, 53);
   background-color: #4f9150;
   border-radius: 25%;

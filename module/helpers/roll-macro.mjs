@@ -56,15 +56,6 @@ function getDiceDetailsHTML(hopeResult, hopeRemovedResult, fearResult, isAdvanta
       `
     )};
 
-  const hopeSelectedTemplate = (dieResult) => {
-    return(
-      `
-      <div class="duality-dice-msg-die-hope duality-dice-msg-die-highlight-hope">
-        <label class="duality-dice-msg-resut-text-hope">${dieResult}</label>
-      </div>
-      `)
-  };
-
   const fearTemplate = (dieResult) => {
     return(
       `
@@ -72,13 +63,23 @@ function getDiceDetailsHTML(hopeResult, hopeRemovedResult, fearResult, isAdvanta
         <label class="duality-dice-msg-resut-text-fear">${dieResult}</label>
       </div>
       `)
-  };
+    };
 
-  const fearSelectedTemplate = (dieResult) => { 
+  const hopeAdvantageTemplate = (dieResult) => {
     return(
       `
-      <div class="duality-dice-msg-die-fear duality-dice-msg-die-highlight-fear">
-        <label class="duality-dice-msg-resut-text-fear">${dieResult}</label>
+      <div class="duality-dice-msg-die-selected-hope-adv">
+        <label class="duality-dice-msg-resut-text-crit-success">${dieResult}</label>
+      </div>
+      `)
+  };
+
+
+  const hopeDisadvantageTemplate = (dieResult) => { 
+    return(
+      `
+      <div class="duality-dice-msg-die-selected-hope-disadv">
+        <label class="duality-dice-msg-resut-text-crit-fail">${dieResult}</label>
       </div>
       `)
   };
@@ -173,23 +174,23 @@ const template = (roll, { isCrit, isHope, isFear, hopeResult, fearResult, prefix
                       <hr>
                       <div class="duality-dice-msg-container">
                         <!-- Disadvantage roll Highlight -->
-                        <div class="duality-dice-msg-die-fear">
-                          <label class="duality-dice-msg-resut-text-fear">8</label>
-                        </div>
-                        <div class="duality-dice-msg-die-fear duality-dice-msg-die-highlight-fear">
-                          <label class="duality-dice-msg-resut-text-fear">8</label>
-                        </div>
                         <div class="duality-dice-msg-die-hope">
                           <label class="duality-dice-msg-resut-text-hope">10</label>
+                        </div>
+                        <div class="duality-dice-msg-die-selected-hope-disadv">
+                          <label class="duality-dice-msg-resut-text-crit-fail">3</label>
+                        </div>
+                        <div class="duality-dice-msg-die-fear">
+                          <label class="duality-dice-msg-resut-text-fear">6</label>
                         </div>
                         <div class="duality-dice-msg-die-spacer">|</div>
 
                         <!-- Advantage Roll Highlight -->
-                        <div class="duality-dice-msg-die-disabled-hope">
+                        <div class="duality-dice-msg-die-hope">
                           <label class="duality-dice-msg-resut-text-hope">3</label>
                         </div>
-                        <div class="duality-dice-msg-die-hope duality-dice-msg-die-highlight-hope">
-                          <label class="duality-dice-msg-resut-text-hope">10</label>
+                        <div class="duality-dice-msg-die-selected-hope-adv">
+                          <label class="duality-dice-msg-resut-text-crit-success">10</label>
                         </div>
                         <div class="duality-dice-msg-die-fear">
                           <label class="duality-dice-msg-resut-text-fear">8</label>
