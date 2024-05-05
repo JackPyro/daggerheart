@@ -57,8 +57,17 @@ const formHTML = (actor, ability) => {
 `;
 };
 
-
+/**
+ * Create HTML of dice details (row of any d12's rolled and their result)
+ * @param {int} hopeResult - result of currently selected hope die
+ * @param {int} hopeRemovedResult - result of discarded hope die (discarded from adv or disadv)
+ * @param {int} fearResult - result of fear die
+ * @param {boolean} isAdvantage - did we roll with advantage?
+ * @param {boolean} isDisadvantage - did we roll with disadvantage?
+ * @returns {String} - HTML strig of every Duality die with css in a row flexbox
+ */
 function getDiceDetailsHTML(hopeResult, hopeRemovedResult, fearResult, isAdvantage, isDisadvantage) {
+  /* Create HTML templates for each roll type [hope, fear, hope Advantage, hope disadvantage, critical] */
   const hopeTemplate = (dieResult) => {
     return(
       `
@@ -105,6 +114,7 @@ function getDiceDetailsHTML(hopeResult, hopeRemovedResult, fearResult, isAdvanta
     `)
   };
 
+  /* Create the html string */
   let htmlString = `<div class="duality-dice-msg-container">`;
   if(hopeResult == fearResult){
     htmlString += critTemplate(hopeResult) + critTemplate(fearResult);
@@ -120,7 +130,10 @@ function getDiceDetailsHTML(hopeResult, hopeRemovedResult, fearResult, isAdvanta
   return htmlString;
 }
 
-const template = (roll, { isCrit, isHope, isFear, hopeResult, fearResult, prefix, diceDetailsHTML}) => {
+const template = 
+  (roll, 
+  { isCrit, isHope, isFear, hopeResult, fearResult, prefix, diceDetailsHTML}) => {
+    
   const rolls = roll.terms.reduce((acc, item) => {
     if (!item.results) {
       return acc;
