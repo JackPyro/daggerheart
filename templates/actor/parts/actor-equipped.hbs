@@ -22,7 +22,7 @@
         </div>
         <div class="weapon-attributes">
           {{#if (eq item.type "weapon")}}
-          <div data-type="{{item.abilityScore}}" class="weapon-main-ability"> {{item.abilityScorePrefix}}{{item.abilityScore}}
+          <div data-type="{{item.system.trait}}" class="weapon-main-ability"> {{item.abilityScorePrefix}}{{item.abilityScore}}
             {{item.system.trait}}</div>
           <div data-id="{{item._id}}" class="weapon-main-damage"> {{item.system.damage}} {{item.system.type}}</div>
           {{/if}}

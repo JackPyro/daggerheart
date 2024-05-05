@@ -81,8 +81,64 @@
 
 .daggerheart-ui-hand {
   width: 100% !important;
+  margin-bottom: -5px;
+  z-index: 1;
+  display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
+  background: transparentize($color: $dark-start, $amount: 0.5);
+
+  .open-actor-sheet {
+    padding: 0.5em;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .hand-roll {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0.5em;
+    color: white;
+    background-color: transparent;
+    border: 2px solid $border;
+    cursor: pointer;
+    border-radius: 0.5em;
+    transition: 0.2s;
+
+    &:hover {
+
+      background-color: $dark-start;
+    }
+
+    .fear-die {
+      color: $rose;
+    }
+
+    label {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-family: "Oswald";
+      cursor: pointer;
+    }
+  }
+
+  .ui-rolls {
+    background: transparentize($color: $tabactive, $amount: 0.5);
+    color: white;
+    position: sticky;
+    left: 0px;
+    z-index: 20;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  .ui-card:hover .ui-card-body {
+    transform: rotateY(180deg);
+    transition: transform 0.5s;
+  }
 
   .ui-cards {
     width: max-content !important;
@@ -95,14 +151,9 @@
     display: flex;
     flex-direction: column;
     width: 150px;
-    background-color: white;
 
     margin: 0.5em;
     border-radius: 0.5em;
-
-    &:hover .ui-card-tooltip {
-      visibility: visible;
-    }
 
     &-image {
       height: 50px;
@@ -112,21 +163,40 @@
       border-radius: 0.5em 0.5em 0 0;
     }
 
-    &-body {}
+    &-body {
+      position: relative;
+      border-radius: 0.5em 0.5em 0 0;
+      transition: transform 1s;
+      transform-style: preserve-3d;
 
-    &-tooltip {
-      cursor: pointer;
-      visibility: hidden;
-      position: absolute;
-      height: 100%;
-      padding: 0.5em;
-      width: 100%;
-      overflow: scroll;
-      top: 0;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.7);
-      color: white;
+      .card-front,
+      .card-back {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border-radius: 0.5em 0.5em 0 0;
+      }
+
+      .card-front {
+
+        backface-visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 155px;
+      }
+
+      .card-back {
+        background-color: white;
+        height: 155px;
+        backface-visibility: hidden;
+        transform: rotateY(180deg);
+        padding: 0.25em;
+        overflow-x: scroll;
+        font-size: 12px;
+      }
     }
+
+
 
     &-name {
       background-color: $slate;
@@ -246,7 +316,9 @@
     display: block;
   }
 
-  input, textarea, select {
+  input,
+  textarea,
+  select {
     border: 1px solid $input-border;
     background-color: $input-bg;
 
@@ -273,6 +345,14 @@
     }
   }
 
+  .edit-mode-on {
+    color: $green
+  }
+
+  .edit-mode-off {
+    color: $rose
+  }
+
   .short-input {
     width: 30%;
     text-align: center;
@@ -289,6 +369,10 @@
       background-color: $rose;
       color: $white;
     }
+  }
+
+  .editor-content {
+    margin-right: 3em;
   }
 
   .char-sheet-description {
@@ -767,6 +851,8 @@
 }
 
 .dialog-input-group {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 0.5em;
 
   .dialog-input {

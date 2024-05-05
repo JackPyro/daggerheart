@@ -46,6 +46,10 @@ export default class DaggerHeartCharacter extends DaggerHeartActorBase {
         required: true,
         initial: "",
       }),
+      img: new fields.StringField({
+        required: true,
+        initial: "",
+      }),
       feature: new fields.StringField({
         required: true,
         initial: "",
@@ -58,6 +62,10 @@ export default class DaggerHeartCharacter extends DaggerHeartActorBase {
 
     schema.community = new fields.SchemaField({
       name: new fields.StringField({
+        required: true,
+        initial: "",
+      }),
+      img: new fields.StringField({
         required: true,
         initial: "",
       }),
@@ -100,7 +108,7 @@ export default class DaggerHeartCharacter extends DaggerHeartActorBase {
         obj[ability] = new fields.SchemaField({
           value: new fields.NumberField({
             ...requiredInteger,
-            initial: 10,
+            initial: 0,
             min: -5,
           }),
           label: new fields.StringField({ required: true, blank: true }),

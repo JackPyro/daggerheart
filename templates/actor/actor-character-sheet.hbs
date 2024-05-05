@@ -77,8 +77,8 @@
             {{#each system.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
               <input type="checkbox" name="system.abilities.{{key}}.checked" {{checked ability.checked}} />
-              <label for="system.abilities.{{key}}.value" data-type="{{ability.value}}"
-                class="resource-label time-to-roll align-left" data-roll="d20+@abilities.{{key}}.mod"
+              <label for="system.abilities.{{key}}.value" data-type="{{key}}"
+                class="resource-label time-to-roll align-left"
                 data-label="{{ability.label}}">{{ability.label}}</label>
               <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
 

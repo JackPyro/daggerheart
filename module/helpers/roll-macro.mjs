@@ -27,8 +27,20 @@ const fearColor = {
 
 const inputHTML = `<input id="vsratii_input" type="number" value="0"/>`;
 
-const formHTML = (actor) => {
+const formHTML = (actor, ability) => {
+  console.log(ability, actor.system.abilities)
   return `
+  <div class="dialog-input-group"> 
+    <label for="ability-select">Ability: </label>
+    <select id="ability-select" type="number" value="${ability}">
+      ${Object.keys(actor.system.abilities).map(
+        (key) =>
+          `<option ${key === ability ? "selected=true" : ""}value="${key}" data-mod="${actor.system.abilities[key].value}">${
+            actor.system.abilities[key].label
+          }</option>`
+      ).join('')};
+    </select>
+  </div>
   <div class='dialog-input-group'>
     <label for="mod_input">Additional Mod</label>
     <input id="mod_input" type="number">
@@ -131,7 +143,7 @@ const template = (roll, { isCrit, isHope, isFear, hopeResult, fearResult, prefix
       } d12">${rollResult.value}</li>`
   );
 
-  console.log(roll)
+  console.log(roll);
 
   // Create Die List HTML
   //let dieListHTML = createRollString(rolls, isAdvantage, isDisadvantage);
@@ -144,7 +156,9 @@ const template = (roll, { isCrit, isHope, isFear, hopeResult, fearResult, prefix
             <div class="daggerheart-roll-header">
              <div class="action-type">
               ${prefix ? prefix : "Ability Roll"} 
-              ${roll.data.mod >= 0 ? "+" : "-"}${roll.data.mod ? roll.data.mod : ""}
+              ${roll.data.mod >= 0 ? "+" : "-"}${
+    roll.data.mod ? roll.data.mod : ""
+  }
              </div>
              <div class='winner'>
               ${isCrit ? `WITH CRIT` : ""}
@@ -196,11 +210,17 @@ function callback(html, event) {
 
 // Get any roll modifiers
   // Get Base Modieifer
+  console.log(event)
   const input = html.find("#mod_input");
 
   //Get Additional Modifier
 
   // Get experience Modifier
+
+  // Get Base Ability Mod
+  const abilityMod = $("#ability-select option:selected").data('mod');
+
+  // const selectValue = $(select.options[select.selectedIndex]).data('mod');
   const expMod = $(".dialog-input-group input:checked")
     .toArray()
     .reduce((acc, item) => {
@@ -224,6 +244,7 @@ function callback(html, event) {
     isDisadvantage: false,
     mod: mod,
     expMod: expMod,
+    abilityMod
   };
   const action = event.currentTarget.dataset.button;
   if (action === "Advantage") {
@@ -238,18 +259,23 @@ function callback(html, event) {
   return result;
 }
 
-// Define rolls (Button gets pressed to create a Duality Dice roll, Call this fn) 
-const doDHRoll = async (actor, abilityMod, prefix = '') => {
-
-  // Create Popup Dialogue and get user inputs (Experience's, Advantage disadvantage)
-  const { hope, expMod, fear, isAdvantage, isDisadvantage, mod } =
+// Define rolls
+const doDHRoll = async (actor, ability, prefix = "") => {
+  const { hope, expMod, fear, abilityMod, isAdvantage, isDisadvantage, mod, cancelled } =
     await Dialog.wait({
       buttons,
-      content: formHTML(actor),
-    });
-  console.log(mod, expMod, abilityMod);
+      content: formHTML(actor, ability),
+      close: (html, e) => {
+        console.log(e)
 
-  // Do the roll
+        return {cancelled: true}
+      }
+    });
+
+  if(cancelled) {
+    return;
+  }
+
   const roll = await new Roll(`${hope.formula} + ${fear.formula} + @mod`, {
     mod: mod + expMod + abilityMod,
   }).evaluate();

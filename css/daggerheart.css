@@ -1,47 +1,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
 .arcana {
-  background-color: #4E276A;
+  background-color: #4E276A !important;
   color: white;
 }
 
 .blade {
-  background-color: #96352C;
+  background-color: #96352C !important;
   color: white;
 }
 
 .bone {
-  background-color: #666769;
+  background-color: #666769 !important;
   color: white;
 }
 
 .codex {
-  background-color: #1F335F;
+  background-color: #1F335F !important;
   color: white;
 }
 
 .grace {
-  background-color: #7A3662;
+  background-color: #7A3662 !important;
   color: white;
 }
 
 .midnight {
-  background-color: #333439;
+  background-color: #333439 !important;
   color: white;
 }
 
 .sage {
-  background-color: #0C6B41;
+  background-color: #0C6B41 !important;
   color: white;
 }
 
 .splendor {
-  background-color: #AF9F40;
+  background-color: #AF9F40 !important;
   color: white;
 }
 
 .valor {
-  background-color: #B97A23;
+  background-color: #B97A23 !important;
   color: white;
 }
 
@@ -306,8 +306,56 @@
 
 .daggerheart-ui-hand {
   width: 100% !important;
+  margin-bottom: -5px;
+  z-index: 1;
+  display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
+  background: rgba(27, 26, 26, 0.5);
+}
+.daggerheart-ui-hand .open-actor-sheet {
+  padding: 0.5em;
+  text-align: center;
+  cursor: pointer;
+}
+.daggerheart-ui-hand .hand-roll {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0.5em;
+  color: white;
+  background-color: transparent;
+  border: 2px solid #F1C770;
+  cursor: pointer;
+  border-radius: 0.5em;
+  transition: 0.2s;
+}
+.daggerheart-ui-hand .hand-roll:hover {
+  background-color: #1B1A1A;
+}
+.daggerheart-ui-hand .hand-roll .fear-die {
+  color: #f43f5e;
+}
+.daggerheart-ui-hand .hand-roll label {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: "Oswald";
+  cursor: pointer;
+}
+.daggerheart-ui-hand .ui-rolls {
+  background: rgba(54, 33, 120, 0.5);
+  color: white;
+  position: sticky;
+  left: 0px;
+  z-index: 20;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.daggerheart-ui-hand .ui-card:hover .ui-card-body {
+  transform: rotateY(180deg);
+  transition: transform 0.5s;
 }
 .daggerheart-ui-hand .ui-cards {
   width: max-content !important;
@@ -319,12 +367,8 @@
   display: flex;
   flex-direction: column;
   width: 150px;
-  background-color: white;
   margin: 0.5em;
   border-radius: 0.5em;
-}
-.daggerheart-ui-hand .ui-card:hover .ui-card-tooltip {
-  visibility: visible;
 }
 .daggerheart-ui-hand .ui-card-image {
   height: 50px;
@@ -333,18 +377,33 @@
   object-position: 25% 35%;
   border-radius: 0.5em 0.5em 0 0;
 }
-.daggerheart-ui-hand .ui-card-tooltip {
-  cursor: pointer;
-  visibility: hidden;
+.daggerheart-ui-hand .ui-card-body {
+  position: relative;
+  border-radius: 0.5em 0.5em 0 0;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+.daggerheart-ui-hand .ui-card-body .card-front,
+.daggerheart-ui-hand .ui-card-body .card-back {
   position: absolute;
   height: 100%;
-  padding: 0.5em;
   width: 100%;
-  overflow: scroll;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
+  border-radius: 0.5em 0.5em 0 0;
+}
+.daggerheart-ui-hand .ui-card-body .card-front {
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 155px;
+}
+.daggerheart-ui-hand .ui-card-body .card-back {
+  background-color: white;
+  height: 155px;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  padding: 0.25em;
+  overflow-x: scroll;
+  font-size: 12px;
 }
 .daggerheart-ui-hand .ui-card-name {
   background-color: #334155;
@@ -1115,11 +1174,15 @@
 .daggerheart .accordion-content.active {
   display: block;
 }
-.daggerheart input, .daggerheart textarea, .daggerheart select {
+.daggerheart input,
+.daggerheart textarea,
+.daggerheart select {
   border: 1px solid #d1d5db;
   background-color: #f3f4f6;
 }
-.daggerheart input:focus, .daggerheart textarea:focus, .daggerheart select:focus {
+.daggerheart input:focus,
+.daggerheart textarea:focus,
+.daggerheart select:focus {
   box-shadow: 0 0 0px 1px #6b7280 !important;
 }
 .daggerheart .time-to-roll {
@@ -1138,6 +1201,12 @@
 .daggerheart .time-to-roll:hover {
   background: #383838;
 }
+.daggerheart .edit-mode-on {
+  color: #3f6212;
+}
+.daggerheart .edit-mode-off {
+  color: #f43f5e;
+}
 .daggerheart .short-input {
   width: 30%;
   text-align: center;
@@ -1152,6 +1221,9 @@
 .daggerheart .side-label.rose {
   background-color: #f43f5e;
   color: #fff;
+}
+.daggerheart .editor-content {
+  margin-right: 3em;
 }
 .daggerheart .char-sheet-description .editor {
   height: 230px !important;
@@ -1569,6 +1641,8 @@
 }
 
 .dialog-input-group {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 0.5em;
 }
 .dialog-input-group .dialog-input {

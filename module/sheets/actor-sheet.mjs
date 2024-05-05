@@ -87,6 +87,7 @@ export class DaggerHeartActorSheet extends ActorSheet {
         ) {
           this.actor.update({
             "system.community.name": itemData.name,
+            "system.community.img": itemData.img,
             "system.community.feature": itemData.system.feature,
             "system.community.description": itemData.system.description,
           });
@@ -99,6 +100,7 @@ export class DaggerHeartActorSheet extends ActorSheet {
         ) {
           this.actor.update({
             "system.ancestry.name": itemData.name,
+            "system.ancestry.img": itemData.img,
             "system.ancestry.feature": itemData.system.feature,
             "system.ancestry.description": itemData.system.description,
           });
@@ -288,6 +290,8 @@ export class DaggerHeartActorSheet extends ActorSheet {
         i.system.active ? active_loadout.push(i) : vault.push(i);
       }
     }
+
+    console.log(this.actor.img)
     // Assign and return
     context.gear = gear;
     context.features = features;
@@ -465,6 +469,7 @@ export class DaggerHeartActorSheet extends ActorSheet {
 
     html.on("click", ".time-to-roll", (ev) => {
       const type = $(ev.currentTarget).data("type");
+   
       const label = $(ev.currentTarget).data("label");
       return doDHRoll(this.actor, type, `${label} roll`);
     });

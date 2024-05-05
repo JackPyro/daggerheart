@@ -6,6 +6,10 @@ export default class DaggerHeartArmor extends foundry.abstract.TypeDataModel {
     schema.score = new fields.NumberField({
       initial: 0
     });
+    
+    schema.tier = new fields.NumberField({
+      initial: 0
+    });
 
     schema.feature = new fields.StringField({
       blank: true,

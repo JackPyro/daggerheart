@@ -16,6 +16,7 @@ export default class DaggerHeartDomain extends foundry.abstract.TypeDataModel {
     });
 
     schema.recall = new fields.NumberField({ initial: 0, integer: true });
+    schema.level = new fields.NumberField({ initial: 0, integer: true });
 
     schema.active = new fields.BooleanField({ initial: false });
 

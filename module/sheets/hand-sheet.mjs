@@ -1,3 +1,4 @@
+import doDHRoll from "../helpers/roll-macro.mjs";
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -82,6 +83,13 @@ export class DaggerHeartHandSheet extends ActorSheet {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
+    html.on("click", ".hand-roll", () => {
+      return doDHRoll(this.actor, "agi", `Ability roll`);
+    })
+
+    html.on("click", ".open-actor-sheet", () => {
+      this.actor.sheet.render(true)
+    })
     html.on("click", ".ui-card-tooltip", async (ev) => {
       const el = $(ev.currentTarget)
 
