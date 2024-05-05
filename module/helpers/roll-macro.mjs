@@ -93,17 +93,22 @@ function getDiceDetailsHTML(hopeResult, hopeRemovedResult, fearResult, isAdvanta
     `)
   };
 
-  
-  if(isAdvantage){
-
-  }else if(isDisadvantage){
-    
+  let htmlString = `<div class="duality-dice-msg-container">`;
+  if(hopeResult == fearResult){
+    htmlString = critTemplate(hopeResult) + critTemplate(fearResult);
+  }else if(isAdvantage && hopeRemovedResult){
+    htmlString = hopeTemplate(hopeRemovedResult) + hopeAdvantageTemplate(hopeResult) + fearTemplate(fearResult);
+  }else if(isDisadvantage && hopeRemovedResult){
+    htmlString = hopeTemplate(hopeRemovedResult) + hopeDisadvantageTemplate(hopeResult) + fearTemplate(fearResult);
   }else{
-
+    htmlString = hopeTemplate(hopeResult) + fearTemplate(fearResult);
   }
+  htmlString += `</div>`;
+
+  return htmlString;
 }
 
-const template = (roll, { isCrit, isHope, isFear, hopeResult, fearResult, prefix }) => {
+const template = (roll, { isCrit, isHope, isFear, hopeResult, fearResult, prefix, diceDetailsHTML}) => {
   const rolls = roll.terms.reduce((acc, item) => {
     if (!item.results) {
       return acc;
@@ -167,9 +172,7 @@ const template = (roll, { isCrit, isHope, isFear, hopeResult, fearResult, prefix
                       <header class="part-header flexrow">
                           <span class="part-formula">${roll._formula}</span>
                       </header>
-                      <ol class="dice-rolls">
-                        ${list}
-                      </ol>
+                      ${diceDetailsHTML}
 
                       <hr>
                       <div class="duality-dice-msg-container">
@@ -323,7 +326,7 @@ const doDHRoll = async (actor, abilityMod, prefix = '') => {
     (result) => result.active == true
   ).result;
 
-  //let diceDetailsHTML = getDiceDetailsHTML(hopeResult, hopeRemovedResult, fearResult, isAdvantage, isDisadvantage);
+  let diceDetailsHTML = getDiceDetailsHTML(hopeResult, hopeRemovedResult, fearResult, isAdvantage, isDisadvantage);
 
   const isCrit = hopeResult == fearResult;
   const isHope = hopeResult > fearResult;
@@ -352,6 +355,7 @@ const doDHRoll = async (actor, abilityMod, prefix = '') => {
       isDisadvantage,
       hopeResult,
       fearResult,
+      diceDetailsHTML
     }),
     speaker: ChatMessage.implementation.getSpeaker({ actor: actor }),
   });
