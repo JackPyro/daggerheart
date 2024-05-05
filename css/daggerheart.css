@@ -1623,20 +1623,29 @@
   background-image: url("/systems/daggerheart/assets/svgs/d12-solid-hope.svg");
 }
 
-.duality-dice-msg-die-highlight-fear{
-  border: 1px solid red;
+.duality-dice-msg-die-selected-hope-disadv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  margin: 1%;
+  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-hope-disabled.svg");
+  border: 1px solid rgb(94, 54, 54);
+  background-color: #9e5353;
   border-radius: 25%;
   padding: 1%;
-  width: 26px;
-  height: 26px;
+  width: 25px;
+  height: 25px;
 }
 
-.duality-dice-msg-die-highlight-hope{
-  border: 1px solid rgb(47, 135, 25);
+.duality-dice-msg-die-selected-hope-adv{
+  border: 1px solid rgb(50, 86, 53);
+  background-color: #4f9150;
   border-radius: 25%;
   padding: 1%;
-  width: 26px;
-  height: 26px;
+  width: 25px;
+  height: 25px;
 }
 
 .duality-dice-msg-die-crit-success {

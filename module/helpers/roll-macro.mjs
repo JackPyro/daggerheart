@@ -128,7 +128,7 @@ const template = (roll, { isCrit, isHope, isFear, hopeResult, fearResult, prefix
   console.log(roll)
 
   // Create Die List HTML
-  let dieListHTML = createRollString(rolls, isAdvantage, isDisadvantage);
+  //let dieListHTML = createRollString(rolls, isAdvantage, isDisadvantage);
 
   return `
   
@@ -185,8 +185,8 @@ const template = (roll, { isCrit, isHope, isFear, hopeResult, fearResult, prefix
                         <div class="duality-dice-msg-die-spacer">|</div>
 
                         <!-- Advantage Roll Highlight -->
-                        <div class="duality-dice-msg-die-hope">
-                          <label class="duality-dice-msg-resut-text-hope">6</label>
+                        <div class="duality-dice-msg-die-disabled-hope">
+                          <label class="duality-dice-msg-resut-text-hope">3</label>
                         </div>
                         <div class="duality-dice-msg-die-hope duality-dice-msg-die-highlight-hope">
                           <label class="duality-dice-msg-resut-text-hope">10</label>
@@ -206,9 +206,6 @@ const template = (roll, { isCrit, isHope, isFear, hopeResult, fearResult, prefix
                         <div class="duality-dice-msg-die-spacer"></div>
 
                         <!-- Test Multiple Lines Wrap 
-                        <div class="duality-dice-msg-die-crit-fail">
-                          <label class="duality-dice-msg-resut-text-crit-fail">3</label>
-                        </div>
                         <div class="duality-dice-msg-die-crit-fail">
                           <label class="duality-dice-msg-resut-text-crit-fail">3</label>
                         </div>
@@ -313,15 +310,19 @@ const doDHRoll = async (actor, abilityMod, prefix = '') => {
   ).result;
 
   // Get unused result from advantage / disadvantage roll
-  const hopeRemovedResult = roll.dice[0].results.find(
-    (result) => result.active == false
-  ).result;
+  let hopeRemovedResult = null;
+  if(isAdvantage || isDisadvantage){
+    hopeRemovedResult = roll.dice[0].results.find(
+      (result) => result.active == false
+    ).result;
+  }
+ 
 
   const fearResult = roll.dice[1].results.find(
     (result) => result.active == true
   ).result;
 
-  let diceDetailsHTML = getDiceDetailsHTML(hopeResult, hopeRemovedResult, fearResult, isAdvantage, isDisadvantage);
+  //let diceDetailsHTML = getDiceDetailsHTML(hopeResult, hopeRemovedResult, fearResult, isAdvantage, isDisadvantage);
 
   const isCrit = hopeResult == fearResult;
   const isHope = hopeResult > fearResult;
