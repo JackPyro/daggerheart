@@ -1555,13 +1555,17 @@
 }
 
 .hope-result {
+  background: white !important;
+  color: #18181b !important;
   border-radius: 100% !important;
-  
+  background-image: none !important;
 }
 
 .fear-result {
+  background: #18181b !important;
+  color: white !important;
   border-radius: 100% !important;
-  
+  background-image: none !important;
 }
 
 .dialog-input-group {
