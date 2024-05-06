@@ -1,4 +1,3 @@
-import DaggerHeartFeature from '../../data/feature.mjs'
 import {
   onManageActiveEffect,
   prepareActiveEffectCategories,

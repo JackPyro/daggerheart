@@ -1,14 +1,11 @@
-import doGMRoll from '../../helpers/adversary-roll.mjs'
 import { DAGGERHEART } from '../../helpers/config.mjs'
 import {
-  onManageActiveEffect,
   prepareActiveEffectCategories,
 } from '../../helpers/effects.mjs'
 import openChoiceMenu from '../../helpers/item-choices.mjs'
 import doDHRoll from '../../helpers/roll-macro.mjs'
 import { DaggerHeartHandSheet } from '../hand-sheet.mjs'
 
-// tabs.bind(window);
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}

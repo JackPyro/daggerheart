@@ -34,6 +34,4 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/daggerheart/templates/actor/parts/character-equipable.hbs',
     'systems/daggerheart/templates/actor/parts/character-item.hbs',
   ]);
-
-  return;
 };
