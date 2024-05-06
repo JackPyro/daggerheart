@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cabin+Condensed:wght@400;500;600;700&display=swap");
 .text-bold {
-  font-size: bold;
+  font-weight: bold;
 }
 
 .label {
@@ -406,6 +406,29 @@ textarea.input {
 }
 .button.center {
   text-align: center;
+}
+
+.dialog-input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+}
+.dialog-input-group .dialog-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dialog-input-group .dialog-input .dialog-input-name {
+  flex-grow: 1;
+  font-weight: bold;
+}
+.dialog-input-group .dialog-input .dialog-input-mod {
+  background: #38227b !important;
+  padding: 0.25em;
+  width: 8%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
 }
 
 .daggerheart {
