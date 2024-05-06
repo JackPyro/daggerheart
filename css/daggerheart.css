@@ -1664,3 +1664,133 @@
 }
 
 /*# sourceMappingURL=daggerheart.css.map */
+
+/* WOJO Test */
+.duality-dice-msg-container {
+  display: flex;
+  width: 100%;
+}
+
+.duality-dice-msg-die-spacer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-weight: bolder;
+  font-size: x-large;
+  text-align: top;
+  flex-grow: 1;
+}
+
+.duality-dice-msg-die-fear{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  margin: 1%;
+  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-fear.svg");
+}
+
+.duality-dice-msg-die-hope {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  margin: 1%;
+  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-hope.svg");
+}
+
+.duality-dice-msg-die-selected-hope-disadv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  margin: 1%;
+  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-hope.svg");
+  border: 1px solid rgb(94, 54, 54);
+  background-color: #9e5353;
+  border-radius: 25%;
+  padding: 1%;
+  width: 25px;
+  height: 25px;
+}
+
+.duality-dice-msg-die-selected-hope-adv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  margin: 1%;
+  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-hope.svg");
+  border: 1px solid rgb(50, 86, 53);
+  background-color: #4f9150;
+  border-radius: 25%;
+  padding: 1%;
+  width: 25px;
+  height: 25px;
+}
+
+.duality-dice-msg-die-crit-success {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  margin: 1%;
+  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-crit-success.svg");
+}
+
+.duality-dice-msg-die-crit-fail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  margin: 1%;
+  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-crit-fail.svg");
+}
+
+.duality-dice-msg-resut-text-fear {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: yellow;
+  text-align: center;
+  font-weight: bolder;
+  font-size: medium;
+  text-shadow: 1cm;
+  color:rgb(39, 39, 39);
+}
+
+.duality-dice-msg-resut-text-hope {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  text-align: center;
+  font-weight: bolder;
+  font-size: medium;
+  text-shadow: 1cm;
+  color: rgb(106, 106, 106);
+}
+
+.duality-dice-msg-resut-text-crit-success {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  text-align: center;
+  font-weight: bolder;
+  font-size: medium;
+  text-shadow: 1cm;
+  color: rgb(18, 111, 0);
+}
+
+.duality-dice-msg-resut-text-crit-fail {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(112, 0, 0);
+  text-align: center;
+  font-weight: bolder;
+  font-size: medium;
+  text-shadow: 1cm;
+  color: red;
+}
+
+
