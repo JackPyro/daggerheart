@@ -1,0 +1,25 @@
+.dialog-input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+
+  .dialog-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .dialog-input-name {
+      flex-grow: 1;
+      font-weight: bold;
+    }
+
+    .dialog-input-mod {
+      background: $primary !important;
+      padding: 0.25em;
+      width: 8%;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+    }
+  }
+}

@@ -408,6 +408,91 @@ textarea.input {
   text-align: center;
 }
 
+.daggerheart-dice-roll {
+  font-family: "Oswald", sans-serif;
+  display: grid;
+  grid: 1fr/1fr;
+  align-items: center;
+  justify-items: center;
+  margin: 0px auto;
+  text-align: center;
+}
+.daggerheart-dice-roll .normal-dice-roll {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.daggerheart-dice-roll .hope-roll {
+  background-color: #e4e4e7;
+  color: #18181b;
+}
+.daggerheart-dice-roll .fear-roll {
+  color: #e4e4e7;
+  background-color: #18181b;
+}
+.daggerheart-dice-roll .hope-roll,
+.daggerheart-dice-roll .fear-roll {
+  font-size: 2em;
+  font-weight: 900;
+}
+.daggerheart-dice-roll .total-roll {
+  font-size: 3em;
+  font-weight: 900;
+}
+
+.hope-result {
+  background: white !important;
+  color: #18181b !important;
+  border-radius: 100% !important;
+  background-image: none !important;
+}
+
+.fear-result {
+  background: #18181b !important;
+  color: white !important;
+  border-radius: 100% !important;
+  background-image: none !important;
+}
+
+.winner {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 16px;
+  text-align: center;
+  background: #223E6D;
+  color: white;
+  padding: 0.25em;
+  font-family: "Oswald", sans-serif;
+}
+
+.show-result {
+  text-transform: uppercase;
+  padding: 0.25em;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Oswald", sans-serif;
+}
+
+.action-type {
+  font-family: "Oswald", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 16px;
+  text-align: center;
+  background: white;
+  padding: 0.25em;
+}
+
+.daggerheart-roll-header {
+  display: grid;
+  width: 100%;
+  grid: 1fr/2fr 1fr;
+}
+
 .dialog-input-group {
   display: flex;
   flex-direction: column;
