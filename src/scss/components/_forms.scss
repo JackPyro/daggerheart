@@ -1,6 +1,6 @@
 select.input {
   display: block;
-  padding: 0px;
+  padding: 0;
   option {
     color: black;
   }
@@ -15,7 +15,7 @@ textarea.input {
 
 .input {
   background: none;
-  font-family: "Oswald";
+  font-family: $font-primary;
   gap: 10px;
   line-height: 23px;
   height: 23px;
@@ -41,7 +41,6 @@ textarea.input {
     height: 40px;
     font-size: 36px;
     width: 50px;
-    height: 40px;
   }
 
   &.center {

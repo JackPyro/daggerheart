@@ -292,7 +292,7 @@ img.header-image {
 
 select.input {
   display: block;
-  padding: 0px;
+  padding: 0;
 }
 select.input option {
   color: black;
@@ -330,7 +330,6 @@ textarea.input {
   height: 40px;
   font-size: 36px;
   width: 50px;
-  height: 40px;
 }
 .input.center {
   text-align: center;
