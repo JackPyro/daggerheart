@@ -1,0 +1,121 @@
+<div class="sidebar-image">
+  <img class="sidebar-image-src" data-edit="img" src="{{actor.img}}" width="128px" height="128px" />
+  <input placeholder="Pronouns" name="system.pronouns" class="white input small center w128"
+    value="{{system.pronouns}}" />
+</div>
+<div class="sidebar-level flex items-center justify-between">
+  <label class="label">Level</label>
+  <input name="system.attributes.level.value" value="{{system.attributes.level.value}}" class="white input number" />
+</div>
+
+<div class="sidebar-hp flex items-center justify-between w-100">
+  <label class="label">HP</label>
+  <div class="flex items-center gap-10">
+    <input name="system.health.value" value="{{system.health.value}}" class="white input number" />
+    <input name="system.health.max" value="{{system.health.max}}" class="white input number" />
+  </div>
+</div>
+
+<div class="sidebar-stress flex items-center justify-between w-100">
+  <label class="label">STRESS</label>
+  <div class="flex items-center gap-10">
+    <input name="system.stress.value" value="{{system.stress.value}}" class="white input number" />
+    <input name="system.stress.max" value="{{system.stress.max}}" class="white input number" />
+  </div>
+</div>
+
+<div class="sidebar-hope flex items-center justify-between w-100">
+  <label class="label">HOPE</label>
+  <div class="flex items-center gap-10">
+    <input name="system.hope.value" value="{{system.hope.value}}" class="white input number" />
+    <input name="system.hope.max" value="{{system.hope.max}}" class="white input number" />
+  </div>
+</div>
+
+<hr />
+
+<div class="sidebar-evasion flex items-center justify-between w-100">
+  <label class="label">Evasion</label>
+  <input name="system.evasion" value="{{system.evasion}}" class="white input number" />
+</div>
+
+<div class="sidebar-armor flex items-center justify-between w-100">
+  <label class="label">Armor</label>
+  <input name="system.armor" value="{{system.armor}}" class="white input number" />
+</div>
+
+<div class="sidebar-slots flex items-center justify-between w-100">
+  <label class="label">Repair Slots</label>
+  <div class="flex items-center gap-10">
+    <input name="system.armor_slots.value" value="{{system.armor_slots.value}}" class="white input number" />
+    <input name="system.armor_slots.max" value="{{system.armor_slots.max}}" class="white input number" />
+  </div>
+</div>
+
+<div class="sidebar-hitpoints flex items-center justify-between w-100">
+  <div class="flex column items-center gap-5">
+    <label for="system.hitpoints.minor" class="label">MINOR</label>
+    <input name="system.hitpoints.minor" value="{{system.hitpoints.minor}}" class="white input number" />
+  </div>
+
+  <div class="flex column items-center gap-5">
+    <label for="system.hitpoints.major" class="label">MAJOR</label>
+    <input name="system.hitpoints.major" value="{{system.hitpoints.major}}" class="white input number" />
+  </div>
+
+  <div class="flex column items-center gap-5">
+    <label for="system.hitpoints.severe" class="label">SEVERE</label>
+    <input name="system.hitpoints.severe" value="{{system.hitpoints.severe}}" class="white input number" />
+  </div>
+</div>
+<hr />
+<div class="sidebar-weapons w-100">
+  {{#if equipment.primary}}
+  <div class="sidebar-weapons-item flex items-center justify-between">
+    <label class="label">{{equipment.primary.name}}</label>
+    <div class="sidebar-weapons-item-buttons flex align-center gap-5">
+      <div class="button white center min-width items-center center flex gap-5" {{{action action="weapon-roll" id=equipment.primary._id}}}>
+        <span> {{equipment.primary.abilityScorePrefix}}{{equipment.primary.abilityScore}} </span>
+        <span class="uppercase"> {{equipment.primary.system.trait}} <i class="fas fa-dice-d12"></i></span>
+
+      </div>
+      <div class="button white center min-width" {{{action action="weapon-damage" id=equipment.primary._id}}}>{{equipment.primary.system.damage}}</div>
+    </div>
+  </div>
+  {{/if}}
+  {{#if equipment.secondary}}
+  <div class="sidebar-weapons-item flex items-center justify-between">
+    <label class="label">{{equipment.secondary.name}}</label>
+    <div class="sidebar-weapons-item-buttons flex align-center gap-5">
+      <div class="button white center min-width items-center center flex gap-5" {{{action action="weapon-roll" id=equipment.secondary._id}}}>
+        <span> {{equipment.secondary.abilityScorePrefix}}{{equipment.secondary.abilityScore}} </span>
+        <span class="uppercase"> {{equipment.secondary.system.trait}} <i class="fas fa-dice-d12"></i></span>
+      </div>
+      <div class="button white center min-width" {{{action action="weapon-damage" id=equipment.secondary._id}}}>{{equipment.secondary.system.damage}}</div>
+    </div>
+  </div>
+  {{/if}}
+</div>
+<div class="sidebar-experiences w-100">
+  <div class="flex items-center justify-between">
+    <label>Experiences</label>
+    <div {{{action action="experience-add"}}}> <i class='fas fa-plus'></i> </div>
+  </div>
+
+  <div class="sidebar-experiences-list">
+    {{#each system.experiences as |exp key|}}
+    <div class="flex align-center justify-between mt-5 mb-5">
+      <div class="flex align-center gap-10">
+        <input type="hidden" name="system.experiences.{{key}}.id" value="{{exp.id}}" />
+        <input type="text" class="input white" name="system.experiences.{{key}}.name" value="{{exp.name}}" />
+        <input type="number" class="input white number" name="system.experiences.{{key}}.mod" value="{{exp.mod}}"
+          data-dtype="Number" />
+      </div>
+
+      <a class="item-control" {{{action action="experience-delete" id=exp.id}}} title="Delete experience">
+        <i class="fas fa-trash"></i>
+      </a>
+    </div>
+    {{/each}}
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="inventory-nav flex items-center gap-10" data-group="loadout_group">
+  <a class="inventory-nav-item" data-tab="normal_cards">Normal Cards</a>
+  <a class="inventory-nav-item" data-tab="loadout_cards">Loadout</a>
+  <a class="inventory-nav-item" data-tab="vault_cards">Vault</a>
+</div>
+
+<div class="inventory-content">
+  <div class="inventory-tab tab" data-group="loadout_group" data-tab="normal_cards">
+    <div class="inventory-content-normal">
+      {{#each cards as |card key|}}
+      {{> "systems/daggerheart/templates/actor/parts/character-card.hbs" card=card}}
+      {{/each}}
+
+    </div>
+
+  </div>
+  <div class="inventory-tab tab" data-group="loadout_group" data-tab="loadout_cards">
+    {{#each active_loadout as |card key|}}
+    {{> "systems/daggerheart/templates/actor/parts/character-domain-card.hbs" card=card}}
+    {{/each}}
+  </div>
+  <div class="inventory-tab tab" data-group="loadout_group" data-tab="vault_cards">
+    {{#each vault as |card key|}}
+    {{> "systems/daggerheart/templates/actor/parts/character-domain-card.hbs" card=card}}
+    {{/each}}
+  </div>
+</div>

@@ -1,2 +1,14 @@
-$font-primary: 'Roboto', sans-serif;
-$font-secondary: 'Roboto', sans-serif;
+$font-primary: 'Oswald';
+$font-secondary:  "Cabin Condensed", sans-serif;
+
+.text-bold {
+  font-weight: bold;
+}
+
+.label {
+  font-size: 12px;
+  text-transform: uppercase;
+  &.strong {
+    font-weight: bold;
+  }
+}

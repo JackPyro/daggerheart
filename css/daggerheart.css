@@ -1,307 +1,680 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cabin+Condensed:wght@400;500;600;700&display=swap");
+.text-bold {
+  font-weight: bold;
+}
+
+.label {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.label.strong {
+  font-weight: bold;
+}
+
+.class {
+  background-color: rgba(155, 29, 32, 0.5215686275);
+  color: white;
+}
+
+.community {
+  background-color: rgba(73, 132, 103, 0.5215686275);
+  color: white;
+}
+
+.ancestry {
+  background-color: rgba(255, 170, 51, 0.5215686275);
+  color: white;
+}
+
 .arcana {
-  background-color: #4E276A !important;
+  background-color: #4E276A;
   color: white;
 }
 
 .blade {
-  background-color: #96352C !important;
+  background-color: #96352C;
   color: white;
 }
 
 .bone {
-  background-color: #666769 !important;
+  background-color: #666769;
   color: white;
 }
 
 .codex {
-  background-color: #1F335F !important;
+  background-color: #1F335F;
   color: white;
 }
 
 .grace {
-  background-color: #7A3662 !important;
+  background-color: #7A3662;
   color: white;
 }
 
 .midnight {
-  background-color: #333439 !important;
+  background-color: #333439;
   color: white;
 }
 
 .sage {
-  background-color: #0C6B41 !important;
+  background-color: #0C6B41;
   color: white;
 }
 
 .splendor {
-  background-color: #AF9F40 !important;
+  background-color: #AF9F40;
   color: white;
 }
 
 .valor {
-  background-color: #B97A23 !important;
+  background-color: #B97A23;
   color: white;
 }
 
-/* Global styles */
-.window-app {
-  font-family: "Roboto", sans-serif;
-}
-
-.rollable:hover, .rollable:focus {
-  color: #000;
-  text-shadow: 0 0 10px red;
-  cursor: pointer;
-}
-
-.grid,
-.grid-2col {
-  display: grid;
-  grid-column: span 2/span 2;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  margin: 10px 0;
-  padding: 0;
-}
-
-.grid-3col {
-  grid-column: span 3/span 3;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.grid-4col {
-  grid-column: span 4/span 4;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.grid-5col {
-  grid-column: span 5/span 5;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-
-.grid-6col {
-  grid-column: span 6/span 6;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-}
-
-.grid-7col {
-  grid-column: span 7/span 7;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-}
-
-.grid-8col {
-  grid-column: span 8/span 8;
-  grid-template-columns: repeat(8, minmax(0, 1fr));
-}
-
-.grid-9col {
-  grid-column: span 9/span 9;
-  grid-template-columns: repeat(9, minmax(0, 1fr));
-}
-
-.grid-10col {
-  grid-column: span 10/span 10;
-  grid-template-columns: repeat(10, minmax(0, 1fr));
-}
-
-.grid-11col {
-  grid-column: span 11/span 11;
-  grid-template-columns: repeat(11, minmax(0, 1fr));
-}
-
-.grid-12col {
-  grid-column: span 12/span 12;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-}
-
-.grid-start-2 {
-  grid-column-start: 2;
-}
-
-.grid-start-3 {
-  grid-column-start: 3;
-}
-
-.grid-start-4 {
-  grid-column-start: 4;
-}
-
-.grid-start-5 {
-  grid-column-start: 5;
-}
-
-.grid-start-6 {
-  grid-column-start: 6;
-}
-
-.grid-start-7 {
-  grid-column-start: 7;
-}
-
-.grid-start-8 {
-  grid-column-start: 8;
-}
-
-.grid-start-9 {
-  grid-column-start: 9;
-}
-
-.grid-start-10 {
-  grid-column-start: 10;
-}
-
-.grid-start-11 {
-  grid-column-start: 11;
-}
-
-.grid-start-12 {
-  grid-column-start: 12;
-}
-
-.grid-span-2 {
-  grid-column-end: span 2;
-}
-
-.grid-span-3 {
-  grid-column-end: span 3;
-}
-
-.grid-span-4 {
-  grid-column-end: span 4;
-}
-
-.grid-span-5 {
-  grid-column-end: span 5;
-}
-
-.grid-span-6 {
-  grid-column-end: span 6;
-}
-
-.grid-span-7 {
-  grid-column-end: span 7;
-}
-
-.grid-span-8 {
-  grid-column-end: span 8;
-}
-
-.grid-span-9 {
-  grid-column-end: span 9;
-}
-
-.grid-span-10 {
-  grid-column-end: span 10;
-}
-
-.grid-span-11 {
-  grid-column-end: span 11;
-}
-
-.grid-span-12 {
-  grid-column-end: span 12;
-}
-
-.flex-group-center,
-.flex-group-left,
-.flex-group-right {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.flex-group-left {
-  justify-content: flex-start;
-  text-align: left;
-}
-
-.flex-group-right {
-  justify-content: flex-end;
-  text-align: right;
-}
-
-.flexshrink {
-  flex: 0;
-}
-
-.flex-between {
-  justify-content: space-between;
-}
-
-.flexlarge {
-  flex: 2;
-}
-
-.align-left {
-  justify-content: flex-start;
-  text-align: left;
-}
-
-.align-right {
-  justify-content: flex-end;
-  text-align: right;
-}
-
-.align-center {
-  justify-content: center;
-  text-align: center;
-}
-
-.panel {
-  background: white;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2705882353);
-}
-.panel-mb {
-  margin-bottom: 0.5em;
-}
-.panel-header {
-  padding: 0.25em 0.5em;
-  background-color: #1e3a8a;
-  color: white;
-  margin-top: 0px !important;
-}
-.panel-body {
-  padding: 0.5em;
+.flex {
+  display: flex;
 }
 
 .flex-grow {
   flex-grow: 1;
 }
-.flex-grow select {
+
+.flex-shrink {
+  flex-shrink: 0;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.relative {
+  position: relative;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.w-100 {
   width: 100%;
 }
 
-.flex-align {
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.self-stretch {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.gap-5 {
+  gap: 5px;
+}
+.gap-10 {
+  gap: 10px;
+}
+.gap-15 {
+  gap: 15px;
+}
+
+.p-5 {
+  padding: 5px;
+}
+.p-10 {
+  padding: 10px;
+}
+.p-15 {
+  padding: 15px;
+}
+
+.mb-5 {
+  margin-bottom: 5px;
+}
+.mb-10 {
+  margin-bottom: 10px;
+}
+.mb-15 {
+  margin-bottom: 15px;
+}
+
+.mt-5 {
+  margin-top: 5px;
+}
+.mt-10 {
+  margin-top: 10px;
+}
+.mt-15 {
+  margin-top: 15px;
+}
+
+.accordion {
+  cursor: pointer;
+  z-index: 10;
+  position: relative;
+}
+.accordion:after {
+  font-family: "Font Awesome 6 Pro";
+  font-size: 14px;
+  width: 15px;
+  content: "\f0da";
+}
+.accordion.active:after {
+  font-family: "Font Awesome 6 Pro";
+  content: "\f0d7";
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.accordion-content {
+  display: none;
+  overflow: hidden;
+  padding: 0em 0.25em;
+}
+
+.accordion-content.active {
+  display: block;
+}
+
+.badge {
+  color: white;
+  background-color: #1B1A1A;
+  min-width: 80px;
+  text-align: center;
+}
+.badge.class {
+  background-color: rgba(155, 29, 32, 0.5215686275);
+  color: #1B1A1A;
+}
+.badge.community {
+  background-color: rgba(73, 132, 103, 0.5215686275);
+  color: #1B1A1A;
+}
+.badge.subclass {
+  background-color: rgba(153, 70, 54, 0.5215686275);
+  color: #1B1A1A;
+}
+.badge.ancestry {
+  background-color: rgba(255, 170, 51, 0.5215686275);
+  color: #1B1A1A;
+}
+
+.section {
+  background-color: #2B226D;
+  color: white;
+  padding: 5px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+}
+
+.row-2 {
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+.col-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.bg-primary {
+  background-color: #38227b;
+  color: white;
+}
+.bg-card {
+  background: rgb(217, 216, 214);
+  border: 1px solid rgb(205, 205, 205);
+}
+.bg-secondary {
+  background: #2B226D;
+  color: white;
+}
+.bg-white {
+  background: white;
+  border: 1px solid rgb(205, 205, 205);
+}
+
+img.header-image {
+  object-fit: cover;
+  object-position: 0% 20%;
+}
+
+.sheet .item-sheet {
+  background-color: rgb(217, 216, 214);
+}
+
+.item-wrap {
+  padding: 10px;
+}
+.item-wrap .item-sidebar {
+  width: 128px;
+}
+
+.class-sheet .editor .editor-content {
+  height: 150px;
+  overflow-y: auto;
+}
+.class-sheet .editor .editor-content * {
+  margin: 2px 0px;
+  font-size: 12px;
+  font-family: "Cabin Condensed", sans-serif;
+}
+.class-sheet .class-wrapper {
+  height: 100%;
+  display: grid;
+  grid: 1fr/200px 1fr;
+}
+.class-sheet .class-sidebar {
+  background: #38227b;
+  color: white;
+}
+
+select.input {
+  display: block;
+  padding: 0px;
+}
+select.input option {
+  color: black;
+}
+
+textarea.input {
+  background: none;
+  font-size: 13px;
+  line-height: 14px;
+  font-family: "Oswald";
+}
+
+.input {
+  background: none;
+  font-family: "Oswald";
+  gap: 10px;
+  line-height: 23px;
+  height: 23px;
+  padding: 5px;
+  border-radius: 3px;
+  border: solid 1px #000;
+}
+.input:focus {
+  box-shadow: none;
+  border: solid 1px #38227b;
+}
+.input::placeholder {
+  color: rgba(243, 243, 243, 0.5);
+}
+.input.white {
+  color: white;
+  border: solid 1px #fff;
+}
+.input.ability {
+  height: 40px;
+  font-size: 36px;
+  width: 50px;
+  height: 40px;
+}
+.input.center {
+  text-align: center;
+}
+.input.huge {
+  height: 36px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.input.w128 {
+  width: 128px;
+}
+.input.number {
+  display: flex;
+  width: 32px;
+  height: 23px;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 10px;
+  height: 10px;
+}
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkbox-container .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10px;
+  width: 10px;
+  background-color: transparent;
+  border: 1px solid #fff;
+}
+.checkbox-container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #fff;
+}
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.button {
+  padding: 2px;
+  cursor: pointer;
+  transition: 0.2s;
+  border: 1px solid #1B1A1A;
+  color: #1B1A1A;
+}
+.button:hover {
+  background-color: #1B1A1A;
+  color: #fff;
+}
+.button.white {
+  border: 1px solid #fff;
+  color: #fff;
+}
+.button.min-width {
+  min-width: 40px;
+}
+.button.center {
+  text-align: center;
+}
+
+.daggerheart-dice-roll {
+  font-family: "Oswald", sans-serif;
+  display: grid;
+  grid: 1fr/1fr;
+  align-items: center;
+  justify-items: center;
+  margin: 0px auto;
+  text-align: center;
+}
+.daggerheart-dice-roll .normal-dice-roll {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.daggerheart-dice-roll .hope-roll {
+  background-color: #e4e4e7;
+  color: #18181b;
+}
+.daggerheart-dice-roll .fear-roll {
+  color: #e4e4e7;
+  background-color: #18181b;
+}
+.daggerheart-dice-roll .hope-roll,
+.daggerheart-dice-roll .fear-roll {
+  font-size: 2em;
+  font-weight: 900;
+}
+.daggerheart-dice-roll .total-roll {
+  font-size: 3em;
+  font-weight: 900;
+}
+
+.hope-result {
+  background: white !important;
+  color: #18181b !important;
+  border-radius: 100% !important;
+  background-image: none !important;
+}
+
+.fear-result {
+  background: #18181b !important;
+  color: white !important;
+  border-radius: 100% !important;
+  background-image: none !important;
+}
+
+.winner {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 16px;
+  text-align: center;
+  background: #223E6D;
+  color: white;
+  padding: 0.25em;
+  font-family: "Oswald", sans-serif;
+}
+
+.show-result {
+  text-transform: uppercase;
+  padding: 0.25em;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Oswald", sans-serif;
+}
+
+.action-type {
+  font-family: "Oswald", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 16px;
+  text-align: center;
+  background: white;
+  padding: 0.25em;
+}
+
+.daggerheart-roll-header {
+  display: grid;
+  width: 100%;
+  grid: 1fr/2fr 1fr;
+}
+
+.item-chat-header {
+  font-size: 16px;
+  font-family: "Oswald";
+  background-color: #38227b;
+  padding: 2px 5px;
+  color: #F3F3F3;
+}
+
+.item-chat-body {
+  font-size: 14px;
+  font-family: "Cabin Condensed", sans-serif;
+  background-color: rgb(217, 216, 214);
+  padding: 5px 5px;
+}
+.item-chat-body * {
+  margin: 0px 2px;
+}
+
+.dialog-input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+}
+.dialog-input-group .dialog-input {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+.dialog-input-group .dialog-input .dialog-input-name {
+  flex-grow: 1;
+  font-weight: bold;
+}
+.dialog-input-group .dialog-input .dialog-input-mod {
+  background: #38227b !important;
+  padding: 0.25em;
+  width: 8%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.duality-dice-msg-container {
+  display: flex;
+  width: 100%;
+}
+
+.duality-dice-msg-die-spacer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-weight: bolder;
+  font-size: x-large;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.duality-dice-msg-die-fear {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  margin: 1%;
+  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-fear.svg");
+}
+
+.duality-dice-msg-die-hope {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  margin: 1%;
+  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-hope.svg");
+}
+
+.duality-dice-msg-die-selected-hope-disadv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  margin: 1%;
+  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-hope.svg");
+  border: 1px solid rgb(94, 54, 54);
+  background-color: #9e5353;
+  border-radius: 25%;
+  padding: 1%;
+  width: 25px;
+  height: 25px;
+}
+
+.duality-dice-msg-die-selected-hope-adv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  margin: 1%;
+  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-hope.svg");
+  border: 1px solid rgb(50, 86, 53);
+  background-color: #4f9150;
+  border-radius: 25%;
+  padding: 1%;
+  width: 25px;
+  height: 25px;
+}
+
+.duality-dice-msg-die-crit-success {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  margin: 1%;
+  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-crit-success.svg");
+}
+
+.duality-dice-msg-die-crit-fail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  margin: 1%;
+  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-crit-fail.svg");
+}
+
+.duality-dice-msg-resut-text-fear {
+  text-align: center;
+  font-weight: bolder;
+  font-size: medium;
+  color: rgb(255, 255, 255);
+  height: fit-content;
+  width: fit-content;
+  background: rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 1px #000;
+  margin: 0px auto;
+}
+
+.duality-dice-msg-resut-text-hope {
+  text-align: center;
+  font-weight: bolder;
+  font-size: medium;
+  color: black;
+  height: fit-content;
+  width: fit-content;
+  background: #FFF;
+  margin: 0px auto;
+  text-shadow: 1px 1px 1px #FFF;
+}
+
+.duality-dice-msg-resut-text-crit-success {
+  text-align: center;
+  font-weight: bolder;
+  font-size: medium;
+  text-shadow: 1px 1px 1px #fff;
+  color: black;
+}
+
+.duality-dice-msg-resut-text-crit-fail {
+  text-align: center;
+  font-weight: bolder;
+  font-size: medium;
+  text-shadow: 1px 1px 1px #000;
+  color: white;
+}
 
 .vtt {
   flex-direction: column;
-}
-
-.dialog .choice-dialog-wrap {
-  margin-bottom: 0.5em;
-}
-.dialog .window-content {
-  background: none;
-  background-color: #d9d9d9 !important;
-}
-.dialog .choice-dialog {
-  background: white;
-}
-.dialog .choice-options {
-  padding: 0.25em;
-}
-.dialog .choice-dialog-select-one {
-  font-size: 16px;
-  font-weight: bold;
-  background: black;
-  padding: 0.25em;
-  color: white;
 }
 
 .daggerheart-ui-hand {
@@ -325,7 +698,7 @@
   padding: 0.5em;
   color: white;
   background-color: transparent;
-  border: 2px solid #F1C770;
+  border: 2px solid #f3c267;
   cursor: pointer;
   border-radius: 0.5em;
   transition: 0.2s;
@@ -334,7 +707,7 @@
   background-color: #1B1A1A;
 }
 .daggerheart-ui-hand .hand-roll .fear-die {
-  color: #f43f5e;
+  color: #92140C;
 }
 .daggerheart-ui-hand .hand-roll label {
   text-transform: uppercase;
@@ -343,7 +716,7 @@
   cursor: pointer;
 }
 .daggerheart-ui-hand .ui-rolls {
-  background: rgba(54, 33, 120, 0.5);
+  background: rgba(56, 34, 123, 0.5);
   color: white;
   position: sticky;
   left: 0px;
@@ -406,1391 +779,368 @@
   font-size: 12px;
 }
 .daggerheart-ui-hand .ui-card-name {
-  background-color: #334155;
-  color: #fff;
+  background-color: #38227b;
+  color: #F3F3F3;
   padding: 0.25em;
   text-align: center;
   font-weight: bold;
   text-transform: uppercase;
 }
 .daggerheart-ui-hand .ui-card-domain {
-  background-color: #eab308;
+  background-color: rgba(255, 170, 51, 0.5215686275);
   text-align: center;
   font-weight: bold;
   padding: 0.25em;
   text-transform: uppercase;
 }
 
-.domain-pill {
-  padding: 0.25em 0.5em;
-  text-transform: uppercase;
-  font-weight: lighter;
-  border-radius: 0.25em;
-}
-
-/* Styles limited to daggerheart sheets */
 .daggerheart {
-  /* Style the accordion panel. Note: hidden by default */
-}
-.daggerheart .item-form {
-  font-family: "Roboto", sans-serif;
-}
-.daggerheart .sheet-header {
-  flex: 0 auto;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-bottom: 10px;
-}
-.daggerheart .sheet-header .profile-img {
-  flex: 0 0 100px;
-  height: 100px;
-  margin-right: 10px;
-}
-.daggerheart .sheet-header .header-fields {
-  flex: 1;
-}
-.daggerheart .sheet-header h1.charname {
-  height: 50px;
-  padding: 0px;
-  margin: 5px 0;
-  border-bottom: 0;
-}
-.daggerheart .sheet-header h1.charname input {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-}
-.daggerheart .sheet-tabs {
-  flex: 0;
-}
-.daggerheart .sheet-body,
-.daggerheart .sheet-body .tab,
-.daggerheart .sheet-body .tab .editor {
-  height: 100%;
-}
-.daggerheart .tox .tox-editor-container {
-  background: #fff;
-}
-.daggerheart .tox .tox-edit-area {
-  padding: 0 8px;
-}
-.daggerheart .resource-label {
-  font-weight: bold;
-}
-.daggerheart .items-header {
-  height: 28px;
-  margin: 2px 0;
-  padding: 0;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.05);
-  border: 2px groove #eeede0;
-  font-weight: bold;
-}
-.daggerheart .items-header > * {
-  font-size: 14px;
-  text-align: center;
-}
-.daggerheart .items-header .item-name {
-  font-weight: bold;
-  padding-left: 5px;
-  text-align: left;
-  display: flex;
-}
-.daggerheart .items-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  color: #444;
-}
-.daggerheart .items-list .item-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.daggerheart .items-list .item-name {
-  flex: 2;
-  margin: 0;
-  overflow: hidden;
-  font-size: 13px;
-  text-align: left;
-  align-items: center;
-  display: flex;
-}
-.daggerheart .items-list .item-name h3,
-.daggerheart .items-list .item-name h4 {
-  margin: 0;
-  white-space: nowrap;
-  overflow-x: hidden;
-}
-.daggerheart .items-list .item-controls {
-  display: flex;
-  flex: 0 0 100px;
-  justify-content: flex-end;
-}
-.daggerheart .items-list .item-controls a {
-  font-size: 12px;
-  text-align: center;
-  margin: 0 6px;
-}
-.daggerheart .items-list .item {
-  align-items: center;
-  padding: 0 2px;
-  border-bottom: 1px solid #c9c7b8;
-}
-.daggerheart .items-list .item:last-child {
-  border-bottom: none;
-}
-.daggerheart .items-list .item .item-name {
-  color: #191813;
-}
-.daggerheart .items-list .item .item-name .item-image {
-  flex: 0 0 30px;
-  height: 30px;
-  background-size: 30px;
-  border: none;
-  margin-right: 5px;
-}
-.daggerheart .items-list .item-prop {
-  text-align: center;
-  border-left: 1px solid #c9c7b8;
-  border-right: 1px solid #c9c7b8;
-  font-size: 12px;
-}
-.daggerheart .items-list .items-header {
-  height: 28px;
-  margin: 2px 0;
-  padding: 0;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.05);
-  border: 2px groove #eeede0;
-  font-weight: bold;
-}
-.daggerheart .items-list .items-header > * {
-  font-size: 12px;
-  text-align: center;
-}
-.daggerheart .items-list .items-header .item-name {
-  padding-left: 5px;
-  text-align: left;
-}
-.daggerheart .item-formula {
-  flex: 0 0 200px;
-  padding: 0 8px;
-}
-.daggerheart .inventory-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5em;
-  background-color: white;
-  margin-bottom: 0.5em;
-}
-.daggerheart .inventory-item-name {
-  font-weight: bold;
-  font-size: 16px;
-}
-.daggerheart .inventory-left {
-  display: flex;
-  align-items: center;
-}
-.daggerheart .inventory-left img {
-  margin-right: 0.5em;
-  background: linear-gradient(180deg, rgb(27, 26, 26) 0%, rgb(27, 26, 26) 50%, rgb(42, 43, 46) 100%);
-}
-.daggerheart .inventory-right {
-  display: flex;
-  gap: 0.5em;
-}
-.daggerheart .domain-stats {
-  display: grid;
-  grid: 1fr/3fr 1fr 50px;
-}
-.daggerheart .domain-stats select {
-  width: 100%;
-}
-.daggerheart .effects .item .effect-source,
-.daggerheart .effects .item .effect-duration,
-.daggerheart .effects .item .effect-controls {
-  text-align: center;
-  border-left: 1px solid #c9c7b8;
-  border-right: 1px solid #c9c7b8;
-  font-size: 12px;
-}
-.daggerheart .effects .item .effect-controls {
-  border: none;
-}
-.daggerheart .class-sheet-header .class-img {
-  height: 100px;
-  object-fit: contain;
-  object-position: 100% 0;
-}
-.daggerheart .class-sheet .question-text, .daggerheart .class-sheet .connection-text {
-  margin-bottom: 0.5em;
-}
-.daggerheart .class-sheet .domains-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-.daggerheart .class-sheet-input-group {
-  justify-items: center;
-  display: grid;
-  align-items: center;
-  margin-bottom: 0.5em;
-}
-.daggerheart .class-sheet-domain-list {
-  justify-self: start;
-  display: flex;
-  gap: 1em;
-}
-.daggerheart .class-sheet-domain-list-item {
-  display: flex;
-  align-items: center;
-  gap: 0.25em;
-}
-.daggerheart .class-sheet .hitpoints-stats .combat-stat-item {
-  width: 25%;
-}
-.daggerheart .class-sheet select {
-  color: #fff;
-  background-color: #f43f5e;
-  border: none;
-  box-shadow: none !important;
-}
-.daggerheart .class-sheet select option {
-  color: black;
-}
-.daggerheart .class-sheet .delete-domain:hover {
-  cursor: pointer;
-  color: #f43f5e;
-}
-.daggerheart .class-sheet .examples {
-  display: grid;
-}
-.daggerheart .class-sheet .examples .tox-toolbar__group button:not(button[aria-label=Save]) {
-  display: none;
-}
-.daggerheart .questions .question input,
-.daggerheart .questions .connection input,
-.daggerheart .connections .question input,
-.daggerheart .connections .connection input {
-  border: none;
-  border-bottom: 1px solid #334155;
-  margin-bottom: 0.5em;
-  box-shadow: none;
-}
-.daggerheart .questions .question label,
-.daggerheart .questions .connection label,
-.daggerheart .connections .question label,
-.daggerheart .connections .connection label {
-  font-size: 12px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.daggerheart .question-add,
-.daggerheart .question-remove {
-  padding: 0.25em;
-}
-.daggerheart .item-display-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-}
-.daggerheart .item-display-flex h2 {
-  border: none;
-  margin: 0;
-  flex-grow: 1;
-}
-.daggerheart .top-header {
-  display: flex;
-  gap: 1em;
-}
-.daggerheart .class-sheet-header-fields {
-  flex-grow: 1;
-}
-.daggerheart .class-sheet-header-fields input {
-  font-size: 2em;
-  height: 100%;
-}
-.daggerheart .edit-mode-change {
-  display: flex;
-  gap: 0.25em;
-  align-items: center;
-  font-size: 1em;
-}
-.daggerheart .edit-mode-change label {
-  font-weight: normal;
-  font-size: 1em;
-}
-.daggerheart .edit-mode-change input {
-  height: 18px;
-}
-.daggerheart .class-sheet-body .editor {
-  height: 150px !important;
-}
-.daggerheart .leveling .header {
-  grid-column: span 3;
-  display: grid;
-  grid: 1fr/repeat(3, 1fr);
-}
-.daggerheart .leveling-section {
-  margin-top: 0.3em;
-}
-.daggerheart .leveling .add-tier {
-  font-size: 12px;
-  margin: 0.4em;
-  padding: 0.4em;
-  background-color: #f43f5e;
-  color: #fff;
-  display: inline-block;
-  cursor: pointer;
-}
-.daggerheart .leveling .tier {
-  border-right: 1px solid #334155;
-  background-color: #fff;
-}
-.daggerheart .leveling .tier-header {
-  text-align: center;
-}
-.daggerheart .leveling .tier-level {
-  font-size: 14px;
-}
-.daggerheart .leveling .tier-input {
-  flex-grow: 1;
-}
-.daggerheart .leveling .tier-option {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.25em;
-  gap: 0.5em;
-  align-items: center;
-}
-.daggerheart .leveling .tier-bonus {
-  font-size: 12px;
-  flex-grow: 1;
-}
-.daggerheart .item-to-get-list-item {
-  background-color: white;
-  padding: 0.5em;
-  margin-bottom: 0.5em;
-  gap: 0.5em;
-}
-.daggerheart .item-to-get-list-item input {
-  flex-grow: 1;
-}
-.daggerheart .starting-items {
-  display: grid;
-  grid: 1fr/repeat(3, 1fr);
-  margin-bottom: 0.5em;
-  gap: 1em;
-  text-transform: uppercase;
-}
-.daggerheart .starting-items div {
-  padding: 0.5em;
-  background: linear-gradient(180deg, rgb(27, 26, 26) 0%, rgb(27, 26, 26) 50%, rgb(42, 43, 46) 100%);
-  color: white;
-}
-.daggerheart .starting-gold-class {
-  background-color: #362178;
-  display: flex;
-  padding: 0.5em;
-  margin-bottom: 0.5em;
-}
-.daggerheart .starting-gold-class label {
-  flex-grow: 1;
-  font-size: 1em;
-  color: white;
-  font-weight: bold;
-}
-.daggerheart .starting-gold-class input {
-  text-align: center;
-  width: 40px;
-}
-.daggerheart .exp {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-  margin: 0.25em 0;
-}
-.daggerheart .exp-delete {
-  flex-basis: 5%;
-  text-align: center;
-}
-.daggerheart .leveling-option {
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-  background-color: white;
-  padding: 0.5em;
-}
-.daggerheart .leveling-options {
-  display: grid;
-  grid: 1fr/repeat(2, 1fr);
-  gap: 0.5em;
-}
-.daggerheart .leveling-tier-description {
-  font-weight: bold;
-  font-size: 12px;
-  text-align: center;
-}
-.daggerheart .leveling-bonus {
-  font-size: 10px;
-  text-transform: uppercase;
-}
-.daggerheart .weapon-form {
-  padding: 0.5em;
-}
-.daggerheart .weapon-input-group {
-  margin-bottom: 0.5em;
-}
-.daggerheart .weapon-input-group-flex {
-  display: flex;
-  gap: 1em;
-}
-.daggerheart .weapon-grid {
-  display: grid;
-  grid: 1fr/100px 1fr;
-  gap: 0.5em;
-}
-.daggerheart .weapon-header {
-  background-color: white;
-  padding: 0.5em;
-}
-.daggerheart .equipped .weapon-main-ability {
-  text-transform: uppercase;
-}
-.daggerheart .weapon-list-inventory-item {
-  margin: 0.5em 0;
-}
-.daggerheart .weapon-main {
-  display: flex;
-  gap: 0.5em;
-}
-.daggerheart .weapon-attributes {
-  display: flex;
-  align-items: center;
-  margin-left: 0.5em;
-}
-.daggerheart .equipped-wrapper {
-  margin-bottom: 0.5em;
-}
-.daggerheart .weapon-main-name {
-  font-family: "Oswald", sans-serif;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-  font-weight: bold;
-}
-.daggerheart .weapon-description {
-  color: white;
-  background: linear-gradient(180deg, rgb(27, 26, 26) 0%, rgb(27, 26, 26) 50%, rgb(42, 43, 46) 100%);
-}
-.daggerheart .weapon-description * {
-  padding: 0.25em;
-  margin: 0px;
-}
-.daggerheart .weapon-main-description {
-  font-size: 10px;
-  text-transform: uppercase;
-  font-family: "Oswald", sans-serif;
-  padding-bottom: 0.25em;
-}
-.daggerheart .weapon-main-ability, .daggerheart .weapon-main-damage, .daggerheart .equipped-hit, .daggerheart .equipped-damage {
-  font-size: 12px;
-  text-transform: capitalize;
-  padding: 0.5em;
-  font-weight: bold;
-  border: 1px solid black;
-  margin-right: 0.5em;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.daggerheart .weapon-main-ability:hover, .daggerheart .weapon-main-damage:hover, .daggerheart .equipped-hit:hover, .daggerheart .equipped-damage:hover {
-  background-color: black;
-  background: linear-gradient(180deg, rgb(27, 26, 26) 0%, rgb(27, 26, 26) 50%, rgb(42, 43, 46) 100%);
-  color: white;
-}
-.daggerheart .weapon-options {
-  display: flex;
-  gap: 0.25em;
-  align-items: center;
-}
-.daggerheart .weapon-equip, .daggerheart .armor-equip {
-  border: 1px solid #3f6212;
-  color: #3f6212;
-}
-.daggerheart .weapon-equip:hover, .daggerheart .armor-equip:hover {
-  color: white;
-  background-color: #3f6212;
-}
-.daggerheart .weapon-unequip, .daggerheart .armor-unequip {
-  border: 1px solid #f43f5e;
-  color: #f43f5e;
-}
-.daggerheart .weapon-unequip:hover, .daggerheart .armor-unequip:hover {
-  color: white;
-  background-color: #f43f5e;
-}
-.daggerheart .equipped-main {
-  display: flex;
-  align-items: center;
-}
-.daggerheart .equipped-img img {
-  height: 30px;
-  margin-right: 0.5em;
-  background: linear-gradient(180deg, rgb(27, 26, 26) 0%, rgb(27, 26, 26) 50%, rgb(42, 43, 46) 100%);
-}
-.daggerheart .equipped-feature {
-  background: #362178;
-  padding: 0.25em;
-  padding-left: 0.5em;
-  font-size: 12px;
-  font-weight: 300;
-  color: white;
-}
-.daggerheart .equipped-feature p {
-  display: inline;
-}
-.daggerheart .weapon-equip,
-.daggerheart .weapon-unequip, .daggerheart .armor-equip, .daggerheart .armor-unequip {
-  text-transform: uppercase;
-  font-weight: bold;
-  padding: 0.25em 0.5em;
-  transition: background-color 0.2s;
-  cursor: pointer;
-  text-align: center;
-  margin: 0px 0.5em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0px 0.5em;
-}
-.daggerheart .weapon-equip:hover,
-.daggerheart .weapon-unequip:hover, .daggerheart .armor-equip:hover, .daggerheart .armor-unequip:hover {
-  text-shadow: none;
-}
-.daggerheart .equipped {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5em;
-  background-color: white;
-}
-.daggerheart .equipped-name {
-  font-family: "Oswald", sans-serif;
-  font-weight: bold;
-  font-size: 18px;
-}
-.daggerheart .enemy-hp input,
-.daggerheart .enemy-stress input,
-.daggerheart .enemy-hitpoints input {
-  width: 50px;
-  text-align: center;
-}
-.daggerheart .enemy-label {
-  width: 70px;
-  text-transform: uppercase;
-  font-size: 16px;
-}
-.daggerheart .enemy-hp,
-.daggerheart .enemy-stress,
-.daggerheart .enemy-hitpoints {
-  display: grid;
-  grid: 1fr/20% 50px 50px 50px;
-  gap: 0.5em;
-  align-items: center;
-}
-.daggerheart .enemy-header {
-  display: grid;
-  grid: 100px 1fr/100px 1fr;
-  gap: 1em;
-}
-.daggerheart .enemy-header-description {
-  grid-row: span 2;
-}
-.daggerheart .enemy-type select {
-  width: 99%;
-}
-.daggerheart .enemy-name {
-  margin-bottom: 0.5em;
-}
-.daggerheart .enemy-name-input {
-  height: 100%;
-  font-size: 1.5em;
-}
-.daggerheart .adversary label {
-  font-size: 14px;
-}
-.daggerheart .adversary h3 {
-  font-size: 18px;
-}
-.daggerheart .enemy-wrap {
-  display: grid;
-  grid: 1fr/2fr 3fr;
-  gap: 0.5em;
-}
-.daggerheart .enemy-wrap .enemy-left {
-  font-size: 16px;
-  text-transform: capitalize;
-}
-.daggerheart .enemy-wrap .enemy-left label {
-  font-size: 16px !important;
-}
-.daggerheart .enemy-tactics {
-  margin-bottom: 0.5em;
-}
-.daggerheart .enemy-weapon-stats {
-  gap: 0.25em;
-}
-.daggerheart .feature-item {
-  padding: 0.25em;
-  margin-bottom: 0.5em;
-}
-.daggerheart .enemy-experience {
-  gap: 0.25em;
-  margin-bottom: 0.25em;
-}
-.daggerheart .enemy-experience .enemy-experience-name {
-  flex-grow: 1;
-}
-.daggerheart .view-mode {
-  display: flex;
-  gap: 0.5em;
-  align-items: center;
-}
-.daggerheart .enemy-header-split {
-  display: grid;
-  grid: 1fr/3fr 1fr;
-}
-.daggerheart .gm-rolls .roll-button {
-  border: 2px solid black;
-  padding: 0.5em;
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5em;
-  background: transparent;
-  color: black;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-size: 14px;
-}
-.daggerheart .gm-rolls .roll-button .fa-dice-d20 {
-  margin-top: 1px;
-  margin-left: 2px;
-}
-.daggerheart .gm-rolls .roll-button:hover {
-  background: linear-gradient(180deg, rgb(27, 26, 26) 0%, rgb(27, 26, 26) 50%, rgb(42, 43, 46) 100%);
-  color: white;
-}
-.daggerheart .gm-sheet .gm-resource {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5em;
-}
-.daggerheart .gm-sheet label {
-  font-size: 1.5em;
-}
-.daggerheart .gm-sheet input {
-  width: 100px;
-  text-align: center;
-  height: 100%;
-  font-size: 1.5em;
-  position: relative;
-}
-.daggerheart .gm-sheet .incremental {
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-}
-.daggerheart *:not(i) {
-  font-family: "Oswald", sans-serif;
-}
-.daggerheart .proficiency {
-  display: flex;
-  gap: 0.5em;
-  justify-content: end;
-  align-items: CENTER;
-}
-.daggerheart.actor nav.sheet-tabs {
-  position: relative;
-  color: white;
-  border: none;
-}
-.daggerheart.actor nav.sheet-tabs:after {
-  border: 1px solid #F1C770;
-  content: " ";
-  position: absolute;
-  width: 100%;
-  top: 44%;
-  z-index: 1;
-}
-.daggerheart.actor nav.sheet-tabs .item {
-  position: relative;
-  z-index: 2;
-  background: linear-gradient(180deg, rgb(27, 26, 26) 0%, rgb(27, 26, 26) 50%, rgb(42, 43, 46) 100%) !important;
-  background-color: #1B1A1A;
-  border: 2px solid #f1c770;
-}
-.daggerheart.actor nav.sheet-tabs .item:hover {
-  text-shadow: none;
-  background: #383838;
-  background-color: #383838;
-}
-.daggerheart.actor nav.sheet-tabs .item.active {
-  background: #362178 !important;
-  box-shadow: none;
-  text-shadow: none;
-  color: #F1C770;
-}
-.daggerheart .accordion {
-  cursor: pointer;
-  z-index: 10;
-  position: relative;
-}
-.daggerheart .accordion:after {
-  font-family: "Font Awesome 6 Pro";
-  content: "\f0da";
-}
-.daggerheart .accordion.active:after {
-  font-family: "Font Awesome 6 Pro";
-  content: "\f0d7";
-}
-.daggerheart .accordion-content {
-  display: none;
-  overflow: hidden;
-  padding: 0em 0.25em;
-}
-.daggerheart .accordion-content.active {
-  display: block;
-}
-.daggerheart input,
-.daggerheart textarea,
-.daggerheart select {
-  border: 1px solid #d1d5db;
-  background-color: #f3f4f6;
-}
-.daggerheart input:focus,
-.daggerheart textarea:focus,
-.daggerheart select:focus {
-  box-shadow: 0 0 0px 1px #6b7280 !important;
-}
-.daggerheart .time-to-roll {
-  cursor: pointer;
-  flex: 4;
-  height: 26px;
-  display: flex;
-  align-items: center;
-  padding-left: 5px;
-  margin-right: 5px;
-  background: linear-gradient(180deg, rgb(27, 26, 26) 0%, rgb(27, 26, 26) 50%, rgb(42, 43, 46) 100%);
-  background-color: #1B1A1A;
-  transition: background-color 100ms linear;
-  color: #fff;
-}
-.daggerheart .time-to-roll:hover {
-  background: #383838;
-}
-.daggerheart .edit-mode-on {
-  color: #3f6212;
-}
-.daggerheart .edit-mode-off {
-  color: #f43f5e;
-}
-.daggerheart .short-input {
-  width: 30%;
-  text-align: center;
-}
-.daggerheart .side-label {
-  height: 100%;
-  align-items: center;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-}
-.daggerheart .side-label.rose {
-  background-color: #f43f5e;
-  color: #fff;
-}
-.daggerheart .editor-content {
-  margin-right: 3em;
-}
-.daggerheart .char-sheet-description .editor {
-  height: 230px !important;
-  border: none !important;
-}
-.daggerheart .char-sheet-description .editor-content {
-  border: none !important;
-}
-.daggerheart .img-wrap,
-.daggerheart .profile-img {
-  background: linear-gradient(180deg, rgb(27, 26, 26) 0%, rgb(27, 26, 26) 50%, rgb(42, 43, 46) 100%);
-  border: 2px solid #F1C770;
-  width: 100px;
-}
-.daggerheart .editor-wrap .editor-edit {
-  display: block !important;
-}
-.daggerheart .editor-wrap .editor {
-  width: 100%;
-  height: 150px;
-}
-.daggerheart .card-delete-option {
-  color: #f43f5e;
-  font-size: 10px;
-  text-transform: uppercase;
-  font-weight: bold;
-  padding: 0.1em;
-  transition: 0.4s;
-}
-.daggerheart .card-delete-option:hover {
-  background-color: #f43f5e;
-  color: white;
-}
-.daggerheart .item-display {
-  color: white;
-  background: #222;
-  display: flex;
-  align-self: center;
-  flex-grow: 1;
-  width: 100%;
-  justify-content: center;
-  padding: 4px 0px;
-  margin-bottom: 3px;
-}
-.daggerheart .ability {
-  padding: 0.25rem 0px;
-}
-.daggerheart .bio-wrap {
-  padding: 0px 1em 0.5em 1em;
-  background: linear-gradient(180deg, rgb(27, 26, 26) 0%, rgb(27, 26, 26) 50%, rgb(42, 43, 46) 100%);
-  border: 2px solid #F1C770;
-  color: white;
-}
-.daggerheart .hitpoints {
-  display: grid;
-  grid: 1fr 1fr/1fr 1fr 1fr;
-  gap: 0.25rem;
-  justify-items: center;
-  align-items: center;
-  margin-bottom: 1em;
-  padding: 0em 0.5em;
-  padding-bottom: 0.5em;
-  color: white;
-  background: linear-gradient(180deg, rgb(27, 26, 26) 0%, rgb(27, 26, 26) 50%, rgb(42, 43, 46) 100%);
-}
-.daggerheart .hope {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  margin: 0.5rem 0px;
-}
-.daggerheart .health-stress {
-  display: grid;
-  grid: 1fr/1fr 1fr 1fr;
-  gap: 0.25em;
-  margin: 0.25em 0;
-}
-.daggerheart .health-stress .take-two {
-  grid-column: span 2;
-}
-.daggerheart .meta {
-  display: grid;
-  grid: 1fr/1fr 1fr;
-  width: 100%;
-}
-.daggerheart .domain {
-  background-color: #fff;
-  padding: 0.25rem;
-  margin: 0.25rem 0;
-}
-.daggerheart .tier-description {
-  text-align: center;
-  font-size: 12px;
-  font-weight: bold;
-}
-.daggerheart .card.panel {
-  margin: 0.5em 0.25em;
-}
-.daggerheart .card-header,
-.daggerheart .panel-header {
-  display: flex;
-}
-.daggerheart .card-name,
-.daggerheart .panel-name {
-  font-size: 16px;
-  font-weight: bold;
-  padding: 0.25rem;
-  padding-left: 8px;
-  border-bottom: 1px solid black;
-  text-transform: capitalize;
-}
-.daggerheart .card-type,
-.daggerheart .panel-type {
-  background-color: #f43f5e;
-  color: #fff;
-  padding: 0.25rem;
-  text-transform: capitalize;
-  display: flex;
-  align-items: center;
-}
-.daggerheart .card-recall,
-.daggerheart .panel-recall {
-  background-color: black;
-  color: #fff;
-  padding: 0.25rem;
-  text-transform: capitalize;
-  display: flex;
-  align-items: center;
-}
-.daggerheart .card-domain,
-.daggerheart .panel-domain {
-  background-color: #8b5cf6;
-  color: #fff;
-  padding: 0.25rem;
-  text-transform: capitalize;
-  display: flex;
-  align-items: center;
-}
-.daggerheart .card-body,
-.daggerheart .panel-body {
-  font-size: 12px;
-  color: #18181b;
-  padding: 0.5em;
-  padding-left: 8px;
-}
-.daggerheart .card-options,
-.daggerheart .panel-options {
-  display: flex;
-  justify-content: space-between;
-}
-.daggerheart .card-delete,
-.daggerheart .panel-delete {
-  color: #f43f5e;
-  cursor: pointer;
-}
-.daggerheart .card-activate,
-.daggerheart .panel-activate {
-  cursor: pointer;
-  border: 1px solid #3f6212;
-  color: #3f6212;
-  transition: 0.2s;
-  padding: 0.25rem;
-  text-transform: uppercase;
-}
-.daggerheart .card-activate:hover,
-.daggerheart .panel-activate:hover {
-  color: #fff;
-  background-color: #3f6212;
-}
-.daggerheart .card-activate.danger,
-.daggerheart .panel-activate.danger {
-  border: 1px solid #f43f5e;
-  color: #f43f5e;
-}
-.daggerheart .card-activate.danger:hover,
-.daggerheart .panel-activate.danger:hover {
-  color: #fff;
-  background-color: #f43f5e;
+  font-family: "Oswald";
 }
 .daggerheart .window-content {
-  background: none !important;
-  padding: 0.25rem !important;
-  background-color: #d9d9d9 !important;
+  padding: 0;
+  background: white;
 }
-.daggerheart .cards-vault h2 {
-  display: flex;
-  justify-content: space-between;
+.daggerheart hr {
+  border: 1px solid rgba(243, 243, 243, 0.1);
+  width: 100%;
+  margin: 3px 0px;
+  padding: 0px;
 }
-.daggerheart .section-header {
-  display: flex;
-  align-items: center;
-  background: #222;
-  text-align: center;
+.daggerheart hr.black {
+  border-color: #000;
+}
+.daggerheart .editor {
+  min-height: 50px;
+}
+.daggerheart .editor .tox.tox-tinymce {
+  min-height: 200px;
+  background: rgb(217, 216, 214);
+  border: 2px solid rgb(205, 205, 205);
+}
+.daggerheart .editor .tox-sidebar-wrap {
+  padding: 0px 5px;
+}
+.daggerheart .editor .white ~ .tox.tox-tinymce {
+  border: 1px solid white;
+  background: #F3F3F3;
+}
+.daggerheart .editor .h150 ~ .tox.tox-tinymce {
+  min-height: 150px;
+}
+.daggerheart .editor .h180 ~ .tox.tox-tinymce {
+  min-height: 180px;
+}
+.daggerheart .editor .simple ~ .tox.tox-tinymce .tox-toolbar__primary button[aria-label=Formats],
+.daggerheart .editor .simple ~ .tox.tox-tinymce .tox-toolbar__primary button[aria-label="Numbered list"],
+.daggerheart .editor .simple ~ .tox.tox-tinymce .tox-toolbar__primary button[aria-label="Insert/edit image"],
+.daggerheart .editor .simple ~ .tox.tox-tinymce .tox-toolbar__primary button[aria-label=Table],
+.daggerheart .editor .simple ~ .tox.tox-tinymce .tox-toolbar__primary button[aria-label="Horizontal line"],
+.daggerheart .editor .simple ~ .tox.tox-tinymce .tox-toolbar__primary button[aria-label="Insert/edit link"],
+.daggerheart .editor .simple ~ .tox.tox-tinymce .tox-toolbar__primary button[aria-label="Clear formatting"],
+.daggerheart .editor .simple ~ .tox.tox-tinymce .tox-toolbar__primary button[aria-label="Source code"],
+.daggerheart .editor .simple ~ .tox.tox-tinymce .tox-toolbar__primary button[aria-label="Bullet list"] {
+  display: none;
+}
+.daggerheart .editor .simple ~ .tox.tox-tinymce .tox-toolbar__primary button[aria-label=Save] {
+  height: 24px;
+  width: 24px;
+  padding: 0px;
+  margin: 0px;
+}
+.daggerheart .layout {
+  display: grid;
+  height: 100%;
+  grid-template: "sidebar" 170px "sidebar" 35px "sidebar" 1fr/220px 1fr;
+}
+.daggerheart .layout .sidebar {
+  grid-area: sidebar;
+  background-color: #38227b;
   color: #fff;
-  justify-content: space-between;
-  padding: 0.5em 0.5em;
-}
-.daggerheart .section-header h2 {
-  flex-grow: 1;
-  text-decoration: none;
-  border: none;
-  margin: 0;
-}
-.daggerheart label {
-  font-size: 12px;
-  font-weight: bold;
-  margin: 0.25em 0em;
-  display: block;
-}
-.daggerheart .combat-stat {
-  display: grid;
-  grid: 1fr/1fr 1fr 1fr 1fr;
-  column-gap: 1em;
-  row-gap: 0.25em;
-}
-.daggerheart .combat-stat-item {
-  display: flex;
-  flex-direction: column;
   align-items: center;
+  gap: 5px;
 }
-.daggerheart .combat-stat-item label {
-  flex-basis: 50%;
+.daggerheart .layout .header {
+  background-color: #2B226D;
+  color: #fff;
 }
-.daggerheart .generic-card {
-  display: grid;
-  grid: 1fr/1fr 2fr;
-  margin: 0.5em 0;
-}
-.daggerheart .traits-tab .trait {
-  background-color: white;
-  padding: 1em;
+.daggerheart .sidebar {
   display: flex;
   flex-direction: column;
-  margin: 0.5em;
+  width: 100%;
+  padding: 5px;
 }
-.daggerheart .traits-tab .trait-feature {
-  font-size: 12px;
-  flex-grow: 1;
-  height: 70px;
+.daggerheart .sidebar-image {
+  text-align: center;
+}
+.daggerheart .sidebar-image-src {
+  border: 1px solid #F3F3F3;
+}
+.daggerheart .sidebar-level {
+  width: 83px;
+}
+.daggerheart .sidebar-experiences-list {
+  max-height: 100px;
   overflow: auto;
 }
-.daggerheart .traits-tab .trait-options {
-  display: flex;
-  justify-content: end;
-  margin-top: 0.2em;
-}
-.daggerheart .traits-tab .delete-trait {
-  color: #f43f5e;
-}
-.daggerheart .traits-tab .trait-name {
-  border-bottom: 2px solid #334155;
-  padding-bottom: 0.25em;
-  margin-bottom: 0.25em;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.daggerheart .traits-tab .trait-name-value {
-  font-size: 18px;
-  font-weight: bold;
-  text-transform: uppercase;
-  display: flex;
-  gap: 0.5em;
-}
-.daggerheart .traits-tab .trait-name-label {
-  background-color: #eab308;
-  color: white;
-  padding: 0.25em;
-  font-size: 12px;
-  text-transform: uppercase;
-  font-weight: 100;
-}
-.daggerheart .meta-domains-list {
-  display: flex;
-  gap: 0.25em;
-  margin-top: 0.7em;
-}
-.daggerheart .meta-domains-list .meta-domain {
-  background-color: #f43f5e;
-  padding: 0.4em;
-  text-transform: uppercase;
-  color: white;
-}
-.daggerheart .char-sheet .editor-wrap {
-  width: 100%;
-}
-.daggerheart .char-sheet.questions-connections {
-  display: grid;
-  gap: 0.5em;
-}
-.daggerheart .char-sheet.looks-description {
-  display: grid;
-  grid: 1fr/1fr 2fr;
-  gap: 0.5em;
-  margin: 0.5em 0;
-}
-.daggerheart .money,
-.daggerheart .combat-stat {
-  background: #362178;
-  display: flex;
-  padding: 0.5em;
-  margin: 0.5em 0em;
-  color: white;
-  gap: 1em;
-  text-align: center;
-}
-.daggerheart .section-title {
-  font-weight: bold;
-  font-size: 14px;
-  margin-bottom: 0.5em;
-  display: flex;
-  justify-content: space-between;
-  text-transform: uppercase;
-  background: linear-gradient(180deg, rgb(27, 26, 26) 0%, rgb(27, 26, 26) 50%, rgb(42, 43, 46) 100%);
-  border: 2px solid #F1C770;
-  color: white;
-  padding: 0.25em 1em;
-  text-align: center;
-  align-items: center;
-}
-
-.winner {
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 16px;
-  text-align: center;
-  background: linear-gradient(180deg, rgb(27, 26, 26) 0%, rgb(27, 26, 26) 50%, rgb(42, 43, 46) 100%);
-  color: white;
-  padding: 0.25em;
-  font-family: "Oswald", sans-serif;
-}
-
-.show-result {
-  text-transform: uppercase;
-  padding: 0.25em;
-  text-align: center;
-  font-size: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  font-family: "Oswald", sans-serif;
-}
-
-.action-type {
-  font-family: "Oswald", sans-serif;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 16px;
-  text-align: center;
-  background: white;
-  padding: 0.25em;
-}
-
-.weapon-roll-type {
-  background: none;
-}
-
-.attack-roll-traits {
-  text-align: center;
-  margin-top: -5px;
-  text-transform: uppercase;
-}
-
-.daggerheart-roll-header {
-  display: grid;
-  width: 100%;
-  grid: 1fr/2fr 1fr;
-}
-
-.daggerheart-dice-roll {
-  font-family: "Oswald", sans-serif;
-  display: grid;
-  grid: 1fr/1fr;
-  align-items: center;
-  justify-items: center;
-  margin: 0px auto;
-  text-align: center;
-}
-.daggerheart-dice-roll .normal-dice-roll {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.daggerheart-dice-roll .hope-roll {
-  background-color: #e4e4e7;
-  color: #18181b;
-}
-.daggerheart-dice-roll .fear-roll {
-  color: #e4e4e7;
-  background-color: #18181b;
-}
-.daggerheart-dice-roll .hope-roll,
-.daggerheart-dice-roll .fear-roll {
-  font-size: 2em;
-  font-weight: 900;
-}
-.daggerheart-dice-roll .total-roll {
-  font-size: 3em;
-  font-weight: 900;
-}
-
-.hope-result {
-  background: white !important;
-  color: #18181b !important;
-  border-radius: 100% !important;
-  background-image: none !important;
-}
-
-.fear-result {
-  background: #18181b !important;
-  color: white !important;
-  border-radius: 100% !important;
-  background-image: none !important;
-}
-
-.dialog-input-group {
+.daggerheart .header {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.5em;
+  width: 100%;
+  padding: 5px;
 }
-.dialog-input-group .dialog-input {
+.daggerheart .header-name {
+  padding: 2px 0px;
+}
+.daggerheart .header-title {
+  display: flex;
+  gap: 5px;
+}
+.daggerheart .header-title span {
+  cursor: pointer;
+}
+.daggerheart .header-title label {
+  padding: 2px 4px;
+}
+.daggerheart .navigation-tab {
+  padding: 5px;
+}
+.daggerheart .navigation .navigation-item {
+  width: 90px;
+  height: 25px;
+  border: 1px solid #000;
+  color: #000;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+.daggerheart .navigation .navigation-item:hover {
+  text-shadow: none;
+  background-color: #000;
+  color: #fff;
+}
+.daggerheart .navigation .navigation-item.active {
+  background-color: #38227b;
+  border: 1px solid #f3c267;
+  color: #f3c267;
+}
+.daggerheart .content {
+  padding: 5px;
+}
+.daggerheart .adversary-content {
+  grid-area: span 2;
+  padding: 5px;
+}
+.daggerheart .inventory-nav .inventory-nav-item {
+  width: 100px;
+  text-align: center;
+  transition: 0.2s;
+  font-weight: bold;
+  border-bottom: 1px solid transparent;
+}
+.daggerheart .inventory-nav .inventory-nav-item:hover {
+  color: #38227b;
+  text-shadow: none;
+}
+.daggerheart .inventory-nav .inventory-nav-item.active {
+  border-bottom: 1px solid #38227b;
+}
+.daggerheart .character-card {
+  padding: 0px 5px;
+}
+.daggerheart .character-card-header {
+  background-color: rgb(217, 216, 214);
+  border: 2px solid rgb(205, 205, 205);
+  color: #F3F3F3;
+  font-size: 12px;
+}
+.daggerheart .character-card-header-name {
+  text-transform: uppercase;
+  color: black;
+  font-weight: bolder;
+  padding: 5px;
+  min-width: 80px;
+}
+.daggerheart .character-card-header-type {
+  text-transform: uppercase;
+  padding: 5px;
+}
+.daggerheart .character-card-feature {
+  font-size: 12px;
+  font-family: "Cabin Condensed", sans-serif;
+}
+.daggerheart .character-card-roll {
+  position: relative;
+  z-index: 100;
+  padding: 3px;
+  transition: 0.2s;
+  color: #1B1A1A;
+}
+.daggerheart .character-card-roll:hover {
+  color: white;
+  background-color: #1B1A1A;
+}
+.daggerheart .character-card-roll .fas.fa-comment {
+  margin-top: -1px;
+}
+.daggerheart .domain-card-roll {
+  position: relative;
+  z-index: 100;
+  padding: 3px;
+  transition: 0.2s;
+}
+.daggerheart .domain-card-roll:hover {
+  color: white;
+  background-color: #1B1A1A;
+}
+.daggerheart .domain-card-roll .fas.fa-comment {
+  margin-top: -1px;
+}
+.daggerheart .domain-card .domain-card-header-name {
+  font-size: 14px;
+}
+.daggerheart .domain-card-level {
+  padding: 0px 5px;
+}
+.daggerheart .domain-card-domain {
+  text-transform: uppercase;
+  padding: 0px 5px;
+  border-radius: 3px;
+}
+.daggerheart .domain-card-name {
+  font-size: 14px;
+  font-weight: bold;
+  padding-bottom: 0px;
+}
+.daggerheart .domain-card-type {
+  font-size: 11px;
+  text-transform: uppercase;
+}
+.daggerheart .domain-card-recall {
+  background-color: #1B1A1A;
+  border: 1px solid #f3c267;
+  color: #F3F3F3;
+  padding: 0px 5px;
+  border-radius: 3px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
-.dialog-input-group .dialog-input .dialog-input-name {
-  flex-grow: 1;
-  font-weight: bold;
+.daggerheart .domain-card-recall i.fas.fa-bolt {
+  font-size: 10px;
+  margin-top: 1px;
 }
-.dialog-input-group .dialog-input .dialog-input-mod {
-  background: #f43f5e !important;
-  padding: 0.25em;
-  width: 8%;
+.daggerheart .domain-card-feature {
+  font-size: 12px;
+  font-family: "Cabin Condensed", sans-serif;
+}
+.daggerheart .domain-card-meta {
+  background-color: rgb(217, 216, 214);
+  border: 2px solid rgb(205, 205, 205);
+}
+.daggerheart .inventory-tab.active[data-tab=vault_cards] .checkmark {
+  background-color: #4CB944 !important;
+  border: 1px solid #4CB944;
+}
+.daggerheart .inventory-tab.active[data-tab=loadout_cards] .checkmark {
+  background-color: #92140C !important;
+  border: 1px solid #92140C;
+}
+.daggerheart .leveling-tier-options {
+  display: grid;
+  grid: 1fr/1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.daggerheart .leveling-tier-description {
   text-align: center;
+  font-family: "Cabin Condensed", sans-serif;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+.daggerheart .leveling-tier-level-bonus {
+  font-size: 12px;
+  font-family: "Cabin Condensed", sans-serif;
+}
+.daggerheart .leveling-tier .leveling-option {
+  display: flex;
+  gap: 5px;
+  font-size: 12px;
+  text-align: justify;
+  font-family: "Cabin Condensed", sans-serif;
+  align-items: flex-start;
+}
+.daggerheart .inventory-item {
+  border: 1px solid black;
+  margin: 5px 0px;
+  background-color: rgb(217, 216, 214);
+  border: 2px solid rgb(205, 205, 205);
+}
+.daggerheart .inventory-item.weapon {
+  display: grid;
+  grid: 1fr/40px 2fr 1fr 20px;
+  align-items: center;
+}
+.daggerheart .inventory-item .weapon-name, .daggerheart .inventory-item .item-name {
+  font-size: 16px;
+}
+.daggerheart .inventory-item .weapon-meta, .daggerheart .inventory-item .item-meta {
+  padding-left: 5px;
+}
+.daggerheart .inventory-item .weapon-description, .daggerheart .inventory-item .item-description {
+  font-size: 12px;
+}
+.daggerheart .inventory-item .weapon-image, .daggerheart .inventory-item .item-image {
+  position: relative;
+  cursor: pointer;
+  display: block;
+}
+.daggerheart .inventory-item .weapon-image:after, .daggerheart .inventory-item .item-image:after {
+  content: " ";
+}
+.daggerheart .inventory-item .weapon-ability, .daggerheart .inventory-item .weapon-damage, .daggerheart .inventory-item .item-ability, .daggerheart .inventory-item .item-damage {
+  padding: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.daggerheart .inventory-item .weapon-ability:hover, .daggerheart .inventory-item .weapon-damage:hover, .daggerheart .inventory-item .item-ability:hover, .daggerheart .inventory-item .item-damage:hover {
+  background-color: #1B1A1A;
+  color: #F3F3F3;
+}
+.daggerheart .inventory-item .weapon-status .equip-icon, .daggerheart .inventory-item .item-status .equip-icon {
+  border-radius: 100%;
+  width: 14px;
+  height: 14px;
+  display: block;
+  margin: 0px auto;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.daggerheart .inventory-item .weapon-status .equip-icon.equip, .daggerheart .inventory-item .item-status .equip-icon.equip {
+  background-color: transparent;
+  border: 1px solid #38227b;
+}
+.daggerheart .inventory-item .weapon-status .equip-icon.equip:hover, .daggerheart .inventory-item .item-status .equip-icon.equip:hover {
+  background-color: #38227b;
+}
+.daggerheart .inventory-item .weapon-status .equip-icon.unequip, .daggerheart .inventory-item .item-status .equip-icon.unequip {
+  background-color: #38227b;
+  border: 1px solid #38227b;
+}
+.daggerheart .inventory-item .weapon-status .equip-icon.unequip:hover, .daggerheart .inventory-item .item-status .equip-icon.unequip:hover {
+  border: 1px solid #38227b;
+  background-color: transparent;
+}
+.daggerheart .inventory-item .weapon-options, .daggerheart .inventory-item .item-options {
+  font-size: 12px;
+  font-family: "Cabin Condensed", sans-serif;
+  grid-column: 4 span;
+  background-color: rgba(34, 62, 109, 0.5);
   color: white;
-  font-weight: bold;
+  padding: 4px;
+}
+.daggerheart *[data-action] {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=daggerheart.css.map */
-
-/* WOJO Test */
-.duality-dice-msg-container {
-  display: flex;
-  width: 100%;
-}
-
-.duality-dice-msg-die-spacer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  font-weight: bolder;
-  font-size: x-large;
-  text-align: top;
-  flex-grow: 1;
-}
-
-.duality-dice-msg-die-fear{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 25px;
-  height: 25px;
-  margin: 1%;
-  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-fear.svg");
-}
-
-.duality-dice-msg-die-hope {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 25px;
-  height: 25px;
-  margin: 1%;
-  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-hope.svg");
-}
-
-.duality-dice-msg-die-selected-hope-disadv{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 25px;
-  height: 25px;
-  margin: 1%;
-  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-hope.svg");
-  border: 1px solid rgb(94, 54, 54);
-  background-color: #9e5353;
-  border-radius: 25%;
-  padding: 1%;
-  width: 25px;
-  height: 25px;
-}
-
-.duality-dice-msg-die-selected-hope-adv{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 25px;
-  height: 25px;
-  margin: 1%;
-  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-hope.svg");
-  border: 1px solid rgb(50, 86, 53);
-  background-color: #4f9150;
-  border-radius: 25%;
-  padding: 1%;
-  width: 25px;
-  height: 25px;
-}
-
-.duality-dice-msg-die-crit-success {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 25px;
-  height: 25px;
-  margin: 1%;
-  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-crit-success.svg");
-}
-
-.duality-dice-msg-die-crit-fail {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 25px;
-  height: 25px;
-  margin: 1%;
-  background-image: url("/systems/daggerheart/assets/svgs/d12-solid-crit-fail.svg");
-}
-
-.duality-dice-msg-resut-text-fear {
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: yellow;
-  text-align: center;
-  font-weight: bolder;
-  font-size: medium;
-  text-shadow: 1cm;
-  color:rgb(39, 39, 39);
-}
-
-.duality-dice-msg-resut-text-hope {
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
-  text-align: center;
-  font-weight: bolder;
-  font-size: medium;
-  text-shadow: 1cm;
-  color: rgb(106, 106, 106);
-}
-
-.duality-dice-msg-resut-text-crit-success {
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
-  text-align: center;
-  font-weight: bolder;
-  font-size: medium;
-  text-shadow: 1cm;
-  color: rgb(18, 111, 0);
-}
-
-.duality-dice-msg-resut-text-crit-fail {
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: rgb(112, 0, 0);
-  text-align: center;
-  font-weight: bolder;
-  font-size: medium;
-  text-shadow: 1cm;
-  color: red;
-}
-
-

@@ -1,3 +1,5 @@
+import DaggerHeartFeature from "./feature.mjs";
+
 export default class DaggerHeartCard extends foundry.abstract.TypeDataModel {
   static defineSchema() {
     const fields = foundry.data.fields;
@@ -10,6 +12,17 @@ export default class DaggerHeartCard extends foundry.abstract.TypeDataModel {
       required: true,
       initial: "",
     });
+
+    schema.cardFeatures = new fields.ArrayField(
+      new fields.SchemaField({
+        id: new fields.StringField({
+          required: true,
+          immutable: true,
+        }),
+        name: new fields.StringField(),
+        description: new fields.StringField(),
+      })
+    );
 
     return schema;
   }

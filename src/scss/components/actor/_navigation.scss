@@ -1,0 +1,26 @@
+.navigation {
+  &-tab {
+    padding: $p-5;
+  }
+  
+  .navigation-item {
+    width: 90px;
+    height: 25px;
+    border: 1px solid $black;
+    color: $black;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    &:hover {
+      text-shadow: none;
+      background-color: $black;
+      color: $hyper-white
+    }
+    &.active {
+      background-color: $primary;
+      border: 1px solid $border;
+      color: $border;
+    }
+  }
+}

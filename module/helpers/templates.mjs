@@ -4,22 +4,34 @@
  * @return {Promise}
  */
 export const preloadHandlebarsTemplates = async function () {
-  return loadTemplates([
-    // Actor partials.
-    'systems/daggerheart/templates/actor/parts/actor-features.hbs',
-    'systems/daggerheart/templates/actor/parts/actor-items.hbs',
-    'systems/daggerheart/templates/actor/parts/actor-spells.hbs',
-    'systems/daggerheart/templates/actor/parts/actor-effects.hbs',
-    'systems/daggerheart/templates/actor/parts/actor-loadout.hbs',
-    'systems/daggerheart/templates/actor/parts/actor-exps.hbs',
-    'systems/daggerheart/templates/actor/parts/actor-card.hbs',
-    'systems/daggerheart/templates/actor/parts/actor-description.hbs',
-    'systems/daggerheart/templates/actor/parts/actor-leveling.hbs',
-    'systems/daggerheart/templates/actor/parts/actor-weapons.hbs',
-    'systems/daggerheart/templates/actor/parts/actor-equipped.hbs',
-    'systems/daggerheart/templates/actor/parts/hand-card.hbs',
-    // Item partials
-    'systems/daggerheart/templates/item/parts/item-effects.hbs',
-    'systems/daggerheart/templates/item/parts/item-tier.hbs',
+  loadTemplates(["systems/daggerheart/templates/actor/parts/hand-card.hbs"]);
+
+  loadTemplates([
+    "systems/daggerheart/templates/item/parts/item-effects.hbs",
+    "systems/daggerheart/templates/item/parts/item-tier.hbs",
+    "systems/daggerheart/templates/item/layout/class/stats.hbs",
+    "systems/daggerheart/templates/item/layout/class/info.hbs",
+    "systems/daggerheart/templates/item/layout/class/leveling.hbs",
+    "systems/daggerheart/templates/item/layout/class/items.hbs",
+  ]);
+
+
+  loadTemplates([
+    'systems/daggerheart/templates/actor/layout/sidebar.hbs',
+    'systems/daggerheart/templates/actor/layout/header.hbs',
+    'systems/daggerheart/templates/actor/layout/navigation.hbs',
+    'systems/daggerheart/templates/actor/layout/content.hbs',
+  ]);
+
+
+  loadTemplates([
+    'systems/daggerheart/templates/actor/parts/character-loadout.hbs',
+    'systems/daggerheart/templates/actor/parts/character-inventory.hbs',
+    'systems/daggerheart/templates/actor/parts/character-description.hbs',
+    'systems/daggerheart/templates/actor/parts/character-leveling.hbs',
+    'systems/daggerheart/templates/actor/parts/character-card.hbs',
+    'systems/daggerheart/templates/actor/parts/character-domain-card.hbs',
+    'systems/daggerheart/templates/actor/parts/character-equipable.hbs',
+    'systems/daggerheart/templates/actor/parts/character-item.hbs',
   ]);
 };

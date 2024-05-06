@@ -1,0 +1,25 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: $padding-default;
+
+  &-image {
+    text-align: center;
+
+    &-src {
+      border: 1px solid $white;
+    }
+  }
+
+  &-level {
+    width: 83px;
+  }
+
+  &-experiences {
+    &-list {
+      max-height: 100px;
+      overflow: auto;
+    }
+  }
+}

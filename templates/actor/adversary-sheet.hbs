@@ -1,0 +1,203 @@
+<form class="{{cssClass}} {{actor.type}}" autocomplete="off">
+  <div class="layout">
+    <div class="sidebar flex column center gap-5">
+      <div>
+        <label>Edit Mode</label>
+        <input {{checked system.editMode}} type="checkbox" name="system.editMode"/>
+      </div>
+
+      <div class="sidebar-image-src"><img src={{actor.img}} data-edit="img" height="128px" width="128px"/></div>
+
+      <div class="w-100">
+        <label class="label">Name</label>
+        <input class="input white" type="text" name="name" value="{{actor.name}}"/>
+      </div>
+
+      <div class="sidebar-hp flex items-center justify-between w-100">
+        <label class="label">HP</label>
+        <div class="flex items-center gap-10">
+          <input type="number" name="system.health.value" value="{{system.health.value}}" class="white input number"/>
+          <input type="number" name="system.health.max" value="{{system.health.max}}" class="white input number"/>
+        </div>
+      </div>
+
+      <div class="sidebar-stress flex items-center justify-between w-100">
+        <label class="label">STRESS</label>
+        <div class="flex items-center gap-10">
+          <input name="system.stress.value" value="{{system.stress.value}}" class="white input number"/>
+          <input name="system.stress.max" value="{{system.stress.max}}" class="white input number"/>
+        </div>
+      </div>
+
+      <div class="sidebar-hitpoints flex items-center justify-between w-100">
+        <div class="flex column items-center gap-5">
+          <label for="system.hitpoints.minor" class="label">MINOR</label>
+          <input name="system.hitpoints.minor" value="{{system.hitpoints.minor}}" class="white input number"/>
+        </div>
+
+        <div class="flex column items-center gap-5">
+          <label for="system.hitpoints.major" class="label">MAJOR</label>
+          <input name="system.hitpoints.major" value="{{system.hitpoints.major}}" class="white input number"/>
+        </div>
+
+        <div class="flex column items-center gap-5">
+          <label for="system.hitpoints.severe" class="label">SEVERE</label>
+          <input name="system.hitpoints.severe" value="{{system.hitpoints.severe}}" class="white input number"/>
+        </div>
+
+      </div>
+
+      <div class="flex items-center justify-between w-100 ">
+        <label class="label">Tier:</label>
+        {{#if system.editMode}}
+          <input class="input white number" type="number" name="system.tier" value="{{system.tier}}">
+        {{else}}
+          {{system.tier}}
+        {{/if}}
+      </div>
+      <div class="flex items-center justify-between w-100">
+        <label class="label">Type:</label>
+        {{#if system.editMode}}
+          <select class="input white" name="system.type" value="{{system.type}}">
+            {{selectOptions enemy_types selected=system.type nameAttr="value" labelAttr="label"}}
+          </select>
+        {{else}}
+          {{system.type}}
+        {{/if}}
+      </div>
+
+      <div class="flex items-center justify-between w-100">
+        <label class="label">Difficulty:</label>
+        {{#if system.editMode}}
+          <input class="input white number" name="system.difficulty" value="{{system.difficulty}}" type="text">
+        {{else}}
+          {{system.difficulty}}
+        {{/if}}
+      </div>
+
+      <div class="flex items-center justify-between w-100">
+        <label class="label">Attack Modifier:</label>
+        {{#if system.editMode}}
+          <input class="input white number" name="system.attackMod" value="{{system.attackMod}}" type="text">
+        {{else}}
+          {{system.attackMod}}
+        {{/if}}
+      </div>
+
+      <div class="flex column mb-5 mt-5 gap-5 w-100">
+        <div class="button white w-100" {{{action action="attack-roll"}}}>Attack Roll <i class="fas fa-dice-d20"></i>
+        </div>
+        <div class="button white w-100" {{{action action="damage-roll"}}}>Damage Roll</div>
+      </div>
+
+      <div class="flex items-center w-100 justify-between">
+        <label>Experiences</label>
+        <div {{{action action="experience-add"}}}><i class='fas fa-plus'></i></div>
+      </div>
+
+      <div class="sidebar-experiences-list w-100">
+        {{#each system.experiences as |exp key|}}
+          <div class="flex align-center justify-between mt-5 mb-5">
+            <div class="flex align-center gap-10">
+              <input type="hidden" name="system.experiences.{{key}}.id" value="{{exp.id}}"/>
+              <input type="text" class="input white" name="system.experiences.{{key}}.name" value="{{exp.name}}"/>
+              <input type="number" class="input white number" name="system.experiences.{{key}}.mod" value="{{exp.mod}}"
+                     data-dtype="Number"/>
+            </div>
+
+            <a class="item-control" {{{action action="experience-delete" id=exp.id}}} title="Delete experience">
+              <i class="fas fa-trash"></i>
+            </a>
+          </div>
+        {{/each}}
+      </div>
+
+
+    </div>
+
+    <div class="adversary-content">
+      <div class="enemy-description">
+        <label class="label">Description</label>
+        {{#if system.editMode}}
+          <textarea class="input" type="text" name="system.description">{{{system.description}}}</textarea>
+        {{else}}
+          {{{system.description}}}
+        {{/if}}
+
+      </div>
+      <div class="enemy-tactics">
+        <label class="label">Motives & Tactics:</label>
+        {{#if system.editMode}}
+          <input class="input" name="system.tactics" value="{{system.tactics}}"/>
+        {{else}}
+          {{system.tactics}}
+        {{/if}}
+      </div>
+      <div class="w-100">
+        {{#if system.editMode}}
+          <label class="label" for="">Attack</label>
+          <input class="input w-100" name="system.weapon.name" value="{{system.weapon.name}}">
+          <div class="flex gap-10 w-100 mt-5">
+            <select class="input" name="system.weapon.range" value="{{system.weapon.range}}">
+              {{selectOptions ranges selected=system.weapon.range nameAttr="value" labelAttr="label"}}
+            </select>
+            <input class="input w-100" name="system.weapon.damage" value="{{system.weapon.damage}}">
+            <select class="input" name="system.weapon.type" value="{{system.weapon.type}}">
+              {{selectOptions attack_types selected=system.weapon.type nameAttr="value" labelAttr="label"}}
+            </select>
+          </div>
+        {{else}}
+          <div>
+            <div><strong>{{system.weapon.name}}</strong></div>
+            <div>{{system.weapon.range}} - {{system.weapon.damage}} {{system.weapon.type}}</div>
+          </div>
+        {{/if}}
+      </div>
+    </div>
+
+
+    <div class="features-list">
+      <div class="section flex align-center justify-between">
+        Features
+        <a {{{action action="feature-add"}}} title='add feature'>
+          <i class='fas fa-plus'></i>
+        </a>
+      </div>
+      <div class="p-5">
+        {{#each system.features as |feature key|}}
+          <div class="feature-item panel">
+            {{#if ../system.editMode}}
+              <div class=" flex column">
+                <div class="flex items-center justify-between">
+                  <label class="label">Name: </label>
+                  <a {{{action action="feature-delete" id=feature.id}}} title='Delete feature'>
+                    <i class='fas fa-trash'></i>
+                  </a>
+                </div>
+
+                <input class="input" name="system.features.{{key}}.name" value="{{feature.name}}">
+                <input type="hidden" name="system.features.{{key}}.id" value="{{feature.id}}">
+              </div>
+              <div>
+                <label>Description</label>
+                <textarea class="input" type="text"
+                          name="system.features.{{key}}.description">{{{feature.description}}}</textarea>
+              </div>
+            {{else}}
+              <div class="bg-card mb-5 p-5">
+                <div class="text-bold flex items-center justify-between">
+                  {{feature.name}}
+                  <div {{{action action="feature-show" id=feature.id}}}>
+                    <i class="fa fa-eye"></i>
+                  </div>
+                </div>
+                <div>{{feature.description}}</div>
+              </div>
+            {{/if}}
+
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</form>

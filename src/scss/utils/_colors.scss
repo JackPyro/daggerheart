@@ -1,83 +1,78 @@
-$c-white: #fff;
-$c-black: #000;
+$primary: #38227b;
+$secondary: #2B226D;
+$secondary-alt: #223E6D;
+$border: #f3c267;
+$hyper-white: #fff;
+$white: #F3F3F3;
+$black: #000;
+$darkred: #7f1d1d;
+$gray: #e0dede;
+$danger: #92140C;
+$success: #4CB944;
+$dark: #1B1A1A;
 
-$c-dark: #191813;
-$c-faint: #c9c7b8;
-$c-beige: #b5b3a4;
-$c-tan: #444;
+$classColor: #9B1D2085;
+$communityColor: #49846785;
+$ancestry: #ffaa3385;
+$subClass: #99463685;
+$cardBG: rgb(217 216 214);
+$cardBorder: rgb(205 205 205);
 
-$slate: #334155;
-$rose: #f43f5e;
-$violet: #8b5cf6;
-$white: #fff;
-$yellow: #eab308;
-$blue: #1e3a8a;
-$zinc: #18181b;
-$green: #3f6212;
-$indigo-dark: #3730a3;
-$light: #f5f5f5;
-$dark-start: #1B1A1A;
-$dark-end: #2A2B2E;
+.class {
+  background-color: $classColor;
+  color: white;
+}
+.community {
+  background-color: $communityColor;
+  color: white;
+}
 
-$dark-gradient: linear-gradient(180deg, rgba(27, 26, 26, 1) 0%, rgba(27, 26, 26, 1) 50%, rgba(42, 43, 46, 1) 100%);
-$dark-gradient-alpha: linear-gradient(180deg, rgba(27, 26, 26, 0.5) 0%, rgba(27, 26, 26, 0.5) 50%, rgba(42, 43, 46, 0.5) 100%);
-$border-color: #FAEC84;
-
-$input-bg: #f3f4f6;
-$input-border: #d1d5db;
-$input-shadow: #6b7280;
-
-$ability-bg: #404040;
-$bg-hover: #383838;
-$border: #F1C770;
-$tabactive: #362178;
-
-@mixin gradient($color1, $color2) {
-  //background: linear-gradient(90deg, $color1, $color2 25%, $color2 50%, $color2 75%, $color1 100%);
-  background-color: $color2 !important;
+.ancestry {
+  background-color: $ancestry;
+  color: white;
 }
 
 .arcana {
-  @include gradient(#392144, #4E276A);
+  background-color: #4E276A;
   color: white;
 }
 
 .blade {
-  @include gradient(#662521, #96352C);
+  background-color: #96352C;
   color: white;
 }
 
 .bone {
-  @include gradient(#4D4E50, #666769);
+  background-color: #666769;
   color: white;
 }
 
 .codex {
-  @include gradient(#19294A, #1F335F);
+  background-color: #1F335F;
   color: white;
 }
 
 .grace {
-  @include gradient(#612A4C, #7A3662);
+  background-color: #7A3662;
   color: white;
 }
 
 .midnight {
-  @include gradient(#212125, #333439);
+  background-color: #333439;
   color: white;
 }
 
 .sage {
-  @include gradient(#054121, #0C6B41);
+  background-color: #0C6B41;
   color: white;
 }
 
 .splendor {
-  @include gradient(#998042, #AF9F40);
+  background-color: #AF9F40;
   color: white;
 }
 
 .valor {
-  @include gradient(#915E24, #B97A23);
+  background-color: #B97A23;
   color: white;
 }

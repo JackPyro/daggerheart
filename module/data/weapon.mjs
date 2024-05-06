@@ -6,7 +6,7 @@ export default class DaggerHeartWeapon extends foundry.abstract.TypeDataModel {
     const schema = {};
 
     schema.trait = new fields.StringField({
-      blank: true,
+      initial: "agi"
     });
 
     schema.range = new fields.StringField({
@@ -22,7 +22,7 @@ export default class DaggerHeartWeapon extends foundry.abstract.TypeDataModel {
     });
 
     schema.damage = new fields.StringField({
-      blank: true,
+      initial: "D6"
     });
 
     schema.isEquipped = new fields.BooleanField({
@@ -34,8 +34,7 @@ export default class DaggerHeartWeapon extends foundry.abstract.TypeDataModel {
     })
     
     schema.burden = new fields.StringField({
-      blank: true,
-      initial: DAGGERHEART.burden["1H"],
+      initial: "1H",
     });
 
     schema.feature = new fields.StringField({

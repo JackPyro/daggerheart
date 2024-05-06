@@ -1,0 +1,47 @@
+<div class="character-card flex column gap-5 mt-5">
+  <div class="flex items-center justify-between character-card-header gap-10 accordion"
+       data-accordion="character_card_${{card._id}}">
+    <div class="flex items-center justify-between w-100">
+      <label class="character-card-header-name">{{card.name}}</label>
+      <div class="flex gap-5 items-center">
+        <div class="character-card-roll self-stretch" {{{action id=card._id action="item-show" }}}>
+          <i class="fas fa-comment"></i>
+        </div>
+        <label class="character-card-header-type badge {{card.system.cardType}}">{{card.system.cardType}}</label>
+      </div>
+
+    </div>
+  </div>
+  <div class="character-card-feature accordion-content" data-accordion="character_card_${{card._id}}">
+    {{{card.system.feature}}}
+    <div class="character-card-option">
+      <a {{{action action="item-edit" id=card._id}}} title='Edit card'>
+        <i class='fas fa-edit'></i>
+      </a>
+      <a {{{action action="item-delete" id=card._id}}} title='Delete Card'>
+        <i class='fas fa-trash'></i>
+      </a>
+    </div>
+  </div>
+</div>
+{{#each card.system.cardFeatures as |feature id|}}
+  <div class="character-card flex column gap-5 mt-5">
+    <div class="flex items-center justify-between character-card-header gap-10 accordion"
+         data-accordion="character_feature_{{feature.id}}">
+      <div class="flex items-center justify-between w-100">
+        <label class="character-card-header-name">{{feature.name}}</label>
+        <div class="flex gap-5 items-center">
+          <div class="character-card-roll self-stretch" {{{action feature=feature.id card=../card._id action="feature-show" }}}>
+            <i class="fas fa-comment"></i>
+          </div>
+          <label class="character-card-header-type badge {{../card.system.cardType}}">{{../card.system.cardType}}</label>
+        </div>
+
+      </div>
+    </div>
+    <div class="character-card-feature accordion-content" data-accordion="character_feature_{{feature.id}}">
+      {{{feature.description}}}
+
+    </div>
+  </div>
+{{/each}}

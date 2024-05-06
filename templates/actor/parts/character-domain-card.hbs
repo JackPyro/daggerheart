@@ -1,0 +1,38 @@
+<div class="domain-card mt-5">
+  <div class="domain-card-meta flex items-center justify-between">
+    <div class="domain-card-data flex flex-grow items-center gap-10">
+      <div class="domain-card-level self-stretch">{{card.system.level}}</div>
+      <div class="flex-grow">
+        <div class="domain-card-name">{{card.name}}</div>
+        <div class="domain-card-type self-stretch">{{card.system.domainType}}</div>
+      </div>
+      <div class="domain-card-roll self-stretch" {{{action id=card._id action="item-show"}}}>
+        <i class="fas fa-comment"></i>
+      </div>
+      <div class="domain-card-domain {{card.system.domain}}">
+        {{card.system.domain}}
+      </div>
+      <div class="domain-card-recall">
+        {{card.system.recall}} <i class="fas fa-bolt"></i>
+      </div>
+    </div>
+    <div class="domain-card-option p-10 self-stretch">
+      <label class="checkbox-container">
+        <input type="checkbox" name="card.system.active" {{checked card.system.active }} />
+        <span class="checkmark" {{{action action="toggle-card" id=card._id }}}></span>
+      </label>
+    </div>
+
+  </div>
+  <div class="domain-card-feature">
+    {{{card.system.feature}}}
+    <div class="domain-card-option">
+      <a {{{action action="item-edit" id=card._id}}} title='Edit card'>
+        <i class='fas fa-edit'></i>
+      </a>
+      <a {{{action action="item-delete" id=card._id}}} title='Delete Card'>
+        <i class='fas fa-trash'></i>
+      </a>
+    </div>
+  </div>
+</div>

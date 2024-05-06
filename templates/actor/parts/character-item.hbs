@@ -1,0 +1,18 @@
+<div class="inventory-item item flex items-center justify-between">
+  <div class="flex items-center gap-5">
+    <img src={{item.img}} height="100%" width="30px" />
+    <div> {{item.name}}</div>
+  </div>
+
+
+  <div class="item-options flex self-stretch items-center">
+    <div class="item-item-options">
+      <a {{{action action="item-edit" id=item._id}}} title='Edit item'>
+        <i class='fas fa-edit'></i>
+      </a>
+      <a {{{action action="item-delete" id=item._id}}} title='Delete item'>
+        <i class='fas fa-trash'></i>
+      </a>
+    </div>
+  </div>
+</div>

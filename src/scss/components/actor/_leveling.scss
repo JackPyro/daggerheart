@@ -1,0 +1,29 @@
+.leveling-tier {
+  &-options {
+    display: grid;
+    grid: 1fr / 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  &-description {
+    text-align: center;
+    font-family: $font-secondary;
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+
+  &-level-bonus {
+    font-size: 12px;
+    font-family: $font-secondary;
+  }
+
+  .leveling-option {
+    display: flex;
+    gap: 5px;
+    font-size: 12px;
+    text-align: justify;
+    font-family: $font-secondary;
+    align-items: flex-start;
+  }
+}

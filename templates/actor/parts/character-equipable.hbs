@@ -1,0 +1,46 @@
+<div class="inventory-item weapon">
+  <img class="weapon-image" src={{item.img}} height="100%" />
+  <div class="weapon-meta flex flex-grow column">
+    <div class="weapon-name">{{item.name}}</div>
+    <div class="weapon-description">
+      {{#if (eq item.type "weapon")}}
+      {{#if item.system.isSecondary}} Secondary {{else }}Primary {{/if}}
+      {{item.system.range}} Weapon - {{#if (eq item.system.burden "1H")}} One-Handed {{else}} Two-Handed {{/if}}
+      {{else}}
+      Armor Score - </strong>{{item.system.score}}
+      {{/if}}
+    </div>
+  </div>
+  <div class="weapon-rollables justify-around  flex gap-10">
+    {{#if (eq item.type "weapon")}}
+    <div {{{action action="weapon-roll" id=item._id}}} class="weapon-ability">
+      {{item.abilityScorePrefix}}{{item.abilityScore}}
+      {{item.system.trait}}</div>
+    <div {{{action action="weapon-damage" id=item._id}}}class="weapon-damage"> {{item.system.damage}}
+      {{item.system.type}}</div>
+    {{/if}}
+  </div>
+  <div class="weapon-status text-center">
+    {{#if (eq item.type "weapon")}}
+    <div {{{action action="weapon-toggle" id=item._id}}} class="equip-icon {{ternary item.system.isEquipped "
+      unequip" "equip" }}">
+    </div>
+    {{/if}}
+    {{#if (eq item.type "armor")}}
+    <div {{{action action="armor-toggle" id=item._id}}} class="equip-icon {{ternary item.system.isEquipped "
+      unequip" "equip" }}">
+    </div>
+    {{/if}}
+  </div>
+  <div class="weapon-options flex">
+    <div class="weapon-feature flex-grow">{{{item.system.feature}}}</div>
+    <div class="weapon-item-options">
+      <a {{{action action="item-edit" id=item._id}}} title='Edit weapon'>
+        <i class='fas fa-edit'></i>
+      </a>
+      <a {{{action action="item-delete" id=item._id}}} title='Delete weapon'>
+        <i class='fas fa-trash'></i>
+      </a>
+    </div>
+  </div>
+</div>

@@ -2,7 +2,7 @@ const formHTML = (actor) => {
   return `
   <div class='dialog-input-group'>
     <label for="mod_input">Modifier</label>
-    <input id="mod_input" type="number" value="${actor.system.attackMod}">
+    <input id="mod_input" value="${actor.system.attackMod}">
   </div>
 
   <div  class='dialog-input-group'>
@@ -36,10 +36,7 @@ const template = (roll, { prefix }) => {
       `<li class="roll die ${rollResult.discarded ? "discarded" : ""} d20">${rollResult.value}</li>`
   );
 
-  console.log(roll)
-
   return `
-  
   <div class="dice-roll">
       <div class="dice-result">
           <div class="daggerheart-roll-result">
@@ -131,7 +128,6 @@ const doGMRoll = async (actor, prefix = '') => {
       content: formHTML(actor),
     });
 
-    console.log(mod, expMod)
 
   const roll = await new Roll(`${attack.formula} + @mod`, {
     mod: mod + expMod,

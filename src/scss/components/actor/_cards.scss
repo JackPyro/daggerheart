@@ -1,0 +1,131 @@
+.character-card {
+  padding: 0px 5px;
+
+  &-header {
+    background-color: $cardBG;
+    border: 2px solid $cardBorder;
+    color: $white;
+    // padding: 5px;
+    font-size: 12px;
+
+    &-name {
+      text-transform: uppercase;
+      color: black;
+      font-weight: bolder;
+      padding: 5px;
+      min-width: 80px;
+
+    }
+
+    &-type {
+      text-transform: uppercase;
+      padding: 5px;
+    }
+  }
+
+  &-feature {
+    font-size: 12px;
+    font-family: $font-secondary;
+  }
+
+  &-roll {
+    position: relative;
+    z-index: 100;
+    padding: 3px;
+    transition: 0.2s;
+    color: $dark;
+    &:hover {
+      color: white;
+      background-color: $dark;
+    }
+
+    .fas.fa-comment {
+      margin-top: -1px;
+    }
+  }
+
+}
+
+.domain-card {
+  &-roll {
+    position: relative;
+    z-index: 100;
+    padding: 3px;
+    transition: 0.2s;
+
+    &:hover {
+      color: white;
+      background-color: $dark;
+    }
+
+    .fas.fa-comment {
+      margin-top: -1px;
+    }
+  }
+
+  .domain-card-header-name {
+    font-size: 14px;
+  }
+
+  &-level {
+    padding: 0px 5px;
+  }
+
+  &-domain {
+    text-transform: uppercase;
+    padding: 0px 5px;
+    border-radius: 3px;
+  }
+
+  &-name {
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 0px;
+  }
+
+  &-type {
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  &-recall {
+    background-color: $dark;
+    border: 1px solid $border;
+    color: $white;
+    padding: 0px 5px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+
+    & i.fas.fa-bolt {
+      font-size: 10px;
+      margin-top: 1px;
+    }
+  }
+
+  &-feature {
+    font-size: 12px;
+    font-family: $font-secondary;
+  }
+
+  &-meta {
+    background-color: $cardBG;
+    border: 2px solid $cardBorder;
+  }
+}
+
+.inventory-tab {
+  &.active[data-tab="vault_cards"] {
+    .checkmark {
+      background-color: $success !important;
+      border: 1px solid $success;
+    }
+  }
+
+  &.active[data-tab="loadout_cards"] {
+    .checkmark {
+      background-color: $danger !important;
+      border: 1px solid $danger;
+    }
+  }
+}

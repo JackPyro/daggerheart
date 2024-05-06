@@ -1,0 +1,64 @@
+<section class="leveling-tier">
+  <div class="section flex items-center justify-between">
+    <div class="leveling-tier-levels">Level 2-4</div>
+    <div class="leveling-tier-level-bonus">At Level 2, take an additional Experience.</div>
+
+  </div>
+  <span class="flex justify-center text-center button" {{{action action="add-tier"
+                                                                 type="tier1"}}}>Add Item</span>
+  <div>
+    <label class="label">Tier 1 Description</label>
+
+    {{editor system.tier1Description target="system.tier1Description" class="text-center simple" button=true
+             rollData=rollData
+             owner=owner editable=editable}}
+
+  </div>
+  <section class="p-5">
+    {{> "systems/daggerheart/templates/item/parts/item-tier.hbs" tier=system.tier1 editMode=system.editMode tierKey="tier1"}}
+  </section>
+</section>
+<section class="leveling-tier">
+  <div class="section flex items-center justify-between">
+    <div class="leveling-tier-levels">
+      Level 5-7
+    </div>
+    <div class="leveling-tier-level-bonus">
+      At Level 5, take an additional Experience and clear all marks on Character Traits.
+    </div>
+  </div>
+  <span class="flex justify-center text-center button" {{{action action="add-tier" type="tier2"}}}>
+              Add Item
+            </span>
+  <label for="label">Tier 2 Description</label>
+
+  {{editor system.tier2Description target="system.tier2Description" class="text-center simple" button=true
+           rollData=rollData
+           owner=owner editable=editable}}
+
+  <section class="p-5">
+    {{> "systems/daggerheart/templates/item/parts/item-tier.hbs" tier=system.tier2 editMode=system.editMode tierKey="tier2"}}
+  </section>
+</section>
+<section class="leveling-tier">
+  <div class="section flex items-center justify-between">
+    <div class="leveling-tier-levels">
+      Level 8-10
+    </div>
+    <div class="leveling-tier-level-bonus">
+      At Level 8, take an additional Experience and clear all marks on Character Traits.
+    </div>
+
+  </div>
+  <span class="flex justify-center text-center button" {{{action action="add-tier" type="tier3"}}}>
+              Add Item
+            </span>
+  <label for="label">Tier 3 Description</label>
+  {{editor system.tier3Description target="system.tier3Description" class="text-center simple" button=true
+           rollData=rollData
+           owner=owner editable=editable}}
+
+  <section class="p-5">
+    {{> "systems/daggerheart/templates/item/parts/item-tier.hbs" tier=system.tier3 editMode=system.editMode tierKey="tier3"}}
+  </section>
+</section>
