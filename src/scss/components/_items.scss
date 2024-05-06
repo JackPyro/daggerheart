@@ -11,3 +11,17 @@
     }
   }
 }
+.class-sheet {
+  .class {
+    &-wrapper {
+      height: 100%;
+      display: grid;
+      grid: 1fr / 200px 1fr;
+    }
+
+    &-sidebar {
+      background: $primary;
+      color: white;
+    }
+  }
+}

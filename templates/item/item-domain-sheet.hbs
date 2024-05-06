@@ -1,34 +1,37 @@
-<form class="{{cssClass}}" autocomplete="off">
-  <header class="sheet-header">
-    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
-    <div class="header-fields">
-      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
+<form class="{{cssClass}} item-sheet weapon" autocomplete="off">
+  <div class="item-wrap flex items-center column gap-10">
+    <img class="img-wrap" width="128" height="128" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+    <div class="item-info flex column gap-10 w-100">
+      <label class="label strong" for="name">Name</label>
+      <input class="input w-100" name="name" type="text" value="{{item.name}}" placeholder="Name" />
     </div>
-  </header>
 
+    <div class="flex items-center justify-between w-100">
+      <label class="label strong" for="system.hasTracker.enabled">Card Tracker?</label>
+      <input type="checkbox" name="system.hasTracker.enabled" {{checked system.hasTracker.enabled}} />
+    </div>
 
-  {{!-- Sheet Body --}}
-  <section class="sheet-body">
-    <div class="domain-stats">
-      <div class="resource flex-group-center">
-        <label for="system.domain" class="resource-label">Domain</label>
-        <select name="system.domain">
+    <div class="flex gap-10 w-100">
+      <div class="w-100">
+        <label class="label strong" for="system.domain">Domain</label>
+        <select class="input w-100" name="system.domain" class="w-100">
           {{selectOptions domains selected=system.domain}}
         </select>
       </div>
-      <div class="resource flex-group-center">
-        <label for="system.domainType" class="resource-label">Type</label>
-        <input type="text" name="system.domainType" value="{{system.domainType}}" />
-      </div>
-      <div class="resource flex-group-center">
-        <label for="system.recall" class="resource-label">Recall</label>
-        <input type="number" name="system.recall" value="{{system.recall}}" data-dtype="Number" />
-      </div>
-    </div>
 
-    <div class="resource flex-group-center editor-wrap">
-      <label for="system.feature" class="resource-label">Feature</label>
-      <textarea name="system.feature">{{{system.feature}}}</textarea>
+      <div class="w-100">
+        <label class="label strong" for="system.domainType">Type</label>
+        <input class="input w-100" type="text" name="system.domainType" value="{{system.domainType}}" />
+      </div>
+
+      <div class="w-100">
+        <label class="label strong" for="system.recall">Recall</label>
+        <input class="input w-100" type="number" name="system.recall" value="{{system.recall}}" />
+      </div>
     </div>
-  </section>
+    <div class="flex column gap-10 w-100">
+      <label class="label strong" for="system.feature">Feature</label>
+      {{editor system.feature target="system.feature" class="simple h150 white" owner=owner}}
+    </div>
+  </div>
 </form>

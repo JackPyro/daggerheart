@@ -140,6 +140,19 @@
 .bg {
   &-primary {
     background-color: $primary;
-    color:white
+    color: white
   }
+  &-card {
+    background: $cardBG;
+    border: 1px solid $cardBorder;
+  }
+  &-white {
+    background: white;
+    border: 1px solid $cardBorder;
+  }
+}
+
+img.header-image {
+  object-fit: cover;
+  object-position: 0% 20%;
 }

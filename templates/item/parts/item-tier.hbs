@@ -1,12 +1,8 @@
 {{#each tier as |levelItem key|}}
-<div class="tier-option">
-  {{#if ../editMode}}
-  <input type="hidden" name="system.{{../tierKey}}.{{key}}.id" value="{{levelItem.id}}" />
-  <input type="hidden" name="system.{{../tierKey}}.{{key}}.checked" value="{{levelItem.checked}}" />
-  <input class="tier-input" name="system.{{../tierKey}}.{{key}}.option" value="{{levelItem.option}}" />
-  <div class="remove-tier" data-id="{{levelItem.id}}" data-type="{{../tierKey}}"><i class="fas fa-trash"></i></div>
-  {{else}}
-  <div class="connection-text"> {{levelItem.option}} </div>
-  {{/if}}
-</div>
+  <div class="flex items-center w-100">
+    <input type="hidden" name="system.{{../tierKey}}.{{key}}.id" value="{{levelItem.id}}"/>
+    <input type="hidden" name="system.{{../tierKey}}.{{key}}.checked" value="{{levelItem.checked}}"/>
+    <input class="input flex-grow" name="system.{{../tierKey}}.{{key}}.option" value="{{levelItem.option}}"/>
+    <div {{{action action="remove-tier" id=levelItem.id type=../tierKey }}}><i class="fas fa-trash"></i></div>
+  </div>
 {{/each}}

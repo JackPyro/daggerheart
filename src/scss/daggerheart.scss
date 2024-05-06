@@ -7,12 +7,12 @@
 @import "utils/flex";
 @import "utils/helpers";
 @import "components/items";
+@import "components/forms";
 
 .daggerheart {
   @import "utils/reset";
   @import "utils/editor";
-  
-  @import "components/forms";
+
   @import "components/layout";
   @import "components/buttons";
 

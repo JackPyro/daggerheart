@@ -242,6 +242,19 @@
   background-color: #38227b;
   color: white;
 }
+.bg-card {
+  background: rgb(217, 216, 214);
+  border: 1px solid rgb(205, 205, 205);
+}
+.bg-white {
+  background: white;
+  border: 1px solid rgb(205, 205, 205);
+}
+
+img.header-image {
+  object-fit: cover;
+  object-position: 0% 20%;
+}
 
 .sheet .item-sheet {
   background-color: rgb(217, 216, 214);
@@ -252,6 +265,121 @@
 }
 .item-wrap .item-sidebar {
   width: 128px;
+}
+
+.class-sheet .class-wrapper {
+  height: 100%;
+  display: grid;
+  grid: 1fr/200px 1fr;
+}
+.class-sheet .class-sidebar {
+  background: #38227b;
+  color: white;
+}
+
+select.input {
+  display: block;
+  padding: 0px;
+}
+
+textarea.input {
+  background: none;
+  font-size: 13px;
+  line-height: 14px;
+  font-family: "Oswald";
+}
+
+.input {
+  background: none;
+  font-family: "Oswald";
+  gap: 10px;
+  line-height: 23px;
+  height: 23px;
+  padding: 5px;
+  border-radius: 3px;
+  border: solid 1px #000;
+}
+.input:focus {
+  box-shadow: none;
+  border: solid 1px #38227b;
+}
+.input::placeholder {
+  color: rgba(243, 243, 243, 0.5);
+}
+.input.white {
+  color: white;
+  border: solid 1px #fff;
+}
+.input.ability {
+  height: 40px;
+  font-size: 36px;
+  width: 50px;
+  height: 40px;
+}
+.input.center {
+  text-align: center;
+}
+.input.huge {
+  height: 36px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.input.w128 {
+  width: 128px;
+}
+.input.number {
+  display: flex;
+  width: 32px;
+  height: 23px;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 10px;
+  height: 10px;
+}
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkbox-container .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10px;
+  width: 10px;
+  background-color: transparent;
+  border: 1px solid #fff;
+}
+.checkbox-container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #fff;
+}
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
 }
 
 .daggerheart {
@@ -269,6 +397,9 @@
 }
 .daggerheart hr.black {
   border-color: #000;
+}
+.daggerheart .editor {
+  min-height: 50px;
 }
 .daggerheart .editor .tox.tox-tinymce {
   min-height: 200px;
@@ -304,97 +435,6 @@
   width: 24px;
   padding: 0px;
   margin: 0px;
-}
-.daggerheart .input {
-  background: none;
-  font-family: "Oswald";
-  gap: 10px;
-  line-height: 23px;
-  height: 23px;
-  padding: 5px;
-  border-radius: 3px;
-  border: solid 1px #000;
-}
-.daggerheart .input:focus {
-  box-shadow: none;
-  border: solid 1px #38227b;
-}
-.daggerheart .input::placeholder {
-  color: rgba(243, 243, 243, 0.5);
-}
-.daggerheart .input.white {
-  color: white;
-  border: solid 1px #fff;
-}
-.daggerheart .input.ability {
-  height: 40px;
-  font-size: 36px;
-  width: 50px;
-  height: 40px;
-}
-.daggerheart .input.center {
-  text-align: center;
-}
-.daggerheart .input.huge {
-  height: 36px;
-  font-size: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-.daggerheart .input.w128 {
-  width: 128px;
-}
-.daggerheart .input.number {
-  display: flex;
-  width: 32px;
-  height: 23px;
-  text-align: center;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.daggerheart .checkbox-container {
-  display: block;
-  position: relative;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 10px;
-  height: 10px;
-}
-.daggerheart .checkbox-container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-.daggerheart .checkbox-container .checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 10px;
-  width: 10px;
-  background-color: transparent;
-  border: 1px solid #fff;
-}
-.daggerheart .checkbox-container .checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-.daggerheart .checkbox-container:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-.daggerheart .checkbox-container input:checked ~ .checkmark {
-  background-color: #fff;
-}
-.daggerheart .checkbox-container input:checked ~ .checkmark:after {
-  display: block;
 }
 .daggerheart .layout {
   display: grid;

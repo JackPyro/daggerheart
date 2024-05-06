@@ -1,3 +1,15 @@
+select.input {
+  display: block;
+  padding: 0px;
+}
+
+textarea.input {
+  background: none;
+  font-size: 13px;
+  line-height: 14px;
+  font-family: $font-primary;
+}
+
 .input {
   background: none;
   font-family: "Oswald";
@@ -7,10 +19,12 @@
   padding: 5px;
   border-radius: 3px;
   border: solid 1px $black;
+
   &:focus {
     box-shadow: none;
     border: solid 1px $primary;
   }
+
   &::placeholder {
     color: transparentize($color: $white, $amount: 0.5);
   }
@@ -65,6 +79,7 @@
   user-select: none;
   width: 10px;
   height: 10px;
+
   & input {
     position: absolute;
     opacity: 0;
@@ -81,6 +96,7 @@
     width: 10px;
     background-color: transparent;
     border: 1px solid $hyper-white;
+
     &:after {
       content: "";
       position: absolute;
@@ -88,15 +104,15 @@
     }
   }
 
-  &:hover input ~ .checkmark {
+  &:hover input~.checkmark {
     background-color: #ccc;
   }
 
-  & input:checked ~ .checkmark {
+  & input:checked~.checkmark {
     background-color: $hyper-white;
   }
 
-  & input:checked ~ .checkmark:after {
+  & input:checked~.checkmark:after {
     display: block;
   }
 }
