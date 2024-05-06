@@ -11,6 +11,8 @@
 @import "components/buttons";
 @import "components/rolls";
 @import "components/dialog";
+@import "components/dice";
+@import "components/hand";
 
 .daggerheart {
   @import "utils/reset";
@@ -28,4 +30,8 @@
 
 
   font-family: $font-primary;
+  
+  *[data-action] {
+    cursor: pointer;
+  }
 }

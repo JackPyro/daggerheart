@@ -12,6 +12,15 @@
   }
 }
 .class-sheet {
+  .editor .editor-content {
+    height: 150px;
+    overflow-y: auto;
+    * {
+      margin: 2px 0px;
+      font-size: 12px;
+      font-family: $font-secondary;
+    }
+  }
   .class {
     &-wrapper {
       height: 100%;

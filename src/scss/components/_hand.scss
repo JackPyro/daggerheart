@@ -1,0 +1,142 @@
+.vtt {
+  flex-direction: column;
+}
+
+
+.daggerheart-ui-hand {
+  width: 100% !important;
+  margin-bottom: -5px;
+  z-index: 1;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  background: transparentize($color: $dark, $amount: 0.5);
+
+  .open-actor-sheet {
+    padding: 0.5em;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .hand-roll {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0.5em;
+    color: white;
+    background-color: transparent;
+    border: 2px solid $border;
+    cursor: pointer;
+    border-radius: 0.5em;
+    transition: 0.2s;
+
+    &:hover {
+
+      background-color: $dark;
+    }
+
+    .fear-die {
+      color: $danger;
+    }
+
+    label {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-family: "Oswald";
+      cursor: pointer;
+    }
+  }
+
+  .ui-rolls {
+    background: transparentize($color: $primary, $amount: 0.5);
+    color: white;
+    position: sticky;
+    left: 0px;
+    z-index: 20;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  .ui-card:hover .ui-card-body {
+    transform: rotateY(180deg);
+    transition: transform 0.5s;
+  }
+
+  .ui-cards {
+    width: max-content !important;
+    display: flex;
+    height: 100%;
+  }
+
+  .ui-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+
+    margin: 0.5em;
+    border-radius: 0.5em;
+
+    &-image {
+      height: 50px;
+      flex-grow: 1;
+      object-fit: cover;
+      object-position: 25% 35%;
+      border-radius: 0.5em 0.5em 0 0;
+    }
+
+    &-body {
+      position: relative;
+      border-radius: 0.5em 0.5em 0 0;
+      transition: transform 1s;
+      transform-style: preserve-3d;
+
+      .card-front,
+      .card-back {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border-radius: 0.5em 0.5em 0 0;
+      }
+
+      .card-front {
+
+        backface-visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 155px;
+      }
+
+      .card-back {
+        background-color: white;
+        height: 155px;
+        backface-visibility: hidden;
+        transform: rotateY(180deg);
+        padding: 0.25em;
+        overflow-x: scroll;
+        font-size: 12px;
+      }
+    }
+
+
+
+    &-name {
+      background-color: $primary;
+      color: $white;
+      padding: 0.25em;
+      text-align: center;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    &-domain {
+      background-color: $ancestry;
+      text-align: center;
+      font-weight: bold;
+      padding: 0.25em;
+      text-transform: uppercase;
+    }
+  }
+}

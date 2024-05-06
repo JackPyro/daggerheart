@@ -1,21 +1,20 @@
-<form class="{{cssClass}} {{actor.type}}" autocomplete="off">
-  <div class="gm-sheet panel-mb">
-    <div class="gm-resource">
-      <label for="system.fear">Fear Tokens</label>
-      <div class="incremental" data-type="fear">
-        <i class="fas fa-minus" data-type="fear" data-increment="false"></i>
-        <input type="text" name="system.fear" value="{{system.fear}}" />
-        <i class="fas fa-plus" data-type="fear" data-increment="true"></i>
+<form class="{{cssClass}} {{actor.type}} bg-card" autocomplete="off">
+  <div class="flex column gap-10">
+    <div class="bg-primary mt-10 p-10 flex justify-between items-center">
+      <label class="label" for="system.fear">Fear Tokens</label>
+      <div class="flex gap-10 items-center" data-type="fear">
+        <i class="fas fa-minus" {{{action action="incremental" type="fear" up=false}}}></i>
+        <input class="number input white  " type="text" name="system.fear" value="{{system.fear}}"/>
+        <i class="fas fa-plus" {{{action action="incremental" type="fear" up=true}}}></i>
       </div>
     </div>
-    <div class="gm-resource">
-      <label for="system.action">Action Tokens</label>
-      <div class="incremental" data-type="action">
-        <i class="fas fa-minus" data-type="action" data-increment="false"></i>
-        <input type="text" name="system.action" value="{{system.action}}" />
-       <i class="fas fa-plus" data-type="action" data-increment="true"></i>
+    <div class="bg-primary p-10 flex justify-between items-center">
+      <label class="label" for="system.action">Action Tokens</label>
+      <div class="flex gap-10 items-center" data-type="action">
+        <i class="fas fa-minus" {{{action action="incremental" type="action" up=false}}}></i>
+        <input class="number input white " type="text" name="system.action" value="{{system.action}}"/>
+        <i class="fas fa-plus" {{{action action="incremental" type="action" up=true}}}></i>
       </div>
     </div>
   </div>
-
 </form>

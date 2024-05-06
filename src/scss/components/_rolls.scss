@@ -87,5 +87,22 @@
   display: grid;
   width: 100%;
   grid: 1fr / 2fr 1fr;
+}
 
+.item-chat-header {
+  font-size: 16px;
+  font-family: $font-primary;
+  background-color: $primary;
+  padding: 2px 5px;
+  color: $white;
+}
+
+.item-chat-body {
+  font-size: 14px;
+  font-family: $font-secondary;
+  background-color: $cardBG;
+  padding: 5px 5px;
+  * {
+    margin: 0px 2px;
+  }
 }

@@ -63,7 +63,7 @@ DAGGERHEART.enemy_types = {
   skulk: "Skulk",
   social: "Social",
   solo: "Solo",
-  standart: "Standard",
+  standart: "Standart",
   support: "Support",
 }
 

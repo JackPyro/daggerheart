@@ -171,7 +171,7 @@ export class DaggerHeartCharacterSheet extends ActorSheet {
     const weapons = []
     const vault = []
     const armors = []
-    const randomItems = [];
+    const randomItems = []
 
     const equipment = {
       armor: null,
@@ -431,8 +431,33 @@ export class DaggerHeartCharacterSheet extends ActorSheet {
       const item = this.actor.items.get(id)
       return await ChatMessage.create({
         content: `
-          ${item.name}
-          ${item.system.feature ? item.system.feature : ''}
+          <div class="item-chat-header">${item.name}</div>
+          <div class="item-chat-body">
+            ${item.system.feature ? item.system.feature : ''}
+          </div>
+        `,
+        speaker: ChatMessage.implementation.getSpeaker({ actor: this.actor }),
+      })
+    })
+
+    html.on('click', `[data-action="feature-show"]`, async (ev) => {
+      ev.preventDefault()
+      ev.stopPropagation()
+      const id = $(ev.currentTarget).data('card')
+      const featureId = $(ev.currentTarget).data('feature')
+      const item = await this.actor.items.get(id)
+
+      if (!item) {
+        return
+      }
+
+      const feature = item.system.cardFeatures.find(i => i.id === featureId)
+      return await ChatMessage.create({
+        content: `
+          <div class="item-chat-header">${feature.name}</div>
+          <div class="item-chat-body">
+            ${feature.description}
+          </div>
         `,
         speaker: ChatMessage.implementation.getSpeaker({ actor: this.actor }),
       })

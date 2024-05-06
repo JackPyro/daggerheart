@@ -6,7 +6,7 @@
     <input type="text" class="w-100 input" name="system.classFeatures.{{key}}.name"
            value="{{classFeature.name}}"/>
     <div class="w-100">
-      {{{editor system.feature target=(concat 'system.classFeatures.' key '.description')
+      {{{editor classFeature.description target=(concat 'system.classFeatures.' key '.description') button=true
                 class="simple h150 white"}}}
     </div>
     <div {{{action action="class-feature-delete" id=classFeature.id}}}>

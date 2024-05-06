@@ -2,7 +2,7 @@ const formHTML = (actor) => {
   return `
   <div class='dialog-input-group'>
     <label for="mod_input">Modifier</label>
-    <input id="mod_input" type="number" value="${actor.system.attackMod}">
+    <input id="mod_input" value="${actor.system.attackMod}">
   </div>
 
   <div  class='dialog-input-group'>

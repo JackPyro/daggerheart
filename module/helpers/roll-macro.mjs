@@ -3,8 +3,7 @@ const hopeColor = {
   // Hope colors
   colorset: "custom",
   foreground: "#000000",
-  //background: "#FFFFFF",
-  Image: "systems/daggerheart/assets/d12-no-text.svg",
+  background: "#FFFFFF",
   outline: "#000000",
   edge: "#000000",
   texture: "none",
@@ -25,33 +24,31 @@ const fearColor = {
   system: "standard",
 };
 
-const inputHTML = `<input id="vsratii_input" type="number" value="0"/>`;
-
 const formHTML = (actor, ability) => {
   return `
   <div class="dialog-input-group"> 
-    <label for="ability-select">Ability: </label>
-    <select id="ability-select" type="number" value="${ability}">
+    <label class="label" for="ability-select">Ability: </label>
+    <select class="input w-100" id="ability-select" type="number" value="${ability}">
       ${Object.keys(actor.system.abilities).map(
-        (key) =>
-          `<option ${key === ability ? "selected=true" : ""}value="${key}" data-mod="${actor.system.abilities[key].value}">${
-            actor.system.abilities[key].label
-          }</option>`
-      ).join('')};
+    (key) =>
+      `<option ${key === ability
+        ? "selected=true"
+        : ""}value="${key}" data-mod="${actor.system.abilities[key].value}">${
+        actor.system.abilities[key].label
+      }</option>`
+  ).join('')};
     </select>
   </div>
   <div class='dialog-input-group'>
-    <label for="mod_input">Additional Mod</label>
-    <input id="mod_input" type="number">
+    <label class="label" for="mod_input">Additional Mod</label>
+    <input id="mod_input" class="input w-100">
   </div>
 
   <div  class='dialog-input-group'>
-    ${actor.system.experiences
-      .map(
-        (item) =>
-          `<div class="dialog-input"> <input type="checkbox" data-mod=${item.mod}/> <label class="dialog-input-name">${item.name}</label> <label class="dialog-input-mod">${item.mod}</label></div>`
-      )
-      .join("")}
+    ${actor.system.experiences.map(
+    (item) =>
+      `<div class="dialog-input"> <input type="checkbox" data-mod=${item.mod}/> <label class="dialog-input-name">${item.name}</label> <label class="dialog-input-mod">${item.mod}</label></div>`
+  ).join("")}
   </div>
 `;
 };
@@ -313,8 +310,8 @@ const doDHRoll = async (actor, ability, prefix = "") => {
   const isFear = fearResult > hopeResult;
 
   // Dice colors
-  //roll.dice[0].options.appearance = hopeColor;
-  //roll.dice[1].options.appearance = fearColor;
+  roll.dice[0].options.appearance = hopeColor;
+  roll.dice[1].options.appearance = fearColor;
   // roll.toMessage({
   //   speaker: ChatMessage.implementation.getSpeaker({actor: actor}),
   //   flavor: isCrit ? "Crit" : isHope ? "Hope Wins" : isFear ? "Fear Wins" : ""

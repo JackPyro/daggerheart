@@ -2,6 +2,11 @@
   padding: $p-5;
 }
 
+.adversary-content {
+  grid-area: span 2;
+  padding: $p-5
+}
+
 .inventory-nav {
   .inventory-nav-item {
     width: 100px;
