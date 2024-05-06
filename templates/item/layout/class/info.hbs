@@ -1,0 +1,43 @@
+<div class="section flex items-center justify-between">
+  <span>Background Questions</span>
+  <div {{{action action="class-info-add" type="questions"}}}>
+    <i class="fa fa-plus"></i>
+  </div>
+</div>
+<div class="flex column w-100 p-5 gap-10">
+  {{#each system.questions as |question key|}}
+    <div class="flex column">
+      <label class="flex items-center justify-between label" for="system.questions.{{key}}.question">
+        Question
+        <span {{{action action="class-info-delete" type="questions" id=question.id}}}>
+                    <i class='fas fa-trash'></i>
+                  </span>
+      </label>
+      <input type="hidden" name="system.questions.{{key}}.id" value="{{question.id}}"/>
+      <input class="input" name="system.questions.{{key}}.question" value="{{question.question}}">
+    </div>
+  {{/each}}
+</div>
+<!-- Class Connections -->
+<div class="section flex items-center justify-between">
+  <span>Connections</span>
+  <div {{{action action="class-info-add" type="connections"}}}>
+    <i class="fa fa-plus"></i>
+  </div>
+</div>
+<div class="flex column w-100 p-5 gap-10">
+  {{#each system.connections as |connection key|}}
+    <div class="flex column">
+      <label class="flex items-center justify-between label" for="system.connection.{{key}}.question">
+        Connection
+        <span {{{action action="class-info-delete" type="connections" id=connection.id}}}
+          data-type="connections">
+                    <i class='fas fa-trash'></i>
+                  </span>
+      </label>
+      <input type="hidden" name="system.connections.{{key}}.id" value="{{connection.id}}"/>
+      <input class="input" name="system.connections.{{key}}.question" value="{{connection.question}}">
+
+    </div>
+  {{/each}}
+</div>

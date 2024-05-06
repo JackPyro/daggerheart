@@ -8,13 +8,13 @@
 @import "utils/helpers";
 @import "components/items";
 @import "components/forms";
+@import "components/buttons";
 
 .daggerheart {
   @import "utils/reset";
   @import "utils/editor";
 
   @import "components/layout";
-  @import "components/buttons";
 
   @import "components/actor/sidebar";
   @import "components/actor/header";

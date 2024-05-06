@@ -9,6 +9,10 @@ export const preloadHandlebarsTemplates = async function () {
   loadTemplates([
     "systems/daggerheart/templates/item/parts/item-effects.hbs",
     "systems/daggerheart/templates/item/parts/item-tier.hbs",
+    "systems/daggerheart/templates/item/layout/class/stats.hbs",
+    "systems/daggerheart/templates/item/layout/class/info.hbs",
+    "systems/daggerheart/templates/item/layout/class/leveling.hbs",
+    "systems/daggerheart/templates/item/layout/class/items.hbs",
   ]);
 
 

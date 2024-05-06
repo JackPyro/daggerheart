@@ -1,0 +1,53 @@
+<div class="section mb-5"> Starting Money</div>
+<div class="flex gap-10 p-10 text-center items-center bg-secondary">
+  <div>
+    <label class="label">Coins</label>
+    <input class="input white" name="system.wallet.coins" value="{{system.wallet.coins}}" type="number"/>
+  </div>
+  <div>
+    <label class="label">Handful</label>
+    <input class="input white" name="system.wallet.handful" value="{{system.wallet.handful}}" type="number"/>
+  </div>
+  <div>
+    <label class="label">Bags</label>
+    <input class="input white" name="system.wallet.bags" value="{{system.wallet.bags}}" type="number"/>
+  </div>
+  <div>
+    <label class="label">Chest</label>
+    <input class="input white" name="system.wallet.chest" value="{{system.wallet.chest}}" type="number"/>
+  </div>
+</div>
+<div class="section mt-5">
+  Item
+</div>
+
+<div class="flex items-center gap-10 p-5">
+  <div class="bg-card p-5">A torch</div>
+  <div class="bg-card p-5">50ft of rope</div>
+  <div class="bg-card p-5">Basic supplies</div>
+</div>
+
+<div class="section flex items-center justify-between">
+  Item Choices
+  <div {{{action action="add-class-item-choice"}}}>
+    <i class='fas fa-plus'></i>
+  </div>
+</div>
+<div>
+  {{#each system.choiceItems as |item key|}}
+    <div class="flex items-center gap-10 p-5">
+      <div>
+        <label for="">Choice 1</label>
+        <input name="system.choiceItems.{{key}}.choice1" value="{{item.choice1}}"/>
+      </div>
+      <div>
+        <label for="">Choice 2</label>
+        <input name="system.choiceItems.{{key}}.choice2" value="{{item.choice2}}"/>
+      </div>
+      <input type="hidden" name="system.choiceItems.{{key}}.id" value={{item.id}} />
+      <div {{{action action="remove-class-item-choice" id=item.id}}} class="">
+        <i class='fas fa-trash'></i>
+      </div>
+    </div>
+  {{/each}}
+</div>

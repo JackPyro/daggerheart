@@ -2,16 +2,17 @@
 import { DaggerHeartActor } from "./documents/actor.mjs";
 import { DaggerHeartItem } from "./documents/item.mjs";
 // Import sheet classes.
-import { DaggerHeartCharacterSheet } from "./sheets/character-sheet.mjs";
-import { DaggerHeartItemSheet } from "./sheets/item-sheet.mjs";
+import { DaggerHeartCharacterSheet } from "./sheets/actor/character-sheet.mjs";
+import { DaggerHeartItemSheet } from "./sheets/items/item-sheet.mjs";
 import { DaggerHeartHandSheet } from "./sheets/hand-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { DAGGERHEART } from "./helpers/config.mjs";
 // Import DataModel classes
 import * as models from "./data/_module.mjs";
-import { DaggerHeartAdversarySheet } from "./sheets/adversary-sheet.mjs";
-import { DaggerHeartGMSheet } from "./sheets/gm-sheet.mjs";
+import { DaggerHeartAdversarySheet } from "./sheets/actor/adversary-sheet.mjs";
+import { DaggerHeartGMSheet } from "./sheets/actor/gm-sheet.mjs";
+import { DaggerHeartClassSheet } from './sheets/items/class-sheet.mjs'
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -86,6 +87,11 @@ Hooks.once("init", function () {
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("daggerheart", DaggerHeartItemSheet, {
     makeDefault: true,
+    label: "DAGGERHEART.SheetLabels.Item",
+  });
+
+  Items.registerSheet("daggerheart", DaggerHeartClassSheet, {
+    types: ["class"],
     label: "DAGGERHEART.SheetLabels.Item",
   });
 

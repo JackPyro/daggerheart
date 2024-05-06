@@ -1,17 +1,17 @@
 .button {
   padding: 2px;
+  cursor: pointer;
+  transition: 0.2s;
+  border: 1px solid $dark;
+  color: $dark;
+  &:hover {
+    background-color: $dark;
+    color: $hyper-white;
+  }
 
   &.white {
     border: 1px solid $hyper-white;
     color: $hyper-white;
-    transition: 0.2s;
-
-    cursor: pointer;
-
-    &:hover {
-      background-color: $hyper-white;
-      color: $dark;
-    }
   }
 
   &.min-width {

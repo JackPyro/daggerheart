@@ -246,6 +246,10 @@
   background: rgb(217, 216, 214);
   border: 1px solid rgb(205, 205, 205);
 }
+.bg-secondary {
+  background: #2B226D;
+  color: white;
+}
 .bg-white {
   background: white;
   border: 1px solid rgb(205, 205, 205);
@@ -382,6 +386,28 @@ textarea.input {
   display: block;
 }
 
+.button {
+  padding: 2px;
+  cursor: pointer;
+  transition: 0.2s;
+  border: 1px solid #1B1A1A;
+  color: #1B1A1A;
+}
+.button:hover {
+  background-color: #1B1A1A;
+  color: #fff;
+}
+.button.white {
+  border: 1px solid #fff;
+  color: #fff;
+}
+.button.min-width {
+  min-width: 40px;
+}
+.button.center {
+  text-align: center;
+}
+
 .daggerheart {
   font-family: "Oswald";
 }
@@ -451,25 +477,6 @@ textarea.input {
 .daggerheart .layout .header {
   background-color: #2B226D;
   color: #fff;
-}
-.daggerheart .button {
-  padding: 2px;
-}
-.daggerheart .button.white {
-  border: 1px solid #fff;
-  color: #fff;
-  transition: 0.2s;
-  cursor: pointer;
-}
-.daggerheart .button.white:hover {
-  background-color: #fff;
-  color: #1B1A1A;
-}
-.daggerheart .button.min-width {
-  min-width: 40px;
-}
-.daggerheart .button.center {
-  text-align: center;
 }
 .daggerheart .sidebar {
   display: flex;

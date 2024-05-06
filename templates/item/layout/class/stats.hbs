@@ -1,0 +1,16 @@
+<div class="section flex justify-between items-center" {{{action action="class-feature-add"}}}>Class Features
+  <i class="fa fa-plus"></i></div>
+{{#each system.classFeatures as |classFeature key|}}
+  <div class="flex column items-center p-5 w-100">
+    <input type="hidden" name="system.classFeatures.{{key}}.id" value="{{classFeature.id}}"/>
+    <input type="text" class="w-100 input" name="system.classFeatures.{{key}}.name"
+           value="{{classFeature.name}}"/>
+    <div class="w-100">
+      {{{editor system.feature target=(concat 'system.classFeatures.' key '.description')
+                class="simple h150 white"}}}
+    </div>
+    <div {{{action action="class-feature-delete" id=classFeature.id}}}>
+      <i class="fa fa-trash"></i>
+    </div>
+  </div>
+{{/each}}

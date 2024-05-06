@@ -1,5 +1,5 @@
 {{#each tier as |levelItem key|}}
-  <div class="flex items-center w-100">
+  <div class="flex items-center mb-5 gap-5 w-100">
     <input type="hidden" name="system.{{../tierKey}}.{{key}}.id" value="{{levelItem.id}}"/>
     <input type="hidden" name="system.{{../tierKey}}.{{key}}.checked" value="{{levelItem.checked}}"/>
     <input class="input flex-grow" name="system.{{../tierKey}}.{{key}}.option" value="{{levelItem.option}}"/>

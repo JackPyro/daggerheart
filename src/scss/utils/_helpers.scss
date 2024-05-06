@@ -146,6 +146,10 @@
     background: $cardBG;
     border: 1px solid $cardBorder;
   }
+  &-secondary {
+    background: $secondary;
+    color: white;
+  }
   &-white {
     background: white;
     border: 1px solid $cardBorder;
