@@ -56,6 +56,15 @@ export default class DaggerHeartAdversary extends DaggerHeartActorBase {
           required: true,
           initial: "",
         }),
+        uses: new fields.SchemaField({
+          current: new fields.NumberField({initial: 0}),
+          max: new fields.NumberField({initial: 0}),
+        }),
+        moves: new fields.ArrayField(new fields.SchemaField({
+          id: new fields.StringField({}),
+          name: new fields.StringField({}),
+          description: new fields.StringField({}),
+        })),
         description: new fields.StringField({
           required: true,
           initial: "",

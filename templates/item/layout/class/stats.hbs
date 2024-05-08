@@ -3,11 +3,12 @@
 {{#each system.classFeatures as |classFeature key|}}
   <div class="flex column items-center p-5 w-100">
     <input type="hidden" name="system.classFeatures.{{key}}.id" value="{{classFeature.id}}"/>
+    <input type="hidden" name="system.classFeatures.{{key}}.description" value="{{classFeature.description}}"/>
     <input type="text" class="w-100 input" name="system.classFeatures.{{key}}.name"
            value="{{classFeature.name}}"/>
     <div class="w-100">
-      {{{editor classFeature.description target=(concat 'system.classFeatures.' key '.description') button=true
-                class="simple h150 white"}}}
+      {{{editor classFeature.description target=(concat 'system.classFeatures.' key '.description') button=true class="simple h150 white"}}}
+<!--      <textarea class="input" name="system.classFeatures.{{key}}.description">{{classFeature.description}}</textarea>-->
     </div>
     <div {{{action action="class-feature-delete" id=classFeature.id}}}>
       <i class="fa fa-trash"></i>

@@ -87,12 +87,13 @@ Hooks.once("init", function () {
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("daggerheart", DaggerHeartItemSheet, {
     makeDefault: true,
+    types: ["item", "domain","card", "feature", "weapon", "armor"],
     label: "DAGGERHEART.SheetLabels.Item",
   });
 
   Items.registerSheet("daggerheart", DaggerHeartClassSheet, {
     types: ["class"],
-    label: "DAGGERHEART.SheetLabels.Item",
+    label: "DAGGERHEART.SheetLabels.Class",
   });
 
   // Preload Handlebars templates.

@@ -55,6 +55,8 @@ export class DaggerHeartClassSheet extends ItemSheet {
       context.domains = CONFIG.DAGGERHEART.domains
     }
 
+    console.log(context)
+
     return context
   }
 

@@ -1,126 +1,55 @@
 .duality-dice-msg-container {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
+}
+
+.duality-die-result-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  margin: 1%;
+
+  &.die-fear {
+    background-image: url("/systems/daggerheart/assets/icons/dice/d12-fear.svg");
+
+    label {
+      text-shadow: 1px 1px 1px $dark;
+      background: rgb(0 0 0 / 50%);
+      color: $hyper-white;
+    }
   }
-  
-  .duality-dice-msg-die-spacer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    font-weight: bolder;
-    font-size: x-large;
-    text-align: center;
-    flex-grow: 1;
+
+  &.die-adv {
+    background-image: url("/systems/daggerheart/assets/icons/dice/d6-adv.svg");
+    background-size: contain;
   }
-  
-  .duality-dice-msg-die-fear{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 25px;
-    height: 25px;
-    margin: 1%;
-    background-image: url("/systems/daggerheart/assets/svgs/d12-solid-fear.svg");
+
+  &.die-disadv{
+    background-image: url("/systems/daggerheart/assets/icons/dice/d6-disadv.svg");
+    background-size: contain;
   }
-  
-  .duality-dice-msg-die-hope {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 25px;
-    height: 25px;
-    margin: 1%;
-    background-image: url("/systems/daggerheart/assets/svgs/d12-solid-hope.svg");
+
+  &.die-hope {
+    background-image: url("/systems/daggerheart/assets/icons/dice/d12-hope.svg");
+
+    label {
+      text-shadow: 1px 1px 1px #fff;
+      color: $dark;
+    }
   }
-  
-  .duality-dice-msg-die-selected-hope-disadv{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 25px;
-    height: 25px;
-    margin: 1%;
-    background-image: url("/systems/daggerheart/assets/svgs/d12-solid-hope.svg");
-    border: 1px solid rgb(94, 54, 54);
-    background-color: #9e5353;
-    border-radius: 25%;
-    padding: 1%;
-    width: 25px;
-    height: 25px;
+
+  &.die-crit {
+    background-image: url("/systems/daggerheart/assets/icons/dice/d12-crit.svg");
   }
-  
-  .duality-dice-msg-die-selected-hope-adv{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 25px;
-    height: 25px;
-    margin: 1%;
-    background-image: url("/systems/daggerheart/assets/svgs/d12-solid-hope.svg");
-    border: 1px solid rgb(50, 86, 53);
-    background-color: #4f9150;
-    border-radius: 25%;
-    padding: 1%;
-    width: 25px;
-    height: 25px;
-  }
-  
-  .duality-dice-msg-die-crit-success {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 25px;
-    height: 25px;
-    margin: 1%;
-    background-image: url("/systems/daggerheart/assets/svgs/d12-solid-crit-success.svg");
-  }
-  
-  .duality-dice-msg-die-crit-fail {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 25px;
-    height: 25px;
-    margin: 1%;
-    background-image: url("/systems/daggerheart/assets/svgs/d12-solid-crit-fail.svg");
-  }
-  
-  .duality-dice-msg-resut-text-fear {
-    text-align: center;
-    font-weight: bolder;
-    font-size: medium;
-    color: rgb(255 255 255);
-    height: fit-content;
-    width: fit-content;
-    background: rgb(0 0 0 / 50%);
-    text-shadow: 1px 1px 1px #000;
-    margin: 0px auto;
-  }
-  
-  .duality-dice-msg-resut-text-hope {
-    text-align: center;
-    font-weight: bolder;
-    font-size: medium;
-    color: black;
-    height: fit-content;
-    width: fit-content;
-    background: #FFF;
-    margin: 0px auto;
-    text-shadow: 1px 1px 1px #FFF;
-  }
-  
-  .duality-dice-msg-resut-text-crit-success {
-    text-align: center;
-    font-weight: bolder;
-    font-size: medium;
-    text-shadow: 1px 1px 1px #fff;
-    color: black;
-  }
-  
-  .duality-dice-msg-resut-text-crit-fail {
-    text-align: center;
-    font-weight: bolder;
-    font-size: medium;
-    text-shadow: 1px 1px 1px #000;
-    color: white;
-  }
+}
+
+.duality-die-result {
+  text-align: center;
+  font-weight: bolder;
+  font-size: medium;
+  color: $hyper-white;
+  text-shadow: 1px 1px 1px $dark;
+  margin: 0px auto;
+}

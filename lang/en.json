@@ -1,5 +1,10 @@
 {
   "DAGGERHEART": {
+    "TierBonus": {
+      "Tier1": "At Level 2, take an additional Experience and increase your Proficiency by +1.",
+      "Tier2": "At Level 5, take an additional Experience and clear all marks on Character Traits. Then increase your Proficiency by +1.",
+      "Tier3": "At Level 8, take an additional Experience and clear all marks on Character Traits. Then increase your Proficiency by +1"
+    },
     "Ability": {
       "agi": { "long": "Agility", "abbr": "agi" },
       "str": { "long": "Strength", "abbr": "str" },
@@ -10,7 +15,8 @@
     },
     "SheetLabels": {
       "Actor": "DaggerHeart Actor Sheet",
-      "Item": "DaggerHeart Item Sheet"
+      "Item": "DaggerHeart Item Sheet",
+      "Class": "DaggerHeart Class Sheet"
     },
     "Item": {
       "Spell": {
