@@ -2,6 +2,7 @@ import DaggerHeartActorBase from './actor-base.mjs'
 import DaggerHeartClass from './class.mjs'
 
 export default class DaggerHeartCharacter extends DaggerHeartActorBase {
+  type = "character";
   static defineSchema () {
     const fields = foundry.data.fields
     const requiredInteger = { required: true, nullable: false, integer: true }
@@ -21,7 +22,6 @@ export default class DaggerHeartCharacter extends DaggerHeartActorBase {
       attitude: new fields.StringField({ initial: '' }),
     })
 
-    schema.class = new fields.EmbeddedDataField(DaggerHeartClass)
     schema.wallet = new fields.SchemaField({
       coins: new fields.NumberField({ initial: 0, integer: true }),
       handful: new fields.NumberField({ initial: 0, integer: true }),

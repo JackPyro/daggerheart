@@ -10,9 +10,9 @@
   <div class="leveling-tier-options">
     {{#each tier.items as |levelOption key|}}
     <div class="leveling-option">
-      <input type="hidden" name="system.class.tier{{tier.position}}.{{key}}.id" value="{{levelOption.id}}" />
-      <input type="hidden" name="system.class.tier{{tier.position}}.{{key}}.option" value="{{levelOption.option}}" />
-      <input type="checkbox" name="system.class.tier{{tier.position}}.{{key}}.checked" {{checked
+      <input type="hidden" name="class.system.tier{{tier.position}}.{{key}}.id" value="{{levelOption.id}}" />
+      <input type="hidden" name="class.system.tier{{tier.position}}.{{key}}.option" value="{{levelOption.option}}" />
+      <input type="checkbox" name="class.system.tier{{tier.position}}.{{key}}.checked" {{checked
         levelOption.checked}} />
       <div>{{levelOption.option}}</div>
     </div>

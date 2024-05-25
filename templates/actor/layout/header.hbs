@@ -17,8 +17,8 @@
   {{/if}}
   {{#if actor.system.class}}
   <label class="class">
-    <span {{{action action="item-edit" id=actor.system.classItem._id}}}>{{get actor.system.classItem "name"}}</span>
-    <i data-action="item-delete" data-id="{{get actor.system.classItem '_id'}}" class="fas fa-xmark remove"> </i>
+    <span {{{action action="item-edit" id=actor.class._id}}}>{{get actor.class "name"}}</span>
+    <i data-action="item-delete" data-id="{{get actor.class '_id'}}" class="fas fa-xmark remove"> </i>
   </label>
   {{/if}}
 </div>

@@ -94,6 +94,7 @@ export class DaggerHeartCharacterSheet extends ActorSheet {
     // Add the actor's data to context.data for easier access, as well as flags.
     context.system = actorData.system
     context.flags = actorData.flags
+    context.class = this.actor.system.classItem 
 
     // Prepare character data and items.
     if (actorData.type == 'character') {
@@ -128,30 +129,31 @@ export class DaggerHeartCharacterSheet extends ActorSheet {
     // for (let [k, v] of Object.entries(context.system.abilities)) {
     //   v.label = game.i18n.localize(CONFIG.DAGGERHEART.abilities[k]) ?? k;
     // }
-    if (this.actor.system.class) {
+
+    if (context.class) {
       context.leveling = [
         {
           position: 1,
           level: 'Level 2-4',
           bonus: 'At Level 2, take an additional Experience.',
-          items: this.actor.system?.class?.tier1 ?? [],
-          description: this.actor.system.class?.tier1Description ?? '',
+          items: context.class.system.tier1 ?? [],
+          description: context.class.system.tier1Description ?? '',
         },
         {
           position: 2,
           level: 'Level 5-7',
           bonus:
             'At Level 5, take an additional Experience and clear all marks on Character Traits.',
-          items: this.actor.system.class?.tier2 ?? [],
-          description: this.actor.system.class?.tier2Description ?? '',
+          items: context.class.system.tier2 ?? [],
+          description: context.class.system.tier2Description ?? '',
         },
         {
           position: 3,
           level: 'Level 8-10',
           bonus:
             'At Level 8, take an additional Experience and clear all marks on Character Traits.',
-          items: this.actor.system.class?.tier3 ?? [],
-          description: this.actor.system.class?.tier3Description ?? '',
+          items: context.class.system.tier3 ?? [],
+          description: context.class.system.tier3Description ?? '',
         },
       ]
     }
@@ -515,7 +517,7 @@ export class DaggerHeartCharacterSheet extends ActorSheet {
     this.actor.items.forEach((item) => {
       if (
         (item.type === 'card') & (item.system.cardType === 'class') ||
-        (item.type === 'class') & (item._id !== this.actor.system.classItem._id)
+        (item.type === 'class') & (item._id !== this.actor.class._id)
       ) {
         item.delete()
       }
