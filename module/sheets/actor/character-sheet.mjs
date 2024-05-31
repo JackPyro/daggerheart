@@ -193,7 +193,8 @@ export class DaggerHeartCharacterSheet extends ActorSheet {
       }
 
       if (i.type === 'weapon') {
-        const abilityScore = this.actor.system.abilities[i.system.trait].value
+        console.log(this.actor.system.abilities, i.system.trait)
+        const abilityScore = this.actor.system.abilities[i.system.trait.replace(',', "")].value
         const abilityScorePrefix = abilityScore >= 0 ? '+' : '-'
         const abilityFullName = game.i18n.localize(
           DAGGERHEART.abilities[i.system.trait],
