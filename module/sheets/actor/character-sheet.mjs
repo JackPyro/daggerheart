@@ -338,7 +338,7 @@ export class DaggerHeartCharacterSheet extends ActorSheet {
       }
 
       const roll = await new Roll(
-        `${this.actor.system.proficiency}${item.system.damage}`,
+        `${this.actor.system.proficiency}${item.system.damage.replace("+null", "")}`,
       )
 
       return roll.toMessage()
