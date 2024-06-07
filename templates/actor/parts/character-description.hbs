@@ -29,12 +29,13 @@
   Questions
 </div>
 <div class="description-questions">
-  {{#each system.class.questions as |question key|}}
+  {{log class}}
+  {{#each class.system.questions as |question key|}}
   <div class="question">
     <label class="label">{{question.question}}</label>
-    <input class="input" type="text" name="system.class.questions.{{key}}.answer" value="{{question.answer}}" />
-    <input type="hidden" name="system.class.questions.{{key}}.id" value="{{question.id}}" />
-    <input type="hidden" name="system.class.questions.{{key}}.question" value="{{question.question}}" />
+    <input class="input" type="text" name="class.system.questions.{{key}}.answer" value="{{question.answer}}" />
+    <input type="hidden" name="class.system.questions.{{key}}.id" value="{{question.id}}" />
+    <input type="hidden" name="class.system.questions.{{key}}.question" value="{{question.question}}" />
   </div>
   {{/each}}
 </div>
@@ -42,12 +43,12 @@
   Connections
 </div>
 <div class="description-connections">
-  {{#each system.class.connections as |connections key|}}
+  {{#each class.system.connections as |connections key|}}
   <div class="connection">
     <label class="label">{{connections.question}}</label>
-    <input class="input" type="text" name="system.class.connections.{{key}}.answer" value="{{connections.answer}}" />
-    <input type="hidden" name="system.class.connections.{{key}}.id" value="{{connections.id}}" />
-    <input type="hidden" name="system.class.connections.{{key}}.question" value="{{connections.question}}" />
+    <input class="input" type="text" name="class.system.connections.{{key}}.answer" value="{{connections.answer}}" />
+    <input type="hidden" name="class.system.connections.{{key}}.id" value="{{connections.id}}" />
+    <input type="hidden" name="class.system.connections.{{key}}.question" value="{{connections.question}}" />
   </div>
   {{/each}}
 </div>

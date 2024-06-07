@@ -25,8 +25,8 @@
   ],
   "version": "#{VERSION}#",
   "compatibility": {
-    "minimum": 11,
-    "verified": "11.315"
+    "minimum": 12,
+    "verified": "12.324"
   },
   "esmodules": ["module/daggerheart.mjs", "greensock/esm/all.js"],
   "styles": ["css/daggerheart.css"],
